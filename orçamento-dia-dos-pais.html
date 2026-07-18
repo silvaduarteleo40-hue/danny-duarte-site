@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dia dos Pais | Danny Duarte Fotografias</title>
+<title>Orçamento Dia dos Pais | Danny Duarte Fotografias</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 :root{
@@ -14,11 +14,11 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+.header-full img{width:100%;max-width:200px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
-.hero-img{margin:0 auto;max-width:1100px;height:420px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
+.hero-img{margin:0 auto;max-width:1100px;height:700px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
 .ph-fallback span{max-width:80%;font-size:14px;font-weight:600;line-height:1.6;}
@@ -71,22 +71,21 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .contato-box p{font-size:14px;margin:8px 0;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
 <header class="header-full">
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
-
-
-<nav class="mainnav">
-  <a href="index.html">Início</a>
-  <a href="index.html#fixos">Ensaios Fixos</a>
-  <a href="index.html#sazonais">Ensaios Sazonais</a>
-  <a href="index.html#orcamento">Orçamento</a>
-</nav>
-
 
 <div class="hero-img">
   <img src="assets/ensaios/dia-dos-pais/hero.jpg" alt="Ensaio Dia dos Pais" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -96,7 +95,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 </div>
 
 <div class="hero-titulo">
-  <h1>👨‍👧 Dia dos Pais</h1>
+  <h1>Dia dos Pais</h1>
   <p>A conexão entre pai e filho(a)</p>
 </div>
 <section>
@@ -114,8 +113,8 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <ul><li>Duração aproximada de 45 minutos a 1 hora.</li><li>Cenários disponíveis no estúdio.</li><li>Pode incluir demais familiares.</li></ul>
 </section>
 <section>
-  <h2 class="titulo-sec">Estilos de Ensaio</h2>
-  <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
+  <h2 class="titulo-sec">Registros do Ensaio</h2>
+  <p class="subtitulo-sec">Fotos capturadas durante a sessão</p>
   <div class="galeria">
     <div class="foto-wrap">
       <img src="assets/ensaios/dia-dos-pais/pai-filho.jpg" alt="Pai e Filho(a)" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -126,7 +125,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
       <div class="ph"><span>🖼️ Família<br><small>Tag: familia.jpg</small></span></div>
     </div></div>
 </section>
-<section>
+<!-- <section>
   <h2 class="titulo-sec">O que dizem nossos clientes</h2>
   
 <div class="depoimentos">
@@ -134,42 +133,51 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <div class="depoimento">"As fotos ficaram perfeitas."</div>
   <div class="depoimento">"Você é uma profissional abençoada, muito obrigada por tudo!"</div>
 </div>
-
+--->
 </section>
 
-        <section>
-          <h2 class="titulo-sec">Pacotes</h2>
-          <p class="subtitulo-sec">Valores em atualização</p>
+        <section id="pacotes" class="secao-pacotes">
+          <h2 class="titulo-sec">Coleções</h2>
+          <p class="subtitulo-sec">Valores e condições</p>
           <div class="pacotes">
             <div class="pacote">
-              <h3>Pacote Personalizado</h3>
-              <div class="valor">Consulte valores</div>
-              <ul><li>Fale com a Danny para conhecer os pacotes disponíveis</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%20Dia%20dos%20Pais" target="_blank">Solicitar valores</a>
+              
+              <h3>Coleção 1</h3>
+              <div class="valor">R$ 140,00</div>
+              <ul><li>10 fotos digitais</li><li>Reveladas 10x15</li><li>Cenário Exclusivo 2026</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção%201%20-%20dia-dos-pais" target="_blank">Escolher este pacote</a>
+            </div>
+            <div class="pacote">
+              <h3>Coleção 2</h3>
+              <div class="valor">R$ 170,00</div>
+              <ul><li>15 fotos digitais</li><li>Reveladas 10x15</li><li>Cenário Exclusivo 2026</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção%202%20-%20dia-dos-pais" target="_blank">Escolher este pacote</a>
             </div>
           </div>
         </section>
 <section>
   
         <div class="info-extra">
-          <h4>📅 Informações importantes</h4>
+          <h4>Informações importantes</h4>
           <ul>
             <li>Reserva mediante sinal de R$100,00 (descontado do pacote).</li>
-            <li>Prévia das fotos: até 7 dias úteis · Restante: até 30 dias úteis.</li>
-            <li>Orçamento válido por 12 dias após o envio.</li>
-            <li>Pagamento à vista garante 1 foto de brinde (consulte tamanho disponível).</li>
-          </ul>
+            <li>Entrega das fotos: até 30 dias úteis.</li>
+            <li>Paleta de cores: Preto, Branco, Jeans, Social, Sem estampas, Tons neutros.</li>
+            </ul>
         </div>
 </section>
 <section class="cta-final">
   <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
   <p>Entre em contato e garanta sua data.</p>
-  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Dia%20dos%20Pais" target="_blank">💬 Falar no WhatsApp</a>
+  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Dia%20dos%20Pais" target="_blank">
+    <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+    Falar no WhatsApp
+  </a>
 </section>
 
 <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
+  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
 </footer>
 
 </body>
