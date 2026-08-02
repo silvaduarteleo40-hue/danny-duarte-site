@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Dia da Mulher | Danny Duarte Fotografias</title>
+<title>15 Anos | Danny Duarte Fotografias</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 :root{
@@ -14,11 +14,11 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+.header-full img{width:100%;max-width:200px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
-.hero-img{margin:0 auto;max-width:1100px;height:420px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
+.hero-img{margin:0 auto;max-width:1100px;height:cover;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
 .ph-fallback span{max-width:80%;font-size:14px;font-weight:600;line-height:1.6;}
@@ -59,6 +59,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
 footer.rodape{text-align:center;padding:26px 20px;background:var(--rosa);font-size:12.5px;color:#6b5a56;}
 footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
+.rodape {margin-top: 15px;}
 .intro{text-align:center;}
 .intro p{max-width:640px;margin:15px auto;line-height:1.7;font-size:15px;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;}
@@ -71,59 +72,102 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .contato-box p{font-size:14px;margin:8px 0;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
 </style>
+<script>
+  
+  // Impede o navegador de "lembrar" a posição de rolagem
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const isReload = nav && nav.type === 'reload';
+
+    if (isReload) {
+      // Remove #pacotes da URL, se existir
+      if (window.location.hash) {
+        history.replaceState(
+          null,
+          '',
+          window.location.pathname + window.location.search
+        );
+      }
+
+      // Força o topo (com reforço por causa de layout/imagens)
+      window.scrollTo(0, 0);
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 50);
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 200);
+    }
+  });
+</script>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
 <header class="header-full">
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
 
-
 <nav class="mainnav">
   <a href="index.html">Início</a>
   <a href="index.html#fixos">Ensaios Fixos</a>
   <a href="index.html#sazonais">Ensaios Sazonais</a>
   <a href="index.html#orcamento">Orçamento</a>
-</nav>
-
+</nav> 
 
 <div class="hero-img">
-  <img src="assets/ensaios/dia-da-mulher/hero.jpg" alt="Ensaio Dia da Mulher" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <img src="assets/ensaios/15-anos/hero.jpg" alt="Ensaio 15 Anos" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="ph-fallback">
-    <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/dia-da-mulher/hero.jpg</code></small></span>
+    <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/15-anos/hero.jpg</code></small></span>
   </div>
 </div>
 
 <div class="hero-titulo">
-  <h1>💐 Dia da Mulher</h1>
-  <p>Celebrando sua força e beleza</p>
+  <h1>👑 15 Anos</h1>
+  <p>O ensaio da sua festa de debutante</p>
 </div>
 <section>
   <div class="bloco-frase">
-    <h2>Você merece ser celebrada</h2>
-    <p>Um ensaio para celebrar quem você é — sua força, sua história e sua beleza única.</p>
+    <h2>Um marco na sua vida</h2>
+    <p>Os 15 anos são um momento único, cheio de sonhos e transformação. Vamos criar um ensaio que reflita toda a sua essência e estilo.</p>
   </div>
   <div class="bloco-frase">
-    <h2>Um momento só seu</h2>
-    <p>Vamos criar um ambiente acolhedor para que você se sinta confiante e à vontade durante todo o ensaio.</p>
+    <h2>Você é a estrela do dia</h2>
+    <p>Vamos conversar antes sobre o estilo que você quer transmitir — do clássico ao mais moderno — para que o ensaio combine 100% com você.</p>
   </div>
 </section>
 <section class="como-funciona">
   <h2 class="titulo-sec">Como funciona a sessão?</h2>
-  <ul><li>Duração aproximada de 1 hora.</li><li>Cenários disponíveis no estúdio.</li><li>Possibilidade de produção (maquiagem/cabelo) à parte.</li></ul>
+  <ul><li>Duração aproximada de 1h30.</li><li>Possibilidade de mais de um figurino/vestido.</li><li>Cenários disponíveis no estúdio ou ensaio externo (consultar).</li><li>Escolha das fotos realizada logo após a sessão.</li></ul>
 </section>
 <section>
   <h2 class="titulo-sec">Estilos de Ensaio</h2>
-  <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
-  <div class="galeria">
+    <div class="galeria">
     <div class="foto-wrap">
-      <img src="assets/ensaios/dia-da-mulher/estudio.jpg" alt="Estúdio" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Estúdio<br><small>Tag: estudio.jpg</small></span></div>
+      <img src="assets/ensaios/15-anos/vestido.jpg" alt="Vestido Principal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><span>🖼️ Vestido Principal<br><small>Tag: vestido.jpg</small></span></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/dia-da-mulher/detalhes.jpg" alt="Detalhes" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Detalhes<br><small>Tag: detalhes.jpg</small></span></div>
+      <img src="assets/ensaios/15-anos/segundo-look.jpg" alt="Segundo Look" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><span>🖼️ Segundo Look<br><small>Tag: segundo-look.jpg</small></span></div>
+    </div>
+    <div class="foto-wrap">
+      <img src="assets/ensaios/15-anos/externo.jpg" alt="Externo" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><span>🖼️ Externo<br><small>Tag: externo.jpg</small></span></div>
     </div></div>
 </section>
 <section>
@@ -145,13 +189,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
               <h3>Pacote Personalizado</h3>
               <div class="valor">Consulte valores</div>
               <ul><li>Fale com a Danny para conhecer os pacotes disponíveis</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%20Dia%20da%20Mulher" target="_blank">Solicitar valores</a>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%2015%20Anos" target="_blank">Solicitar valores</a>
             </div>
           </div>
         </section>
 <section>
-  
-        <div class="info-extra">
+          <div class="info-extra">
           <h4>📅 Informações importantes</h4>
           <ul>
             <li>Reserva mediante sinal de R$100,00 (descontado do pacote).</li>
@@ -164,13 +207,16 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 <section class="cta-final">
   <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
   <p>Entre em contato e garanta sua data.</p>
-  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Dia%20da%20Mulher" target="_blank">💬 Falar no WhatsApp</a>
+  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Gestante" target="_blank">
+    <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+     Falar no WhatsApp
+  </a>
 </section>
 
 <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
 </footer>
-
 </body>
 </html>
