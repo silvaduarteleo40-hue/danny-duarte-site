@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Infantil | Danny Duarte Fotografias</title>
+<title>Acompanhamento Mensal | Danny Duarte Fotografias</title>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 :root{
@@ -14,7 +14,7 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+.header-full img{width:100%;max-width:200px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
@@ -59,6 +59,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
 footer.rodape{text-align:center;padding:26px 20px;background:var(--rosa);font-size:12.5px;color:#6b5a56;}
 footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
+.rodape{margin-top:15px;}
 .intro{text-align:center;}
 .intro p{max-width:640px;margin:15px auto;line-height:1.7;font-size:15px;}
 .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;}
@@ -71,8 +72,106 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .contato-box p{font-size:14px;margin:8px 0;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+/* APRESENTAÇÃO DA FOTÓGRAFA */
+.apresentacao-fotografa {
+  max-width: 1000px;
+  margin: 48px auto 0;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(220px, 330px) 1fr;
+  gap: 38px;
+  align-items: center;
+
+  background: linear-gradient(135deg, #fff 0%, #f8efed 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(91, 72, 68, 0.10);
+}
+
+.apresentacao-foto {
+  position: relative;
+}
+
+.apresentacao-foto::before {
+  content: "";
+  position: absolute;
+  inset: 16px -13px -13px 16px;
+  z-index: 0;
+
+  background: linear-gradient(
+    135deg,
+    var(--rosa),
+    var(--lavanda),
+    var(--verde-sage)
+  );
+  border-radius: 50% / 10%;
+}
+
+.apresentacao-foto img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 385px;
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 50% / 10%;
+  box-shadow: 0 12px 28px rgba(91, 72, 68, 0.16), 0 0 0 4px #fff;
+}
+
+.apresentacao-texto {
+  text-align: left;
+}
+
+.apresentacao-etiqueta {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 14px;
+
+  color: var(--destaque);
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.apresentacao-texto h2 {
+  margin: 0 0 14px;
+  color: #6b5a56;
+  font-size: clamp(27px, 4vw, 38px);
+}
+
+.apresentacao-texto p {
+  margin: 0 0 13px;
+  color: #6f6662;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.apresentacao-assinatura {
+  margin-top: 18px !important;
+  color: var(--destaque) !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px !important;
+}
+
+.apresentacao-assinatura strong {
+  font-size: 20px;
+}
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
 <header class="header-full">
@@ -89,14 +188,54 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 
 
 <div class="hero-img">
-  <img src="assets/ensaios/infantil/hero.jpg" alt="Ensaio Infantil" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <img src="assets/ensaios/acompanhamento-mensal/hero.jpg" alt="Acompanhamento Mensal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="ph-fallback">
-    <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/infantil/hero.jpg</code></small></span>
+    <span>Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/acompanhamento-mensal/hero.jpg</code></small></span>
   </div>
 </div>
+<section>
+
+<!-- APRESENTAÇÃO DA FOTÓGRAFA -->
+<section class="apresentacao-fotografa">
+  <div class="apresentacao-foto">
+    <img src="assets/sobre/fotografa.jpg" alt="Danny Duarte, fotógrafa">
+  </div>
+
+  <div class="apresentacao-texto">
+    <span class="apresentacao-etiqueta">Por trás das lentes</span>
+
+    <h2>Prazer, eu sou a Danny!</h2>
+
+    <p>
+      Mãe amorosa, esposa dedicada e profissional determinada; 
+      atuando na área de Fotografias desde 2021.
+    </p>
+
+    <p>
+      Sou apaixonada por registrar histórias, sentimentos e os momentos
+      mais especiais da vida.
+    </p>
+
+    <p>
+      Em cada ensaio gestante, meu objetivo é que você se sinta linda, acolhida e
+      segura para viver uma experiência única. Estarei ao seu lado para orientar
+      cada pose, cada detalhe e transformar essa fase tão especial em lembranças
+      que ficarão para sempre.
+    </p>
+
+    <p class="apresentacao-assinatura">
+      Com carinho,<br>
+      <strong>Danny Duarte</strong>
+    </p>
+
+    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fa-brands fa-instagram"></i>
+      Conheça meu Instagram
+    </a>
+  </div>
+</section>
 
 <div class="hero-titulo">
-  <h1>🧒 Infantil</h1>
+  <h1>Acompanhamento Mensal</h1>
   <p>A infância merece ser eternizada</p>
 </div>
 <section>
@@ -118,15 +257,15 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
   <div class="galeria">
     <div class="foto-wrap">
-      <img src="assets/ensaios/infantil/ludico.jpg" alt="Cenário Lúdico" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img src="assets/ensaios/acompanhamento-mensal/ludico.jpg" alt="Cenário Lúdico" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><span>🖼️ Cenário Lúdico<br><small>Tag: ludico.jpg</small></span></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/infantil/brincadeiras.jpg" alt="Brincadeiras" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img src="assets/ensaios/acompanhamento-mensal/brincadeiras.jpg" alt="Brincadeiras" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><span>🖼️ Brincadeiras<br><small>Tag: brincadeiras.jpg</small></span></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/infantil/familia.jpg" alt="Com os Pais" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img src="assets/ensaios/acompanhamento-mensal/familia.jpg" alt="Com os Pais" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><span>🖼️ Com os Pais<br><small>Tag: familia.jpg</small></span></div>
     </div></div>
 </section>
@@ -149,7 +288,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
               <h3>Pacote Personalizado</h3>
               <div class="valor">Consulte valores</div>
               <ul><li>Fale com a Danny para conhecer os pacotes disponíveis</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%20Infantil" target="_blank">Solicitar valores</a>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%20Acompanhamento%20Mensal" target="_blank">Solicitar valores</a>
             </div>
           </div>
         </section>
@@ -168,13 +307,16 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 <section class="cta-final">
   <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
   <p>Entre em contato e garanta sua data.</p>
-  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Infantil" target="_blank">💬 Falar no WhatsApp</a>
+  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Gestante" target="_blank">
+    <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+     Falar no WhatsApp
+  </a>
 </section>
 
 <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
 </footer>
-
 </body>
 </html>
