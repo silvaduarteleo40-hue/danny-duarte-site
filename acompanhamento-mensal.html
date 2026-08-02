@@ -53,12 +53,49 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .info-extra{background:#fff;border-radius:16px;padding:26px;margin-top:26px;font-size:13.5px;line-height:1.85;}
 .info-extra h4{color:#6b5a56;margin-top:0;}
 .info-extra ul{padding-left:18px;}
-.botao{display:inline-block;background:var(--destaque);color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-size:13px;font-weight:600;}
+.botao{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+
+  background:var(--destaque);
+  color:#fff;
+  padding:10px 20px;
+  border-radius:30px;
+  text-decoration:none;
+  font-size:13px;
+  font-weight:600;}
 .botao:hover{background:#b98680;}
-.botao-grande{display:inline-block;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
-.cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
-footer.rodape{text-align:center;padding:26px 20px;background:var(--rosa);font-size:12.5px;color:#6b5a56;}
+.botao-grande{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+
+background:var(--destaque);
+color:#fff;
+padding:14px 34px;
+border-radius:30px;
+text-decoration:none;
+font-size:15px;
+font-weight:600;
+margin-top:10px;}
+footer.rodape{
+  width:100vw;
+  max-width: none;
+
+  margin-top: 45px;
+  margin-left: calc(-50vw + 50%);
+
+  padding: 32px 20px;
+  
+  background:var(--rosa);
+  color:#6b5a56;
+  text-align:center;
+  font-size:12.5px;}
 footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
+.cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
 .rodape{margin-top:15px;}
 .intro{text-align:center;}
 .intro p{max-width:640px;margin:15px auto;line-height:1.7;font-size:15px;}
@@ -72,6 +109,23 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .contato-box p{font-size:14px;margin:8px 0;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-gestante {
+    min-height: 520px;
+  }
+
+  .hero-gestante-imagem {
+    background-position: center center;
+  }
+
+  .hero-gestante-conteudo h1 {
+    font-size: 44px;
+  }
+
+  .hero-gestante-conteudo p {
+    font-size: 14px;
+  }}
 .fa-instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   background-clip: text;
@@ -228,8 +282,8 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
       <strong>Danny Duarte</strong>
     </p>
 
-    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fa-brands fa-instagram"></i>
-      Conheça meu Instagram
+    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"> <i class="fa-brands fa-instagram"></i>
+    Conheça meu Instagram
     </a>
   </div>
 </section>
