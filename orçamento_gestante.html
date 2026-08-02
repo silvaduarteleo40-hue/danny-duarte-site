@@ -35,7 +35,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .como-funciona ul{list-style:none;padding:0;font-size:14px;line-height:1.9;max-width:720px;margin:0 auto;}
 .como-funciona ul li{padding-left:24px;position:relative;margin-bottom:8px;}
 .como-funciona ul li:before{content:"✓";position:absolute;left:0;color:var(--destaque);font-weight:700;}
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:20px;}
+.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:10px;margin-top:20px;}
 .galeria .foto-wrap{aspect-ratio:3/4;border-radius:14px;overflow:hidden;position:relative;}
 .galeria .foto-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
 .galeria .ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;border-radius:14px;border:3px dashed #d8bdb7;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 16px,#eee0dc 16px,#eee0dc 32px);color:#a9908c;font-size:12.5px;font-weight:600;padding:10px;}
@@ -255,7 +255,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     var(--lavanda),
     var(--verde-sage)
   );
-  border-radius: 22px;
+  border-radius: 50% / 10%;
 }
 
 .apresentacao-foto img {
@@ -267,8 +267,8 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   object-fit: cover;
   object-position: center top;
 
-  border-radius: 22px;
-  box-shadow: 0 12px 28px rgba(91, 72, 68, 0.16);
+  border-radius: 50% / 10%;
+  box-shadow: 0 12px 28px rgba(91, 72, 68, 0.16), 0 0 0 4px #fff;
 }
 
 .apresentacao-texto {
@@ -372,6 +372,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
       }, 200);
     }
   });
+
 </script>
 
 </head>
@@ -381,6 +382,14 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 <header class="header-full">
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
+
+<nav class="mainnav">
+  <a href="index.html">Início</a>
+  <a href="index.html#fixos">Ensaios Fixos</a>
+  <a href="index.html#sazonais">Ensaios Sazonais</a>
+  <a href="index.html#orcamento">Orçamento</a>
+</nav> 
+
 <div class="intro">
   <h1>Proposta de Ensaio Gestante</h1>
   <p>Um registro leve, sofisticado e atemporal para eternizar a doce espera pelo seu bebê.</p>
@@ -449,7 +458,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
       <strong>Danny Duarte</strong>
     </p>
 
-    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">
+    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fa-brands fa-instagram"></i>
       Conheça meu Instagram
     </a>
   </div>
@@ -461,8 +470,10 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <ul><li>Duração aproximada de 2 horas.</li><li>Você escolhe as fotos do pacote logo após o término da sessão.</li><li>Cenários e figurinos disponíveis no estúdio para compor seu estilo.</li><li>Do clean e delicado ao lúdico e mais ousado — você escolhe como quer se expressar.</li><li>Leve mais memórias: apenas R$ 15,00 por foto adicional.</li></ul>
 </section>
 <section>
-  <h2 class="titulo-sec">Estilos de Ensaio Gestante</h2>
+  <h2 class="titulo-sec">Galeria em Destaque</h2>
   <p class="subtitulo-sec">
+    Alguns registros de ensaios gestantes realizados no estúdio
+  </p>
   <div class="galeria">
     <div class="foto-wrap">
       <img src="assets/ensaios/gestante/clean-1.jpg" alt="Estilo Clean e Delicado" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -511,8 +522,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     <div class="foto-wrap">
       <img src="assets/ensaios/gestante/familia-3.jpg" alt="qualquer imagem à escolha" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><span>🖼️ Com Papai e Filhos<br><small>Tag: familia-3.jpg</small></span></div>
-    </div></div>
+    
+  </div>
 </section>
+
+</section>
+</div></div>
 <section>
   <h2 class="titulo-sec">O que dizem nossos clientes</h2>
   
@@ -563,14 +578,14 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <p>Entre em contato e garanta sua data.</p>
   <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Gestante" target="_blank">
     <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-    Falar no WhatsApp
+     Falar no WhatsApp
   </a>
 </section>
 
 <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
 </footer>
-
 </body>
 </html>

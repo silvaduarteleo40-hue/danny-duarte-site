@@ -14,7 +14,7 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+.header-full img{width:100%;max-width:200px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
@@ -41,7 +41,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .galeria .ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;border-radius:14px;border:3px dashed #d8bdb7;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 16px,#eee0dc 16px,#eee0dc 32px);color:#a9908c;font-size:12.5px;font-weight:600;padding:10px;}
 .depoimentos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
 .depoimento{background:#fff;border-radius:16px;padding:20px;font-size:13px;font-style:italic;box-shadow:0 6px 18px rgba(0,0,0,.06);color:#7a6f6b;}
-.pacotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:10px;}
+.pacotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(130px,1fr));gap:20px;margin-top:10px;}
 .pacote{background:#fff;border-radius:16px;padding:24px 18px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06);position:relative;}
 .pacote.recomendado{border:2px solid var(--destaque);}
 .selo{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--destaque);color:#fff;font-size:11px;padding:4px 14px;border-radius:20px;font-weight:600;}
@@ -71,65 +71,723 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .contato-box p{font-size:14px;margin:8px 0;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+/* HERO NEWBORN */
+.hero-newborn {
+  position: relative;
+  min-height: 620px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  isolation: isolate;
+  border-radius: 20px;
+}
+
+/* imagem se movimenta suavemente ao fundo */
+.hero-newborn-imagem {
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+
+  background-image: url("assets/ensaios/newborn/hero2.jpg");
+  background-size: 430px;
+  background-position: right center;
+  background-repeat: no-repeat;
+  border-radius:20px;
+
+  animation: movimentoHeroNewborn 18s ease-in-out infinite alternate;
+}
+
+/* Camada para leitura confortável do texto */
+.hero-newborn-overlay {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(52, 38, 35, 0.58) 0%,
+      rgba(52, 38, 35, 0.28) 52%,
+      rgba(52, 38, 35, 0.42) 100%
+    );
+}
+
+/* O texto permanece centralizado e sem animação */
+.hero-newborn-conteudo {
+  max-width: 760px;
+  padding: 40px 24px;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 3px 15px rgba(0, 0, 0, 0.35);
+}
+
+.hero-newborn-conteudo span {
+  display: inline-block;
+  margin-bottom: 14px;
+  padding: 7px 16px;
+
+  border: 1px solid rgba(255, 255, 255, 0.72);
+  border-radius: 30px;
+
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.hero-newborn-conteudo h1 {
+  margin: 0 0 16px;
+  color: #fff;
+  font-size: clamp(42px, 7vw, 78px);
+  line-height: 1.05;
+  font-family: 'Playfair Display', serif;
+}
+
+.hero-newborn-conteudo p {
+  max-width: 560px;
+  margin: 0 auto 26px;
+
+  font-size: 16px;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+.botao-hero {
+  display: inline-block;
+  padding: 14px 28px;
+
+  background: #fff;
+  color: #80645f;
+
+  border-radius: 30px;
+  text-decoration: none;
+
+  font-size: 14px;
+  font-weight: 600;
+
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.16);
+  transition: transform .25s ease, background .25s ease;
+}
+
+.botao-hero:hover {
+  background: var(--rosa);
+  transform: translateY(-3px);
+}
+
+/* Movimento lento da imagem; texto não se move */
+@keyframes movimentoHeroNewborn {
+  0% {
+    transform: scale(1.04) translate3d(-1%, -1%, 0);
+  }
+
+  100% {
+    transform: scale(1.15) translate3d(1%, 1%, 0);
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .hero-newborn {
+    min-height: 520px;
+  }
+
+  .hero-newborn-imagem {
+    background-position: center center;
+  }
+
+  .hero-newborn-conteudo h1 {
+    font-size: 44px;
+  }
+
+  .hero-newborn-conteudo p {
+    font-size: 14px;
+  }
+}
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+/* APRESENTAÇÃO DA FOTÓGRAFA */
+.apresentacao-fotografa {
+  max-width: 1000px;
+  margin: 48px auto 0;
+  padding: 34px;
+  display: grid;
+  grid-template-columns: minmax(220px, 330px) 1fr;
+  gap: 38px;
+  align-items: center;
+
+  background: linear-gradient(135deg, #fff 0%, #f8efed 100%);
+  border-radius: 24px;
+  box-shadow: 0 10px 28px rgba(91, 72, 68, 0.10);
+}
+
+.apresentacao-foto {
+  position: relative;
+}
+
+.apresentacao-foto::before {
+  content: "";
+  position: absolute;
+  inset: 16px -13px -13px 16px;
+  z-index: 0;
+
+  background: linear-gradient(
+    135deg,
+    var(--rosa),
+    var(--lavanda),
+    var(--verde-sage)
+  );
+  border-radius: 50% / 10%;
+}
+
+.apresentacao-foto img {
+  position: relative;
+  z-index: 1;
+  display: block;
+  width: 100%;
+  height: 385px;
+  object-fit: cover;
+  object-position: center top;
+
+  border-radius: 50% / 10%;
+  box-shadow: 0 12px 28px rgba(91, 72, 68, 0.16), 0 0 0 4px #fff;
+}
+
+.apresentacao-texto {
+  text-align: left;
+}
+
+.apresentacao-etiqueta {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 14px;
+
+  color: var(--destaque);
+  background: #fff;
+  border-radius: 999px;
+  box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
+
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+}
+
+.apresentacao-texto h2 {
+  margin: 0 0 14px;
+  color: #6b5a56;
+  font-size: clamp(27px, 4vw, 38px);
+}
+
+.apresentacao-texto p {
+  margin: 0 0 13px;
+  color: #6f6662;
+  font-size: 14px;
+  line-height: 1.8;
+}
+
+.apresentacao-assinatura {
+  margin-top: 18px !important;
+  color: var(--destaque) !important;
+  font-family: 'Playfair Display', serif;
+  font-size: 16px !important;
+}
+
+.apresentacao-assinatura strong {
+  font-size: 20px;
+}
+
+/* Celular */
+@media (max-width: 700px) {
+  .apresentacao-fotografa {
+    grid-template-columns: 1fr;
+    gap: 28px;
+    margin: 34px 20px 0;
+    padding: 25px 20px;
+    text-align: center;
+  }
+
+  .apresentacao-foto {
+    max-width: 310px;
+    margin: 0 auto;
+  }
+
+  .apresentacao-foto img {
+    height: 370px;
+  }
+
+  .apresentacao-texto {
+    text-align: center;
+  }
+}
+/* =========================
+   GALERIA NEWBORN
+========================= */
+
+.galeria-newborn {
+  padding: 55px 20px 65px;
+  overflow: hidden;
+  background: #fffaf8;
+}
+
+.galeria-newborn .titulo-sec {
+  margin-bottom: 8px;
+}
+
+.galeria-newborn .subtitulo-sec {
+  margin: 0 auto 28px;
+  text-align: center;
+}
+
+.slider-newborn {
+  position: relative;
+  width: 100%;
+  max-width: 1120px;
+  height: 620px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.slider-newborn-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slider-newborn-item {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  width: 300px;
+  height: 535px;
+
+  overflow: hidden;
+  border: 4px solid #ffffff;
+  border-radius: 18px;
+  background: #f3e9e5;
+  box-shadow: 0 18px 42px rgba(77, 56, 52, 0.22);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transform: translate(-50%, -50%) scale(0.75);
+  transition:
+    transform 0.6s ease,
+    opacity 0.6s ease,
+    filter 0.6s ease;
+}
+
+/* AQUI está a correção do corte:
+   contain mostra a imagem inteira */
+.slider-newborn-item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  background: #f3e9e5;
+}
+
+/* Foto central */
+.slider-newborn-item.ativo {
+  z-index: 5;
+  opacity: 1;
+  pointer-events: auto;
+  transform: translate(-50%, -50%) scale(1);
+}
+
+/* Foto anterior */
+.slider-newborn-item.anterior {
+  z-index: 3;
+  opacity: 0.72;
+  transform: translate(-165%, -50%) scale(0.76);
+  filter: brightness(0.82);
+}
+
+/* Próxima foto */
+.slider-newborn-item.proximo {
+  z-index: 3;
+  opacity: 0.72;
+  transform: translate(65%, -50%) scale(0.76);
+  filter: brightness(0.82);
+}
+
+.slider-newborn-botao {
+  position: absolute;
+  top: 50%;
+  z-index: 20;
+
+  width: 52px;
+  height: 52px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border: 1px solid #f0ded9;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.97);
+  color: #735f59;
+
+  font-size: 30px;
+  line-height: 1;
+  cursor: pointer;
+
+  box-shadow: 0 8px 20px rgba(91, 72, 68, 0.18);
+  transform: translateY(-50%);
+  transition: 0.25s ease;
+}
+
+.slider-newborn-botao:hover {
+  background: #f4dcd5;
+  transform: translateY(-50%) scale(1.08);
+}
+
+.slider-newborn-anterior {
+  left: 18px;
+}
+
+.slider-newborn-proximo {
+  right: 18px;
+}
+
+@media (max-width: 700px) {
+  .galeria-newborn {
+    padding: 45px 12px 55px;
+  }
+
+  .slider-newborn {
+    height: 545px;
+  }
+
+  .slider-newborn-item {
+    width: 260px;
+    height: 462px;
+  }
+
+  .slider-newborn-item.anterior {
+    transform: translate(-132%, -50%) scale(0.62);
+  }
+
+  .slider-newborn-item.proximo {
+    transform: translate(32%, -50%) scale(0.62);
+  }
+
+  .slider-newborn-botao {
+    width: 42px;
+    height: 42px;
+    font-size: 24px;
+  }
+
+  .slider-newborn-anterior {
+    left: 5px;
+  }
+
+  .slider-newborn-proximo {
+    right: 5px;
+  }
+}
+
+@media (max-width: 420px) {
+  .slider-newborn {
+    height: 505px;
+  }
+
+  .slider-newborn-item {
+    width: 235px;
+    height: 418px;
+  }
+
+  .slider-newborn-item.anterior,
+  .slider-newborn-item.proximo {
+    opacity: 0.35;
+  }
+}
+
 </style>
+<script>
+  // Impede o navegador de "lembrar" a posição de rolagem
+  if ('scrollRestoration' in history) {
+    history.scrollRestoration = 'manual';
+  }
+
+  window.addEventListener('load', function () {
+    const nav = performance.getEntriesByType('navigation')[0];
+    const isReload = nav && nav.type === 'reload';
+
+    if (isReload) {
+      // Remove #pacotes da URL, se existir
+      if (window.location.hash) {
+        history.replaceState(
+          null,
+          '',
+          window.location.pathname + window.location.search
+        );
+      }
+
+      // Força o topo (com reforço por causa de layout/imagens)
+      window.scrollTo(0, 0);
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 50);
+
+      setTimeout(function () {
+        window.scrollTo(0, 0);
+      }, 200);
+    }
+  });
+
+document.addEventListener("DOMContentLoaded", function () {
+  const slider = document.getElementById("sliderNewborn");
+
+  if (!slider) return;
+
+  const fotos = Array.from(
+    slider.querySelectorAll(".slider-newborn-item")
+  );
+
+  const botaoAnterior = slider.querySelector(".slider-newborn-anterior");
+  const botaoProximo = slider.querySelector(".slider-newborn-proximo");
+
+  let indiceAtual = 0;
+  let intervalo;
+
+  function atualizarGaleria() {
+    const total = fotos.length;
+
+    fotos.forEach(function (foto, indice) {
+      foto.classList.remove("ativo", "anterior", "proximo");
+
+      if (indice === indiceAtual) {
+        foto.classList.add("ativo");
+      }
+
+      if (indice === (indiceAtual - 1 + total) % total) {
+        foto.classList.add("anterior");
+      }
+
+      if (indice === (indiceAtual + 1) % total) {
+        foto.classList.add("proximo");
+      }
+    });
+  }
+
+  function proximaFoto() {
+    indiceAtual = (indiceAtual + 1) % fotos.length;
+    atualizarGaleria();
+  }
+
+  function fotoAnterior() {
+    indiceAtual = (indiceAtual - 1 + fotos.length) % fotos.length;
+    atualizarGaleria();
+  }
+
+  function iniciarAutoPlay() {
+    clearInterval(intervalo);
+
+    intervalo = setInterval(function () {
+      proximaFoto();
+    }, 3500);
+  }
+
+  botaoProximo.addEventListener("click", function () {
+    proximaFoto();
+    iniciarAutoPlay();
+  });
+
+  botaoAnterior.addEventListener("click", function () {
+    fotoAnterior();
+    iniciarAutoPlay();
+  });
+
+  slider.addEventListener("mouseenter", function () {
+    clearInterval(intervalo);
+  });
+
+  slider.addEventListener("mouseleave", function () {
+    iniciarAutoPlay();
+  });
+
+  atualizarGaleria();
+  iniciarAutoPlay();
+});
+</script>
+
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
 <header class="header-full">
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
 
-
 <nav class="mainnav">
   <a href="index.html">Início</a>
   <a href="index.html#fixos">Ensaios Fixos</a>
   <a href="index.html#sazonais">Ensaios Sazonais</a>
   <a href="index.html#orcamento">Orçamento</a>
-</nav>
+</nav> 
 
+<div class="intro">
+  <h1>Proposta de Ensaio Newborn</h1>
+  <p>Um registro leve, sofisticado e atemporal para eternizar a feliz chegada do seu bebê.</p>
+</div>
+</section>>
+
+<section class="hero-newborn">
+
+  <div class="hero-newborn-imagem"></div>
+
+  <div class="hero-newborn-overlay"></div>
+
+  <div class="hero-newborn-conteudo">
+   
+    <h1>Chegou o seu momento</h1>
+
+    <p>
+      Um registro delicado, elegante e eterno para celebrar
+      a espera do seu bebê.
+    </p>
+
+    <a class="botao-hero" href="#pacotes">
+      Conheça os pacotes
+    </a>
+  </div>
+
+</section>
 
 <div class="hero-img">
   <img src="assets/ensaios/newborn/hero.jpg" alt="Ensaio Newborn" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-  <div class="ph-fallback">
-    <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/newborn/hero.jpg</code></small></span>
-  </div>
+  <div class="ph-fallback"><span>🖼️ Ensaio Newborn<br><small>Tag: hero.jpg</small></span></div>
 </div>
 
-<div class="hero-titulo">
-  <h1>👶 Newborn</h1>
-  <p>Os primeiros dias do seu bebê, para sempre</p>
-</div>
 <section>
-  <div class="bloco-frase">
-    <h2>Um novo capítulo começou</h2>
-    <p>A chegada do seu bebê é um dos momentos mais especiais da vida. Vamos eternizar cada detalhinho — as mãozinhas, os pezinhos, o sono tranquilo — com todo cuidado e sensibilidade.</p>
+
+<!-- APRESENTAÇÃO DA FOTÓGRAFA -->
+<section class="apresentacao-fotografa">
+  <div class="apresentacao-foto">
+    <img src="assets/sobre/fotografa.jpg" alt="Danny Duarte, fotógrafa">
   </div>
-  <div class="bloco-frase">
-    <h2>Pode ficar tranquila</h2>
-    <p>Sei que essa fase é cheia de emoções (e cansaço!). Por isso, conduzo o ensaio com calma, respeitando o tempo do bebê e o seu, para que tudo flua com segurança e carinho.</p>
+
+  <div class="apresentacao-texto">
+    <span class="apresentacao-etiqueta">Por trás das lentes</span>
+
+    <h2>Prazer, eu sou a Danny!</h2>
+
+    <p>
+      Mãe amorosa, esposa dedicada e profissional determinada; 
+      atuando na área de Fotografias desde 2021.
+    </p>
+
+    <p>
+      Sou apaixonada por registrar histórias, sentimentos e os momentos
+      mais especiais da vida.
+    </p>
+
+    <p>
+      Em cada ensaio gestante, meu objetivo é que você se sinta linda, acolhida e
+      segura para viver uma experiência única. Estarei ao seu lado para orientar
+      cada pose, cada detalhe e transformar essa fase tão especial em lembranças
+      que ficarão para sempre.
+    </p>
+
+    <p class="apresentacao-assinatura">
+      Com carinho,<br>
+      <strong>Danny Duarte</strong>
+    </p>
+
+    <a class="botao" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">
+      Conheça meu Instagram
+    </a>
   </div>
+</section>
+
 </section>
 <section class="como-funciona">
   <h2 class="titulo-sec">Como funciona a sessão?</h2>
-  <ul><li>Recomendado realizar até os 15 primeiros dias de vida, enquanto o bebê ainda dorme profundamente.</li><li>Ambiente aquecido e seguro, pensado especialmente para recém-nascidos.</li><li>Duração flexível, respeitando as pausas para troca de fralda e amamentação.</li><li>Diversos acessórios e cenários temáticos disponíveis no estúdio.</li></ul>
+  <ul><li>Duração aproximada de 2 horas.</li><li>Você escolhe as fotos do pacote logo após o término da sessão.</li><li>Cenários e figurinos disponíveis no estúdio para compor seu estilo.</li><li>Do clean e delicado ao lúdico e mais ousado — você escolhe como quer se expressar.</li><li>Leve mais memórias: apenas R$ 15,00 por foto adicional.</li></ul>
 </section>
-<section>
-  <h2 class="titulo-sec">Estilos de Ensaio</h2>
-  <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
-  <div class="galeria">
-    <div class="foto-wrap">
-      <img src="assets/ensaios/newborn/classico.jpg" alt="Cenário Clássico" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Cenário Clássico<br><small>Tag: classico.jpg</small></span></div>
+<section class="galeria-newborn">
+  <h2 class="titulo-sec">Galeria em Destaque</h2>
+  <p class="subtitulo-sec">
+    Alguns registros de ensaios newborn realizados no estúdio
+  </p>
+
+  <div class="slider-newborn" id="sliderNewborn">
+    <div class="slider-newborn-track">
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/01.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/02.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/03.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/04.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/05.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/06.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/07.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/08.jpg" alt="Ensaio newborn">
+      </div>
+        
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/09.jpg" alt="Ensaio newborn">
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/10.jpg" alt="Ensaio newborn">  
+      </div>
+
+      <div class="slider-newborn-item">
+        <img src="assets/ensaios/newborn/coverflow/11.jpg" alt="Ensaio newborn">
+      </div>
     </div>
-    <div class="foto-wrap">
-      <img src="assets/ensaios/newborn/delicado.jpg" alt="Cenário Delicado" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Cenário Delicado<br><small>Tag: delicado.jpg</small></span></div>
-    </div>
-    <div class="foto-wrap">
-      <img src="assets/ensaios/newborn/familia.jpg" alt="Com a Família" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Com a Família<br><small>Tag: familia.jpg</small></span></div>
-    </div></div>
+
+    <button
+      class="slider-newborn-botao slider-newborn-anterior"
+      type="button"
+      aria-label="Foto anterior"
+    >
+      ❮
+    </button>
+
+    <button
+      class="slider-newborn-botao slider-newborn-proximo"
+      type="button"
+      aria-label="Próxima foto"
+    >
+      ❯
+    </button>
+  </div>
+</section>  
+
 </section>
+</div></div>
 <section>
   <h2 class="titulo-sec">O que dizem nossos clientes</h2>
   
@@ -141,20 +799,39 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 
 </section>
 
-        <section>
-          <h2 class="titulo-sec">Pacotes</h2>
-          <p class="subtitulo-sec">Valores em atualização</p>
+        <section id="pacotes" class="secao-pacotes">
+          <h2 class="titulo-sec">Coleções</h2>
+          <p class="subtitulo-sec">Valores e condições</p>
           <div class="pacotes">
             <div class="pacote">
-              <h3>Pacote Personalizado</h3>
-              <div class="valor">Consulte valores</div>
-              <ul><li>Fale com a Danny para conhecer os pacotes disponíveis</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20saber%20os%20valores%20do%20ensaio%20Newborn" target="_blank">Solicitar valores</a>
+              
+              <h3>Coleção 1</h3>
+              <div class="valor">R$ 350,00</div>
+              <ul><li>15 fotos digitais e impressas 10x15</li><li>1 figurino</li><li>1 Cenário disponível no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 1%20-%20Gestante" target="_blank">Escolher este pacote</a>
             </div>
-          </div>
+            <div class="pacote recomendado">
+              <div class="selo">Recomendado</div>
+              <h3>Coleção 2</h3>
+              <div class="valor">R$ 440,00</div>
+              <ul><li>19 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>2 figurinos</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 2%20-%20Gestante" target="_blank">Escolher este pacote</a>
+            </div>
+            <div class="pacote">
+              <h3>Coleção 3</h3>
+              <div class="valor">R$ 620,00</div>
+              <ul><li>25 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 3%20-%20Gestante" target="_blank">Escolher este pacote</a>
+            </div>
+            <div class="pacote">
+              <h3>Coleção 4</h3>
+              <div class="valor">R$ 850,00</div>
+              <ul><li>30 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>3 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 4%20-%20Gestante" target="_blank">Escolher este pacote</a>
+            </div></div>
         </section>
+
 <section>
-  
         <div class="info-extra">
           <h4>📅 Informações importantes</h4>
           <ul>

@@ -14,7 +14,7 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+.header-full img{width:100%;max-width:200px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
@@ -56,6 +56,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .botao{display:inline-block;background:var(--destaque);color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-size:13px;font-weight:600;}
 .botao:hover{background:#b98680;}
 .botao-grande{display:inline-block;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
+.botao-secundario{display:inline-block;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
 .cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
 footer.rodape{text-align:center;padding:26px 20px;background:var(--rosa);font-size:12.5px;color:#6b5a56;}
 footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
@@ -69,6 +70,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .card .preco{font-weight:600;font-size:13px;color:var(--destaque);margin-bottom:12px;}
 .contato-box{background:#fff;border-radius:20px;padding:40px 25px;max-width:600px;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center;}
 .contato-box p{font-size:14px;margin:8px 0;}
+.contato-box a{color:black(--destaque);text-decoration:none;font-weight:600;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
 .intro-sobre {
@@ -172,23 +174,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   gap: 12px;
   flex-wrap: wrap;
   align-items: center;
-}
-
-.botao-secundario {
-  display: inline-block;
-  color: var(--destaque);
-  background: #fff;
-  border: 1px solid #ead4cf;
-  padding: 13px 26px;
-  border-radius: 30px;
   text-decoration: none;
-  font-size: 14px;
-  font-weight: 600;
-  box-shadow: 0 6px 16px rgba(0,0,0,.04);
-}
-
-.botao-secundario:hover {
-  background: #fff6f3;
 }
 
 /* Responsivo */
@@ -215,8 +201,131 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     max-height: 520px;
   }
 }
+
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+/* LOCALIZAÇÃO COM PIN ANIMADO */
+.localizacao-estudio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin: 12px auto;
+  padding: 12px 18px;
+
+  color: #6b5a56;
+  text-align: left;
+  text-decoration: none;
+
+  background: #fff;
+  border: 1px solid #f0ddd8;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(91, 72, 68, 0.06);
+}
+
+.localizacao-estudio strong {
+  display: inline-block;
+  color: #6b5a56;
+  font-size: 13px;
+}
+
+.localizacao-estudio small {
+  color: #938581;
+  font-size: 11px;
+}
+
+/* Pin desenhado em CSS */
+.pin-mapa {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% 50% 50% 0;
+  background: var(--destaque);
+  transform: rotate(-45deg);
+  animation: pinPula 2s ease-in-out infinite;
+}
+
+/* Círculo branco central */
+.pin-centro {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+/* Sombra/onda abaixo do pin */
+.pin-mapa::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+
+  width: 20px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: rgba(92, 86, 82, 0.18);
+
+  transform: translateX(-50%) rotate(45deg);
+  animation: sombraPin 2s ease-in-out infinite;
+}
+
+@keyframes pinPula {
+  0%, 100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+
+  45% {
+    transform: rotate(-45deg) translate(0, -7px);
+  }
+
+  60% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@keyframes sombraPin {
+  0%, 100% {
+    opacity: .45;
+    transform: translateX(-50%) rotate(45deg) scale(1);
+  }
+
+  45% {
+    opacity: .12;
+    transform: translateX(-50%) rotate(45deg) scale(.65);
+  }
+}
+
+.localizacao-estudio:hover {
+  border-color: var(--rosa-forte);
+  transform: translateY(-2px);
+  transition: .25s ease;
+}
+
+/* Respeita pessoas que preferem reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  .pin-mapa,
+  .pin-mapa::after {
+    animation: none;
+  }
+}
+
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
 <header class="header-full">
@@ -225,10 +334,10 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 
 
 <nav class="mainnav">
-  <!-- <a href="index.html">Início</a> -->
-  <!-- <a href="index.html#fixos">Ensaios Fixos</a> -->
-  <!-- <a href="index.html#sazonais">Ensaios Sazonais</a> -->
-  <!-- <a href="index.html#orcamento">Orçamento</a> -->
+  <a href="index.html">Início</a>
+  <a href="index.html#fixos">Ensaios Fixos</a>
+  <a href="index.html#sazonais">Ensaios Sazonais</a>
+  <a href="index.html#orcamento">Orçamento</a>
 </nav> 
 
 <section id="inicio" class="intro-sobre">
@@ -272,11 +381,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 
     <div class="intro-botoes">
       <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
-        💬 Solicitar Orçamento
+       <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+         Falar no WhatsApp
       </a>
 
-      <a class="botao-secundario" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">
-        Ver Instagram
+      <a class="botao-secundario" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i>
+         Ver Instagram
       </a>
     </div>
   </div>
@@ -407,20 +517,37 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 
 <section id="orcamento">
   <h2 class="titulo-sec">Solicite seu Orçamento</h2>
-  <div class="aviso-precos">⚠️ Os valores dos ensaios fixos e sazonais (exceto Gestante e Natal) ainda estão em atualização. Entre em contato para receber a tabela mais recente.</div>
+  <div class="aviso-precos">⚠️ Os valores dos ensaios fixos e sazonais (exceto Gestante e Dia dos Pais) ainda estão em atualização. Entre em contato para receber a tabela mais recente.</div>
   <div class="contato-box">
-    <p>📍 Araras/SP</p>
+    <a
+  class="localizacao-estudio"
+  href="https://www.google.com/maps/search/?api=1&query=Rua%20Don%C3%A1%20Aquilina%20Fachini%2C%20552%2C%20Jardim%20F%C3%A1tima%2C%20Araras%2C%20SP"
+  target="_blank"
+  rel="noopener"
+  aria-label="Abrir localização do estúdio no Google Maps"
+>
+  <span class="pin-mapa" aria-hidden="true">
+    <span class="pin-centro"></span>
+  </span>
+
+  <span>
+    <strong>Estúdio em Araras/SP</strong><br>
+    <small>Rua Doná Aquilina Fachini, 552 — Jd. Fátima</small>
+  </span>
+</a>
     <p>📞 (19) 9 8228-0460</p>
-    <p>📸 <a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">@duarte_danny_fotografias_</a></p>
-    <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">💬 Falar no WhatsApp</a>
+    <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i>  @duarte_danny_fotografias_</a></p>
+    <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
+      <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+       Falar no WhatsApp
+    </a>
   </div>
 </section>
 
-
 <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
 </footer>
-
 </body>
 </html>
