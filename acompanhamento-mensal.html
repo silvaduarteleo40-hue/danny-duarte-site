@@ -126,26 +126,44 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   .hero-gestante-conteudo p {
     font-size: 14px;
   }}
-@media (max-width: 700px) {
+@media (max-width: 768px) {
   .apresentacao-fotografa {
     grid-template-columns: 1fr;
-    gap: 28px;
+    gap: 22px;
     margin: 34px 20px 0;
-    padding: 25px 20px;
-    text-align: center;
+    padding: 22px 18px;
+    margin: 28px auto 0;
   }
 
-  .apresentacao-foto {
-    max-width: 310px;
-    margin: 0 auto;
+  .apresentacao-foto::before {
+    inset:12px -10px -10px 12px;
   }
 
   .apresentacao-foto img {
-    height: 370px;
+    height: 320px;
+    max-width: 320px;
+    margin: 0 auto;
   }
 
   .apresentacao-texto {
     text-align: center;
+  }
+
+  .apresentacao-texto .botao {
+    display: inline-block;
+  }
+}
+
+@media (max-width: 480px) {
+  .apresentacao-fotografa {
+    padding: 18px 14px;
+  }
+
+.apresentacao-foto img {
+  height: 280px;  
+  }
+.apresentacao-texto p {
+  font-size: 13.5px;
   }
 }
 .fa-instagram {
@@ -158,6 +176,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 /* APRESENTAÇÃO DA FOTÓGRAFA */
 .apresentacao-fotografa {
   max-width: 1000px;
+  width: 100%;
   margin: 48px auto 0;
   padding: 34px;
   display: grid;
@@ -168,10 +187,15 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   background: linear-gradient(135deg, #fff 0%, #f8efed 100%);
   border-radius: 24px;
   box-shadow: 0 10px 28px rgba(91, 72, 68, 0.10);
+
+  box-sizing: border-box;
+  overflow: hidden;
 }
 
 .apresentacao-foto {
   position: relative;
+  width: 100%;
+  min-width: 0px;
 }
 
 .apresentacao-foto::before {
@@ -179,14 +203,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   position: absolute;
   inset: 16px -13px -13px 16px;
   z-index: 0;
-
   background: linear-gradient(
     135deg,
     var(--rosa),
     var(--lavanda),
-    var(--verde-sage)
-  );
-  border-radius: 50% / 10%;
+    var(--verde-sage));
+    border-radius: 50% / 10%;  
 }
 
 .apresentacao-foto img {
@@ -197,25 +219,23 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   height: 385px;
   object-fit: cover;
   object-position: center top;
-
   border-radius: 50% / 10%;
   box-shadow: 0 12px 28px rgba(91, 72, 68, 0.16), 0 0 0 4px #fff;
 }
 
 .apresentacao-texto {
   text-align: left;
+  min-width: 0;
 }
 
 .apresentacao-etiqueta {
   display: inline-block;
   margin-bottom: 12px;
   padding: 7px 14px;
-
   color: var(--destaque);
   background: #fff;
   border-radius: 999px;
   box-shadow: 0 5px 14px rgba(0, 0, 0, 0.05);
-
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 1.2px;
@@ -226,6 +246,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   margin: 0 0 14px;
   color: #6b5a56;
   font-size: clamp(27px, 4vw, 38px);
+  line-height: 1.15;
 }
 
 .apresentacao-texto p {
@@ -269,7 +290,6 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     <span>Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/acompanhamento-mensal/hero.jpg</code></small></span>
   </div>
 </div>
-<section>
 
 <!-- APRESENTAÇÃO DA FOTÓGRAFA -->
 <section class="apresentacao-fotografa">
@@ -310,7 +330,6 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   </div>
 </section>
 
-</section>
 <div class="hero-titulo">
   <h1>Acompanhamento Mensal</h1>
   <p>A infância merece ser eternizada</p>
