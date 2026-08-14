@@ -14,7 +14,7 @@
 body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:200px;height:auto;}
+.header-full img{width:100%;max-width:300px;height:auto;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
@@ -71,7 +71,10 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .card .preco{font-weight:600;font-size:13px;color:var(--destaque);margin-bottom:12px;}
 .contato-box{background:#fff;border-radius:20px;padding:40px 25px;max-width:600px;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center;}
 .contato-box p{font-size:14px;margin:8px 0;}
-.contato-box a{color:var(--destaque);text-decoration:none;font-weight:600;}
+.contato-box a{color:gray;text-decoration:none;font-weight:600;}
+.contato-box a:hover{ box-shadow: inset 0 0 0.55em 0em var(--lavanda);
+    border-color: var(--lavanda);
+    color: var(--lavanda);}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
 .intro-sobre {
@@ -324,6 +327,126 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   }
 }
 
+@import url("https://fonts.bunny.net/css?family=jura:300,500");
+
+.wrapper{
+    position:center;
+    justify-content:center;
+    place-items:center;
+
+    padding:2px;
+    border-radius:100px;
+
+    background:#dde5ec;
+
+    box-shadow:
+        12px 12px 12px rgba(163,177,198,.6),
+        -12px -12px 12px rgba(255,255,255,.8);
+
+    isolation:isolate;
+    body{
+    min-height:80vh;
+    display:grid;
+    
+    background:#dde5ec;
+    font-family:"Jura",sans-serif;
+    }
+
+    border-bottom:1px solid #eee1dd;
+    z-index:100;
+}
+
+.wrapper::before,
+.wrapper::after{
+    content:"";
+    position:absolute;
+
+    top:anchor(top);
+    left:anchor(left);
+    right:anchor(right);
+    bottom:anchor(bottom);
+
+    border-radius:999px;
+
+    transition:
+        700ms
+        linear(
+            0,
+            1 44.7%,
+            0.898 51.8%,
+            0.874 55.1%,
+            0.866 58.4%,
+            0.888 64.3%,
+            1 77.4%,
+            0.98 84.5%,
+            1
+        );
+
+    z-index:-1;
+}
+
+.wrapper::before{
+    position-anchor:--hovered-option;
+
+    background:#dde5ec;
+
+    box-shadow:
+        inset 6px 6px 12px rgba(163,177,198,.65),
+        inset -6px -6px 12px rgba(255,255,255,.85);
+}
+
+.wrapper::after{
+    position-anchor:--active-option;
+
+    background:linear-gradient(
+        145deg,
+        #f7fbff,
+        #cad7e5
+    );
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255,255,255,.8),
+        inset -4px -4px 8px rgba(163,177,198,.5);
+}
+
+nav{
+    display:flex;
+    gap:8px;
+
+    anchor-name:--hovered-option;
+}
+
+nav a{
+    text-decoration:none;
+
+    color:#5b6676;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+nav a:hover{
+    anchor-name:--hovered-option;
+
+    color:#39424e;
+}
+
+body:has(#inicio:target) a[href="#inicio"],
+body:has(#fixos:target) a[href="#fixos"],
+body:has(#sazonais:target) a[href="#sazonais"],
+body:has(#orcamento:target) a[href="#orcamento"]{
+    anchor-name:--active-option;
+
+    color:#111827;
+}
+
 </style>
 </head>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -333,13 +456,23 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
 
-
-<nav class="mainnav">
+<!--
+<nav class="mainnav">  
   <a href="index.html">Início</a>
   <a href="index.html#fixos">Ensaios Fixos</a>
   <a href="index.html#sazonais">Ensaios Sazonais</a>
   <a href="index.html#orcamento">Orçamento</a>
-</nav> 
+</nav> -->
+
+</div>
+  <nav class="wrapper">
+    <a href="index.html#inicio" id="link-1">Início</a>
+    <a href="index.html#fixos" id="link-2">Ensaios Fixos</a>
+    <a href="index.html#sazonais" id="link-3">Ensaios Sazonais</a>
+    <a href="index.html#orcamento" id="link-4">Orçamento</a>
+  </nav>
+<div>
+
 
 <section id="inicio" class="intro-sobre">
 
@@ -497,27 +630,26 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <div class="aviso-precos">⚠️ Os valores dos ensaios fixos e sazonais (exceto Gestante e Dia dos Pais) ainda estão em atualização. Entre em contato para receber a tabela mais recente.</div>
   <div class="contato-box">
     <a
-  class="localizacao-estudio"
-  href="https://www.google.com/maps/search/?api=1&query=Rua%20Don%C3%A1%20Aquilina%20Fachini%2C%20552%2C%20Jardim%20F%C3%A1tima%2C%20Araras%2C%20SP"
-  target="_blank"
-  rel="noopener"
-  aria-label="Abrir localização do estúdio no Google Maps"
->
-  <span class="pin-mapa" aria-hidden="true">
+      class="localizacao-estudio"
+      href="https://www.google.com/maps/search/?api=1&query=Rua%20Don%C3%A1%20Aquilina%20Fachini%2C%20552%2C%20Jardim%20F%C3%A1tima%2C%20Araras%2C%20SP"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir localização do estúdio no Google Maps">
+    <span class="pin-mapa" aria-hidden="true">
     <span class="pin-centro"></span>
-  </span>
+    </span>
 
-  <span>
+    <span>
     <strong>Estúdio em Araras/SP</strong><br>
     <small>Rua Doná Aquilina Fachini, 552 — Jd. Fátima</small>
-  </span>
-</a>
+    </span>
+    </a>
     <p>📞 (19) 9 8228-0460</p>
     <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i>  @duarte_danny_fotografias_</a></p>
-    <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
+    <p><a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
       <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
        Falar no WhatsApp
-    </a>
+    </a></p>
   </div>
 </section>
 
