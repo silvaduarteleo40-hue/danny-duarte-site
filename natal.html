@@ -11,14 +11,45 @@
   --creme:#fdf8f5; --texto:#5c5652; --destaque:#c99a94;
 }
 *{box-sizing:border-box;}
-body{margin:0;font-family:'Poppins',sans-serif;background:var(--creme);color:var(--texto);}
+body {
+    background-color: #faf7f2; /* Cor de fundo creme */
+    background-image: url('assets/background/bg2.jpg'); /* Se tiver uma imagem de textura */
+    background-repeat: repeat; /* Repete a textura pela página toda */
+    background-size: contain;
+}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
-.header-full{width:100%;background:linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);padding:34px 20px 26px;display:flex;justify-content:center;align-items:center;}
-.header-full img{width:100%;max-width:1000px;height:auto;}
+
+.header-full {
+  width: 100%;
+  background-image: url("assets/css/header-full-img.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  min-height: 250px;
+  max-height: 300px;
+  height: 20vw;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.header-full img.logo-img,
+.header-full img {
+  width: auto !important;
+  max-width: 420px !important;
+  max-height: 280px !important;
+  height: auto !important;
+  object-fit: contain;
+}
+
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
-.hero-img{margin:0 auto;max-width:1100px;height:420px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
+.hero-img{margin:0 auto;max-width:1200px;height:620px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
 .ph-fallback span{max-width:80%;font-size:14px;font-weight:600;line-height:1.6;}
@@ -41,7 +72,7 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .galeria .ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;border-radius:14px;border:3px dashed #d8bdb7;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 16px,#eee0dc 16px,#eee0dc 32px);color:#a9908c;font-size:12.5px;font-weight:600;padding:10px;}
 .depoimentos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
 .depoimento{background:#fff;border-radius:16px;padding:20px;font-size:13px;font-style:italic;box-shadow:0 6px 18px rgba(0,0,0,.06);color:#7a6f6b;}
-.pacotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:20px;margin-top:10px;}
+.pacotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:10px;}
 .pacote{background:#fff;border-radius:16px;padding:24px 18px;text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.06);position:relative;}
 .pacote.recomendado{border:2px solid var(--destaque);}
 .selo{position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--destaque);color:#fff;font-size:11px;padding:4px 14px;border-radius:20px;font-weight:600;}
@@ -53,15 +84,19 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .info-extra{background:#fff;border-radius:16px;padding:26px;margin-top:26px;font-size:13.5px;line-height:1.85;}
 .info-extra h4{color:#6b5a56;margin-top:0;}
 .info-extra ul{padding-left:18px;}
-.botao{display:inline-block;background:var(--destaque);color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-size:13px;font-weight:600;}
-.botao:hover{background:#b98680;}
-.botao-grande{display:inline-block;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
-.cta-final{text-align:center;background:var(--lavanda);border-radius:20px;padding:40px 20px;margin-top:10px;}
+.botao{display:inline-flex;align-items:center;justify-content:center;gap: 10px;background:var(--destaque);color:#fff;padding:10px 20px;border-radius:30px;text-decoration:none;font-size:13px;font-weight:600;}
+.botao:hover{ box-shadow: inset 0 0 0.55em 0em var(--lavanda);
+    border-color: var(--lavanda);
+    color: var(--lavanda);}
+.botao-grande{display:inline-flex;align-items:center;justify-content:center;gap: 10px;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
+.botao-secundario{display:inline-flex;align-items:center;justify-content:center;gap: 10px;background:var(--destaque);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
+.cta-final{background: var(--lavanda);border-radius:20px;padding:40px 25px;max-width:600px;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center;}
 footer.rodape{text-align:center;padding:26px 20px;background:var(--rosa);font-size:12.5px;color:#6b5a56;}
 footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .intro{text-align:center;}
 .intro p{max-width:640px;margin:15px auto;line-height:1.7;font-size:15px;}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:22px;}
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;}
+.cards2{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:10px;}
 .card{background:#fff;border-radius:16px;padding:24px;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center;transition:transform .25s;border-top:4px solid var(--rosa-forte);}
 .card:hover{transform:translateY(-4px);}
 .card h3{font-size:19px;margin:6px 0 10px;color:#6b5a56;}
@@ -69,37 +104,468 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .card .preco{font-weight:600;font-size:13px;color:var(--destaque);margin-bottom:12px;}
 .contato-box{background:#fff;border-radius:20px;padding:40px 25px;max-width:600px;margin:0 auto;box-shadow:0 6px 18px rgba(0,0,0,0.06);text-align:center;}
 .contato-box p{font-size:14px;margin:8px 0;}
+.contato-box a{color:gray;text-decoration:none;font-weight:600;}
+.contato-box a:hover{ box-shadow: inset 0 0 0.55em 0em var(--lavanda);
+    border-color: var(--lavanda);
+    color: var(--lavanda);}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
-@media(max-width:600px){nav.mainnav{gap:12px;font-size:11px;} .hero-img{height:300px;} .header-full img{max-width:280px;}}
+@media(max-width:768px) {
+  nav.mainnav{gap:12px;font-size:11px;} 
+ .hero-img{height:300px;} 
+ .header-full {height:160px;} 
+ .header-full img.logo-img,
+ .header-full img {max-width: 180px !important; max-height: 100px !important;
+  }
+}
+
+.intro-sobre {
+  max-width: 1120px;
+  margin: 0 auto;
+  padding: 70px 22px;
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 46px;
+  align-items: center;
+}
+
+.intro-foto {
+  position: relative;
+}
+
+.intro-foto::before {
+  content: "";
+  position: absolute;
+  inset: 22px -18px -18px 22px;
+  background: linear-gradient(135deg, var(--rosa), var(--lavanda), var(--verde-sage));
+  border-radius: 28px;
+  z-index: 0;
+}
+
+.intro-foto img {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-height: 560px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 28px;
+  box-shadow: 0 18px 42px rgba(91, 72, 68, 0.18);
+  display: block;
+}
+
+.intro-conteudo {
+  text-align: left;
+}
+
+.intro-etiqueta {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 7px 16px;
+  border-radius: 999px;
+  background: #fff;
+  color: var(--destaque);
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: .9px;
+  text-transform: uppercase;
+  box-shadow: 0 8px 18px rgba(0,0,0,.05);
+}
+
+.intro-conteudo h2 {
+  font-size: clamp(30px, 4vw, 46px);
+  line-height: 1.08;
+  color: #6b5a56;
+  margin: 0 0 18px;
+}
+
+.intro-conteudo p {
+  font-size: 15.5px;
+  line-height: 1.85;
+  color: #6f6662;
+  margin: 0 0 14px;
+}
+
+.intro-destaques {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 26px 0;
+}
+
+.intro-destaques div {
+  background: #fff;
+  border-radius: 16px;
+  padding: 16px 14px;
+  box-shadow: 0 8px 20px rgba(0,0,0,.05);
+  border-top: 3px solid var(--rosa-forte);
+}
+
+.intro-destaques strong {
+  display: block;
+  font-family: 'Playfair Display', serif;
+  font-size: 20px;
+  color: #6b5a56;
+  margin-bottom: 4px;
+}
+
+.intro-destaques span {
+  font-size: 12px;
+  color: #8a7d78;
+  line-height: 1.35;
+}
+
+.intro-botoes {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: center;
+  text-decoration: none;
+}
+
+.intro-botoes :hover {
+  box-shadow: inset 0 0 0.55em 0em var(--lavanda);
+  border-color: var(--lavanda);
+  color: var(--lavanda);}
+
+/* Responsivo */
+@media(max-width: 850px) {
+  nav.wrapper{
+    display: flex;
+    width: max-content;
+    max-width: calc(100% - 20px);
+    margin: 12px auto;
+    padding: 6px 12px;
+  }
+
+  .wrapper{
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    width: max-content;
+    max-width: calc(100% - 20px);
+    margin: 10px auto;
+    padding: 6px 12px;
+  }
+
+  nav.wrapper a {
+    padding: 6px 8px;
+    font-size: 0.9rem;
+  }
+
+  .intro-sobre {
+    grid-template-columns: 1fr;
+    padding: 50px 20px;
+    gap: 34px;
+  }
+
+  .intro-conteudo {
+    text-align: center;
+  }
+
+  .intro-destaques {
+    grid-template-columns: 1fr;
+  }
+
+  .intro-botoes {
+    justify-content: center;
+  }
+
+  .intro-foto img {
+    max-height: 520px;
+  }
+}
+
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
+/* LOCALIZAÇÃO COM PIN ANIMADO */
+.localizacao-estudio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin: 12px auto;
+  padding: 12px 18px;
+
+  color: #6b5a56;
+  text-align: left;
+  text-decoration: none;
+
+  background: #fff;
+  border: 1px solid #f0ddd8;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(91, 72, 68, 0.06);
+}
+
+.localizacao-estudio strong {
+  display: inline-block;
+  color: #6b5a56;
+  font-size: 13px;
+}
+
+.localizacao-estudio small {
+  color: #938581;
+  font-size: 11px;
+}
+
+/* Pin desenhado em CSS */
+.pin-mapa {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% 50% 50% 0;
+  background: var(--destaque);
+  transform: rotate(-45deg);
+  animation: pinPula 2s ease-in-out infinite;
+}
+
+/* Círculo branco central */
+.pin-centro {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+/* Sombra/onda abaixo do pin */
+.pin-mapa::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+
+  width: 20px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: rgba(92, 86, 82, 0.18);
+
+  transform: translateX(-50%) rotate(45deg);
+  animation: sombraPin 2s ease-in-out infinite;
+}
+
+@keyframes pinPula {
+  0%, 100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+
+  45% {
+    transform: rotate(-45deg) translate(0, -7px);
+  }
+
+  60% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@keyframes sombraPin {
+  0%, 100% {
+    opacity: .45;
+    transform: translateX(-50%) rotate(45deg) scale(1);
+  }
+
+  45% {
+    opacity: .12;
+    transform: translateX(-50%) rotate(45deg) scale(.65);
+  }
+}
+
+.localizacao-estudio:hover {
+  border-color: var(--rosa-forte);
+  transform: translateY(-2px);
+  transition: .25s ease;
+}
+
+/* Respeita pessoas que preferem reduzir animações */
+@media (prefers-reduced-motion: reduce) {
+  .pin-mapa,
+  .pin-mapa::after {
+    animation: none;
+  }
+}
+
+@import url("https://fonts.bunny.net/css?family=jura:300,500");
+
+.wrapper{
+    display: inline-flex;
+    position:center;
+    justify-content:center;
+    place-items:center;
+
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin: 16px auto;
+
+    padding:2px;
+    border-radius:100px;
+    background:#dde5ec;
+
+    box-shadow:
+        12px 12px 12px rgba(163,177,198,.6),
+        -12px -12px 12px rgba(255,255,255,.8);
+
+    isolation:isolate;
+    body{
+    min-height:80vh;
+    display:grid;
+    
+    background:#dde5ec;
+    font-family:"Jura",sans-serif;
+    }
+
+    border-bottom:2px solid #eee1dd;
+    z-index:100;
+}
+
+nav.wrapper{
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wrapper::before,
+.wrapper::after{
+    content:"";
+    position:absolute;
+
+    top:anchor(top);
+    left:anchor(left);
+    right:anchor(right);
+    bottom:anchor(bottom);
+
+    border-radius:999px;
+
+    transition:
+        700ms
+        linear(
+            0,
+            1 44.7%,
+            0.898 51.8%,
+            0.874 55.1%,
+            0.866 58.4%,
+            0.888 64.3%,
+            1 77.4%,
+            0.98 84.5%,
+            1
+        );
+
+    z-index:-1;
+}
+
+.wrapper::before{
+    position-anchor:--hovered-option;
+
+    background:#dde5ec;
+
+    box-shadow:
+        inset 6px 6px 12px rgba(163,177,198,.65),
+        inset -6px -6px 12px rgba(255,255,255,.85);
+}
+
+.wrapper::after{
+    position-anchor:--active-option;
+
+    background:linear-gradient(
+        145deg,
+        #f7fbff,
+        #cad7e5
+    );
+
+    box-shadow:
+        inset 4px 4px 8px rgba(255,255,255,.8),
+        inset -4px -4px 8px rgba(163,177,198,.5);
+}
+
+nav{
+    display:flex;
+    gap:8px;
+
+    anchor-name:--hovered-option;
+}
+
+nav a{
+    text-decoration:none;
+
+    color:#5b6676;
+
+    padding:6px 10px;
+
+    border-radius:999px;
+
+    font-size:1rem;
+
+    transition:.3s;
+
+    position:relative;
+}
+
+nav a:hover{
+    anchor-name:--hovered-option;
+
+    color:#39424e;
+}
+
+body:has(#inicio:target) a[href="#inicio"],
+body:has(#fixos:target) a[href="#fixos"],
+body:has(#sazonais:target) a[href="#sazonais"],
+body:has(#orcamento:target) a[href="#orcamento"]{
+    anchor-name:--active-option;
+
+    color:#111827;
+}
+
+/* Botão música */
+    #botaoPlay {
+      background-color: #C44B4F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Poppins', sans-serif;
+      font-size: 14px;
+    }
 </style>
 </head>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <body>
 
-<header class="header-full">
-  <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
-</header>
+  <header class="header-full">
+   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias" class="logo-img">
+  </header>
 
+  <nav class="wrapper">
+    <a href="index.html#inicio" id="link-1">Início</a>
+    <a href="index.html#fixos" id="link-2">Fixos</a>
+    <a href="index.html#sazonais" id="link-3">Sazonais</a>
+    <a href="index.html#orcamento" id="link-4">Orçamento </a>
+  </nav>
+  <div>
 
-<nav class="mainnav">
-  <a href="index.html">Início</a>
-  <a href="index.html#fixos">Ensaios Fixos</a>
-  <a href="index.html#sazonais">Ensaios Sazonais</a>
-  <a href="index.html#orcamento">Orçamento</a>
-</nav>
-
-
-<div class="hero-img">
-  <img src="assets/ensaios/natal/hero.jpg" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <div class="hero-img">
+  <img src="assets/ensaios/natal/hero1.jpg" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="ph-fallback">
     <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/natal/hero.jpg</code></small></span>
   </div>
-</div>
+  </div>
 
-<div class="hero-titulo">
-  <h1>🎄 Natal</h1>
+  <div class="hero-titulo">
+  <h1>Natal</h1>
   <p>O ensaio mais aguardado do ano</p>
-</div>
-<section>
+  </div>
+  <section>
   <div class="bloco-frase">
     <h2>A magia do Natal em cada clique</h2>
     <p>Cenários encantadores, luzes e todo o clima natalino para eternizar esse momento tão especial com quem você ama. Um presente para guardar e relembrar todos os anos.</p>
@@ -108,12 +574,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     <h2>Feito com todo cuidado</h2>
     <p>Cada detalhe do cenário é pensado para criar uma atmosfera acolhedora e mágica, garantindo fotos lindas para toda a família — dos bebês aos avós.</p>
   </div>
-</section>
-<section class="como-funciona">
+  </section>
+  <section class="como-funciona">
   <h2 class="titulo-sec">Como funciona a sessão?</h2>
   <ul><li>Cenários natalinos exclusivos disponíveis no estúdio.</li><li>Duração aproximada de até 1 hora por sessão.</li><li>Escolha das fotos realizada logo após o término do ensaio.</li><li>Ideal para famílias, casais, crianças e bebês.</li></ul>
-</section>
-<section>
+  </section>
+  <!-- <section>
   <h2 class="titulo-sec">Cenários Disponíveis</h2>
   <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
   <div class="galeria">
@@ -129,8 +595,9 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
       <img src="assets/ensaios/natal/detalhes.jpg" alt="Detalhes Natalinos" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><span>🖼️ Detalhes Natalinos<br><small>Tag: detalhes.jpg</small></span></div>
     </div></div>
-</section>
-<section>
+  </section>
+-->
+  <section>
   <h2 class="titulo-sec">O que dizem nossos clientes</h2>
   
 <div class="depoimentos">
@@ -139,54 +606,138 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   <div class="depoimento">"Você é uma profissional abençoada, muito obrigada por tudo!"</div>
 </div>
 
-</section>
+  </section>
 
-        <section>
-          <h2 class="titulo-sec">Pacotes</h2>
+  <section id="pacotes" class="secao-pacotes">
+          <h2 class="titulo-sec">Coleções</h2>
           <p class="subtitulo-sec">Valores e condições</p>
           <div class="pacotes">
             <div class="pacote">
               
               <h3>Coleção 1</h3>
-              <div class="valor">R$ 240,00</div>
-              <ul><li>1 cenário de Natal</li><li>10 fotos digitais + reveladas 10x15</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Cole%C3%A7%C3%A3o%201%20-%20Natal" target="_blank">Escolher este pacote</a>
-            </div>
-            <div class="pacote">
-              
-              <h3>Coleção 2</h3>
-              <div class="valor">R$ 290,00</div>
-              <ul><li>1 cenário de Natal</li><li>15 fotos digitais + reveladas 10x15</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Cole%C3%A7%C3%A3o%202%20-%20Natal" target="_blank">Escolher este pacote</a>
+              <div class="valor">R$ 320,00</div>
+              <ul><li>10 fotos digitais e impressas 10x15</li><li>1 Cenário disponível no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 1%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div>
             <div class="pacote recomendado">
               <div class="selo">Recomendado</div>
-              <h3>Coleção 3</h3>
-              <div class="valor">R$ 340,00</div>
-              <ul><li>2 cenários (Família + Infantil)</li><li>12 fotos digitais + reveladas 10x15</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Cole%C3%A7%C3%A3o%203%20-%20Natal" target="_blank">Escolher este pacote</a>
+              <h3>Coleção 2</h3>
+              <div class="valor">R$ 420,00</div>
+              <ul><li>15 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 2%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div>
             <div class="pacote">
-              
+              <h3>Coleção 3</h3>
+              <div class="valor">R$ 550,00</div>
+              <ul><li>25 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 3%20-%20Natal" target="_blank">Escolher este pacote</a>
+            </div>
+            <div class="pacote">
               <h3>Coleção 4</h3>
-              <div class="valor">R$ 420,00</div>
-              <ul><li>2 cenários (Família + Infantil)</li><li>20 fotos digitais + reveladas 10x15</li></ul>
-              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Cole%C3%A7%C3%A3o%204%20-%20Natal" target="_blank">Escolher este pacote</a>
+              <div class="valor">R$ 675,00</div>
+              <ul><li>30 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>3 Cenários disponíveis no estúdio</li></ul>
+              <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 4%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div></div>
-        </section>
-<section>
-  <div class="info-extra"><h4>📅 Informações importantes</h4><ul><li>🎁 Ao fechar qualquer coleção de Natal, você ganha um Calendário Personalizado com Ímã (20x30cm)!</li><li>O tempo de ensaio é de até 1 hora.</li><li>As fotos serão escolhidas logo após o término da sessão.</li><li>Prazo de entrega das fotos digitais: até 7 dias úteis.</li><li>Atrasos influenciam diretamente no tempo de ensaio (descontados do tempo de sessão).</li><li>Formas de pagamento: Cartão (até 10x com taxa), Dinheiro ou Pix (consultar chave atualizada).</li><li>Reserva mediante sinal de R$ 100,00. Restante no dia da sessão.</li></ul></div>
+  </section>
+  <section>
+  <section>
+  <div class="info-extra">
+    <h4>📅 Informações importantes</h4>
+    <ul>
+      <li><strong>Tolerância e Pontualidade:</strong> Pedimos que cheguem no horário agendado para garantir o bom aproveitamento do tempo de sessão e da escolha das fotos.</li>
+      <li><strong>Figurinos e Roupas:</strong> Contamos com opções de figurino no estúdio, mas também recomendamos trazer roupas próprias em tons que combinem com o cenário (vermelho, verde-musgo, dourado, bege, branco ou xadrez).</li>
+      <li><strong>Participação da Família:</strong> Pais e irmãos estão super convidados a participar da sessão fotográfica!</li>
+      <li><strong>Maquiagem e Penteado:</strong> Produção contratada à parte (consulte disponibilidade prévia).</li>
+      <li><strong>Reserva de Data:</strong> Agendamento mediante sinal de R$100,00 (valor descontado do pacote escolhido, não reembolsável em caso de cancelamento).</li>
+      <li><strong>Entrega das Fotos:</strong> Escolha realizada logo após a sessão e entrega final das fotos editadas em até 7 dias úteis.</li>
+    </ul>
+  </div>
 </section>
-<section class="cta-final">
+  </section>
+  <section class="cta-final">
   <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
   <p>Entre em contato e garanta sua data.</p>
-  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Natal" target="_blank">💬 Falar no WhatsApp</a>
-</section>
+  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Gestante" target="_blank">
+    <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+     Falar no WhatsApp
+  </a>
+  </section>
 
-<footer class="rodape">
+  <section>
+    <div class="contato-box">
+    <a
+      class="localizacao-estudio"
+      href="https://www.google.com/maps/search/?api=1&query=Rua%20Don%C3%A1%20Aquilina%20Fachini%2C%20552%2C%20Jardim%20F%C3%A1tima%2C%20Araras%2C%20SP"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir localização do estúdio no Google Maps">
+    <span class="pin-mapa" aria-hidden="true">
+    <span class="pin-centro"></span>
+    </span>
+
+    <span>
+    <strong>Estúdio em Araras/SP</strong><br>
+    <small>Rua Doná Aquilina Fachini, 552 — Jd. Fátima</small>
+    </span>
+    </a>
+    <p>📞 (19) 9 8228-0460</p>
+    <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i>  @duarte_danny_fotografias_</a></p>
+    <p><a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
+      <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
+       Falar no WhatsApp
+    </a></p>
+  </div>
+  </section>
+  <section>
+      <!-- Música -->
+    <div style="text-align:center; margin-top: 30px;">
+      <audio id="musicaNatal" loop>
+        <source src="https://ia803106.us.archive.org/18/items/DisneyChristmasCollection/07%20Silent%20Night.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio HTML5.
+      </audio>
+      <button id="botaoPlay" class="botao" style="cursor: pointer;">⏸️ Pausar música</button>
+    </div>
+  </section>
+
+  <!-- Script para tocar a música ao abrir -->
+  <script>
+    const musica = document.getElementById('musicaNatal');
+    musica.volume = 0.5; // Volume inicial
+    const botao = document.getElementById('botaoPlay');
+    let tocando = true;
+
+    // Tenta reproduzir automaticamente assim que a página carregar
+    window.addEventListener('DOMContentLoaded', () => {
+      musica.play().then(() => {
+        // Se o navegador permitiu o autoplay sem interação
+        tocando = true;
+        botao.textContent = '⏸️ Pausar música';
+      }).catch(() => {
+        // Se o navegador bloqueou o autoplay, ajusta o estado para pausado
+        // até que o usuário clique no botão ou na página
+        tocando = false;
+        botao.textContent = '🎵 Tocar música de Natal';
+      });
+    });
+
+    // Controle do botão de play/pause
+    botao.addEventListener('click', () => {
+      if (!tocando) {
+        musica.play();
+        botao.textContent = '⏸️ Pausar música';
+        tocando = true;
+      } else {
+        musica.pause();
+        botao.textContent = '🎵 Tocar música de Natal';
+        tocando = false;
+      }
+    });
+  </script>
+
+  <footer class="rodape">
   <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-  <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank">Instagram</a> · (19) 9 8228-0460 · Araras/SP</p>
-</footer>
-
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
+  </footer>
 </body>
 </html>

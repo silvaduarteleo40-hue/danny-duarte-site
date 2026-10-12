@@ -337,13 +337,17 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 @import url("https://fonts.bunny.net/css?family=jura:300,500");
 
 .wrapper{
+    display: inline-flex;
     position:center;
     justify-content:center;
     place-items:center;
 
+    width: max-content;
+    max-width: calc(100% - 32px);
+    margin: 16px auto;
+
     padding:2px;
     border-radius:100px;
-
     background:#dde5ec;
 
     box-shadow:
@@ -363,6 +367,12 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
     z-index:100;
 }
 
+nav.wrapper{
+  display: flex;
+  width: max-content;
+  margin-left: auto;
+  margin-right: auto;
+}
 .wrapper::before,
 .wrapper::after{
     content:"";
@@ -448,9 +458,10 @@ nav a:hover{
 body:has(#inicio:target) a[href="#inicio"],
 body:has(#fixos:target) a[href="#fixos"],
 body:has(#sazonais:target) a[href="#sazonais"],
-body:has(#orcamento:target) a[href="#orcamento"]{
-    anchor-name:--active-option;
+body:has(#orcamento:target) a[href="#orcamento"]
 
+{
+    anchor-name:--active-option;
     color:#111827;
 }
 
@@ -463,19 +474,11 @@ body:has(#orcamento:target) a[href="#orcamento"]{
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
 </header>
 
-<!--
-<nav class="mainnav">  
-  <a href="index.html">Início</a>
-  <a href="index.html#fixos">Ensaios Fixos</a>
-  <a href="index.html#sazonais">Ensaios Sazonais</a>
-  <a href="index.html#orcamento">Orçamento</a>
-</nav> -->
-
 </div>
   <nav class="wrapper">
     <a href="index.html#inicio" id="link-1">Início</a>
-    <a href="index.html#fixos" id="link-2">Ensaios Fixos</a>
-    <a href="index.html#sazonais" id="link-3">Ensaios Sazonais</a>
+    <a href="index.html#fixos" id="link-2">Fixos</a>
+    <a href="index.html#sazonais" id="link-3">Sazonais</a>
     <a href="index.html#orcamento" id="link-4">Orçamento</a>
   </nav>
 <div>
