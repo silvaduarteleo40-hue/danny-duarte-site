@@ -49,7 +49,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
-.hero-img{margin:0 auto;max-width:1200px;height:620px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
+.hero-img{margin:0 auto;max-width:1200px;height:620px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;box-shadow: 6px 12px 26px royalblue; transition: transform 0.3s ease, box-shadow 0.3s ease;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
 .ph-fallback span{max-width:80%;font-size:14px;font-weight:600;line-height:1.6;}
@@ -66,10 +66,52 @@ section{padding:45px 20px;max-width:1000px;margin:0 auto;}
 .como-funciona ul{list-style:none;padding:0;font-size:14px;line-height:1.9;max-width:720px;margin:0 auto;}
 .como-funciona ul li{padding-left:24px;position:relative;margin-bottom:8px;}
 .como-funciona ul li:before{content:"✓";position:absolute;left:0;color:var(--destaque);font-weight:700;}
-.galeria{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:18px;margin-top:20px;}
-.galeria .foto-wrap{aspect-ratio:3/4;border-radius:14px;overflow:hidden;position:relative;}
-.galeria .foto-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
-.galeria .ph{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;border-radius:14px;border:3px dashed #d8bdb7;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 16px,#eee0dc 16px,#eee0dc 32px);color:#a9908c;font-size:12.5px;font-weight:600;padding:10px;}
+.galeria {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.galeria .foto-wrap {
+  aspect-ratio: 3/4;
+  border-radius: 14px;
+  position: relative;
+  /* Sombra elegante e visível ao redor da moldura */
+  box-shadow: 0 10px 25px rosybrown;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Efeito de destaque suave ao passar o mouse */
+.galeria .foto-wrap:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 15px 32px var(--rosa-forte);
+}
+
+.galeria .foto-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  border-radius: 14px;
+}
+
+.galeria .ph {
+  display: none;
+  width: 100%;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  border-radius: 14px;
+  border: 3px dashed #d8bdb7;
+  background: repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 16px,#eee0dc 16px,#eee0dc 32px);
+  color: #a9908c;
+  font-size: 12.5px;
+  font-weight: 600;
+  padding: 10px;
+}
+
 .depoimentos{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:18px;}
 .depoimento{background:#fff;border-radius:16px;padding:20px;font-size:13px;font-style:italic;box-shadow:0 6px 18px rgba(0,0,0,.06);color:#7a6f6b;}
 .pacotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:15px;margin-top:10px;}
@@ -546,16 +588,16 @@ body:has(#pacotes:target) a[href="#pacotes"]{
    <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias" class="logo-img">
   </header>
 
-  <nav class="wrapper">
+  <!--<nav class="wrapper">
     <a href="natal.html#comeco" id="link-1">Início</a>
-   <!-- <a href="index.html#fixos" id="link-2">Fixos</a> -->
-   <!-- <a href="index.html#sazonais" id="link-3">Sazonais</a> -->
+    <a href="index.html#fixos" id="link-2">Fixos</a> 
+    <a href="index.html#sazonais" id="link-3">Sazonais</a> 
     <a href="natal.html#pacotes" id="link-4">Orçamento </a>
-  </nav>
+  </nav>-->
   <div>
 
   <div class="hero-img">
-  <img src="assets/ensaios/natal/hero1.jpg" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <img src="assets/ensaios/natal/hero0.png" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="ph-fallback">
     <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/natal/hero.jpg</code></small></span>
   </div>
@@ -579,24 +621,32 @@ body:has(#pacotes:target) a[href="#pacotes"]{
   <h2 class="titulo-sec">Como funciona a sessão?</h2>
   <ul><li>Cenários natalinos exclusivos disponíveis no estúdio.</li><li>Duração aproximada de até 1 hora por sessão.</li><li>Escolha das fotos realizada logo após o término do ensaio.</li><li>Ideal para famílias, casais, crianças e bebês.</li></ul>
   </section>
-  <!-- <section>
+  <section>
   <h2 class="titulo-sec">Cenários Disponíveis</h2>
-  <p class="subtitulo-sec">Galeria (aguardando fotos editadas — substitua os arquivos com o mesmo nome no GitHub)</p>
+  <p class="subtitulo-sec">Galeria de Cenários</p>
   <div class="galeria">
     <div class="foto-wrap">
-      <img src="assets/ensaios/natal/cenario-familia.jpg" alt="Cenário Família" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Cenário Família<br><small>Tag: cenario-familia.jpg</small></span></div>
+      <img src="assets/ensaios/natal/cenario-1.jpeg" alt="Cenário 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><small>Tag: cenario-1.jpeg</small></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/natal/cenario-infantil.jpg" alt="Cenário Infantil" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Cenário Infantil<br><small>Tag: cenario-infantil.jpg</small></span></div>
+      <img src="assets/ensaios/natal/cenario-2.jpeg" alt="Cenário 2" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><small>Tag: cenario-2.jpeg</small></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/natal/detalhes.jpg" alt="Detalhes Natalinos" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><span>🖼️ Detalhes Natalinos<br><small>Tag: detalhes.jpg</small></span></div>
+      <img src="assets/ensaios/natal/cenario-3.jpeg" alt="Cenário 3" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><small>Tag: cenario-3.jpeg</small></div>
+    </div>
+    <div class="foto-wrap">
+      <img src="assets/ensaios/natal/cenario-4.jpeg" alt="Cenário 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><small>Tag: cenario-4.jpeg</small></div>
+    </div>
+    <div class="foto-wrap">
+      <img src="assets/ensaios/natal/cenario-5.jpeg" alt="Cenário 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <div class="ph"><small>Tag: cenario-5.jpeg</small></div>
     </div></div>
   </section>
--->
+
   <section>
   <h2 class="titulo-sec">O que dizem nossos clientes</h2>
   
