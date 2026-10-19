@@ -1,0 +1,9 @@
+Fonts used in this design:
+
+Font: Great Vibes
+Author: TypeSETit
+Url: https://fonts.google.com/specimen/Great+Vibes
+
+Font: Montserrat
+Author: Julieta Ulanovsky,Sol Matas,Juan Pablo del Peral,Jacques Le Bailly
+Url: https://fonts.google.com/specimen/Montserrat

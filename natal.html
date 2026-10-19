@@ -13,9 +13,11 @@
 *{box-sizing:border-box;}
 body {
     background-color: #faf7f2; /* Cor de fundo creme */
-    background-image: url('assets/background/bg2.jpg'); /* Se tiver uma imagem de textura */
-    background-repeat: repeat; /* Repete a textura pela página toda */
+    background-image:
+        url('assets/background/bg2.jpg'); /* Duas camadas para disfarçar a costura da repetição */
+    background-repeat: repeat;
     background-size: contain;
+    background-blend-mode: overlay; /* Mistura com o fundo creme e uniformiza o tom */
 }
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 
@@ -49,7 +51,7 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
 nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
 nav.mainnav a:hover{color:var(--destaque);}
-.hero-img{margin:0 auto;max-width:1200px;height:620px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;box-shadow: 0 4px 12px 10px rgba(218, 165, 32, 0.3) ; transition: transform 0.3s ease, box-shadow 0.3s ease;}
+.hero-img{margin:0 auto;max-width:1260px;height:860px;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;box-shadow: 0 4px 12px 10px rgba(218, 165, 32, 0.3) ; transition: transform 0.3s ease, box-shadow 0.3s ease;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
 .ph-fallback span{max-width:80%;font-size:14px;font-weight:600;line-height:1.6;}
@@ -153,7 +155,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .aviso-precos{background:var(--lavanda);border-radius:12px;padding:14px 20px;font-size:13px;margin:25px auto;max-width:620px;text-align:center;}
 @media(max-width:768px) {
   nav.mainnav{gap:12px;font-size:11px;} 
- .hero-img{height:300px;} 
+ .hero-img{height:250px;} 
  .header-full {height:160px;} 
  .header-full img.logo-img,
  .header-full img {max-width: 180px !important; max-height: 100px !important;
@@ -588,23 +590,15 @@ body:has(#pacotes:target) a[href="#pacotes"]{
    <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias" class="logo-img">
   </header>
 
-  <!--<nav class="wrapper">
-    <a href="natal.html#comeco" id="link-1">Início</a>
-    <a href="index.html#fixos" id="link-2">Fixos</a> 
-    <a href="index.html#sazonais" id="link-3">Sazonais</a> 
-    <a href="natal.html#pacotes" id="link-4">Orçamento </a>
-  </nav>-->
-  <div>
-
   <div class="hero-img">
-  <img src="assets/ensaios/natal/hero0.png" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  <img src="assets/ensaios/natal/hero0.jpg" alt="Ensaio Natal" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
   <div class="ph-fallback">
     <span>🖼️ Imagem de abertura ainda não enviada<br><small>Tag: <code>assets/ensaios/natal/hero.jpg</code></small></span>
   </div>
   </div>
 
   <div class="hero-titulo">
-  <h1>Natal</h1>
+  <h1>Sala de Natal</h1>
   <p>O ensaio mais aguardado do ano</p>
   </div>
   <section>
@@ -638,26 +632,12 @@ body:has(#pacotes:target) a[href="#pacotes"]{
       <div class="ph"><small>Tag: cenario-3.jpeg</small></div>
     </div>
     <div class="foto-wrap">
-      <img src="assets/ensaios/natal/cenario-4.jpeg" alt="Cenário 4" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
-      <div class="ph"><small>Tag: cenario-4.jpeg</small></div>
-    </div>
-    <div class="foto-wrap">
-      <img src="assets/ensaios/natal/cenario-5.jpeg" alt="Cenário 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+      <img src="assets/ensaios/natal/cenario-4.jpeg" alt="Cenário 5" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
       <div class="ph"><small>Tag: cenario-5.jpeg</small></div>
     </div></div>
   </section>
 
-  <section>
-  <h2 class="titulo-sec">O que dizem nossos clientes</h2>
-  
-<div class="depoimentos">
-  <div class="depoimento">"Amei cada foto, cada registro incrível. Você nos deixa à vontade, muito obrigada pela profissional que você é!"</div>
-  <div class="depoimento">"As fotos ficaram perfeitas."</div>
-  <div class="depoimento">"Você é uma profissional abençoada, muito obrigada por tudo!"</div>
-</div>
-
-  </section>
-
+ 
   <section id="pacotes" class="secao-pacotes">
           <h2 class="titulo-sec">Coleções</h2>
           <p class="subtitulo-sec">Valores e condições</p>
@@ -665,30 +645,30 @@ body:has(#pacotes:target) a[href="#pacotes"]{
             <div class="pacote">
               
               <h3>Coleção 1</h3>
-              <div class="valor">R$ 320,00</div>
-              <ul><li>10 fotos digitais e impressas 10x15</li><li>1 Cenário disponível no estúdio</li></ul>
+              <div class="valor">R$ 220,00</div>
+              <ul><li>12 fotos digitais</li><li>Fotos impressas 10x15</li><li>1 Cenário disponível no estúdio</li></ul>
               <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 1%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div>
             <div class="pacote recomendado">
               <div class="selo">Recomendado</div>
               <h3>Coleção 2</h3>
-              <div class="valor">R$ 420,00</div>
-              <ul><li>15 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <div class="valor">R$ 310,00</div>
+              <ul><li>18 fotos digitais <li>Fotos impressas 10x15</li><li>1 Cenário disponível no estúdio</li></ul>
               <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 2%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div>
             <div class="pacote">
               <h3>Coleção 3</h3>
-              <div class="valor">R$ 550,00</div>
-              <ul><li>25 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>2 Cenários disponíveis no estúdio</li></ul>
+              <div class="valor">R$ 400,00</div>
+              <ul><li>24 fotos digitais <li>Fotos impressas 10x15</li><li>2 Cenários disponíveis no estúdio</li></ul>
               <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 3%20-%20Natal" target="_blank">Escolher este pacote</a>
             </div>
-            <div class="pacote">
+            <!-- <div class="pacote">
               <h3>Coleção 4</h3>
               <div class="valor">R$ 675,00</div>
               <ul><li>30 fotos digitais e impressas 10x15</li><li>1 pôster 30x40</li><li>3 figurinos</li><li>3 Cenários disponíveis no estúdio</li></ul>
               <a class="botao" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20reservar%20o%20Pacote%20Coleção 4%20-%20Natal" target="_blank">Escolher este pacote</a>
-            </div></div>
-  </section>
+            </div></div> -->
+  </section>/
   <section>
   <section>
   <div class="info-extra">
@@ -700,6 +680,8 @@ body:has(#pacotes:target) a[href="#pacotes"]{
       <li><strong>Maquiagem e Penteado:</strong> Produção contratada à parte (consulte disponibilidade prévia).</li>
       <li><strong>Reserva de Data:</strong> Agendamento mediante sinal de R$100,00 (valor descontado do pacote escolhido, não reembolsável em caso de cancelamento).</li>
       <li><strong>Entrega das Fotos:</strong> Escolha realizada logo após a sessão e entrega final das fotos editadas em até 7 dias úteis.</li>
+      <li><strong>Fotos Extras:</strong> Para Guardar ainda mais lembranças especiais, você pode adquirir fotos extras por <strong>R$15,00</strong> cada.</li>
+      <li><strong>Produto adicional - Calendário Personalizado:</strong>Calendário Personalizado com foto do ensaio de Natal: <strong>R$25,00 por unidade.</strong></li>
     </ul>
   </div>
 </section>
@@ -707,7 +689,7 @@ body:has(#pacotes:target) a[href="#pacotes"]{
   <section class="cta-final">
   <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
   <p>Entre em contato e garanta sua data.</p>
-  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20Gestante" target="_blank">
+  <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20de%20Natal%202026" target="_blank">
     <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
      Falar no WhatsApp
   </a>
@@ -732,10 +714,7 @@ body:has(#pacotes:target) a[href="#pacotes"]{
     </a>
     <p>📞 (19) 9 8228-0460</p>
     <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i>  @duarte_danny_fotografias_</a></p>
-    <p><a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank">
-      <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;vertical-align:middle;margin-right:8px;">
-       Falar no WhatsApp
-    </a></p>
+    
   </div>
   </section>
   <section>
