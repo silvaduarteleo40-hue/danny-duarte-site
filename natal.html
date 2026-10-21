@@ -4,6 +4,7 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Natal | Danny Duarte Fotografias</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;700&family=Poppins:wght@300;400;600&display=swap');
 
@@ -117,7 +118,6 @@ section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; }
 .como-funciona ul { list-style: none; padding: 0; font-size: 14px; line-height: 1.9; max-width: 720px; margin: 0 auto; }
 .como-funciona ul li { padding-left: 24px; position: relative; margin-bottom: 8px; }
 .como-funciona ul li:before { content: "✓"; position: absolute; left: 0; color: var(--verde-oliva); font-weight: 700; }
-
 .galeria {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
@@ -196,11 +196,136 @@ section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; }
   transform: translateY(-2px);
 }
 
+.botao-secundario{display:inline-flex;align-items:center;justify-content:center;gap: 10px;background:var(--vermelho-natal);color:#fff;padding:14px 34px;border-radius:30px;text-decoration:none;font-size:15px;font-weight:600;margin-top:10px;}
+
 .cta-final { background: #f4ece1; border-radius: 20px; padding: 40px 25px; max-width: 650px; margin: 30px auto; text-align: center; border: 1px solid #e3d5c6; }
+
+/* LOCALIZAÇÃO COM PIN ANIMADO */
+.localizacao-estudio {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+
+  margin: 12px auto;
+  padding: 12px 18px;
+
+  color: #6b5a56;
+  text-align: left;
+  text-decoration: none;
+
+  background: #fff;
+  border: 1px solid #f0ddd8;
+  border-radius: 16px;
+  box-shadow: 0 8px 18px rgba(91, 72, 68, 0.06);
+}
+
+.localizacao-estudio strong {
+  display: inline-block;
+  color: #6b5a56;
+  font-size: 13px;
+}
+
+.localizacao-estudio small {
+  color: #938581;
+  font-size: 11px;
+}
+
+/* Pin desenhado em CSS */
+.pin-mapa {
+  position: relative;
+  display: inline-flex;
+  flex: 0 0 auto;
+  width: 28px;
+  height: 28px;
+
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 50% 50% 50% 0;
+  background: var(--destaque);
+  transform: rotate(-45deg);
+  animation: pinPula 2s ease-in-out infinite;
+}
+
+/* Círculo branco central */
+.pin-centro {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #fff;
+  transform: rotate(45deg);
+}
+
+/* Sombra/onda abaixo do pin */
+.pin-mapa::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -22px;
+
+  width: 20px;
+  height: 6px;
+
+  border-radius: 50%;
+  background: rgba(92, 86, 82, 0.18);
+
+  transform: translateX(-50%) rotate(45deg);
+  animation: sombraPin 2s ease-in-out infinite;
+}
+
+@keyframes pinPula {
+  0%, 100% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+
+  45% {
+    transform: rotate(-45deg) translate(0, -7px);
+  }
+
+  60% {
+    transform: rotate(-45deg) translate(0, 0);
+  }
+}
+
+@keyframes sombraPin {
+  0%, 100% {
+    opacity: .45;
+    transform: translateX(-50%) rotate(45deg) scale(1);
+  }
+
+  45% {
+    opacity: .12;
+    transform: translateX(-50%) rotate(45deg) scale(.65);
+  }
+}
+
+.localizacao-estudio:hover {
+  border-color: var(--rosa-forte);
+  transform: translateY(-2px);
+  transition: .25s ease;
+}
+
+/* Respeita pessoas que preferem usar animações */
+@media (prefers-reduced-motion: reduce) {
+  .pin-mapa,
+  .pin-mapa::after {
+    animation: none;
+  }
+}
+
+@import url("https://fonts.bunny.net/css?family=jura:300,500");
 
 .contato-box { background: #fff; border-radius: 20px; padding: 30px 25px; max-width: 600px; margin: 0 auto; box-shadow: 0 6px 18px rgba(0,0,0,.06); text-align: center; }
 .contato-box p { font-size: 14px; margin: 8px 0; }
-.contato-box a { color: var(--marrom-madeira); text-decoration: none; font-weight: 600; }
+.contato-box a { color: var(--creme-base); text-decoration: none; font-weight: 600; }
+.fa-instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-size: 1.2rem;
+}
 
 /* Seção da Paleta de Cores Inspirada na Imagem */
 .secao-paleta {
@@ -433,15 +558,28 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
     </a>
   </section>
 
-  <section>
-    <div class="contato-box">
-      <p>📍 <strong>Estúdio em Araras/SP</strong><br><small>Rua Doná Aquilina Fachini, 552 — Jd. Fátima</small></p>
-      <p>📞 (19) 9 8228-0460</p>
-      <p><a href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i> @duarte_danny_fotografias_</a></p>
-    </div>
-  </section>
+  <div class="contato-box">
+    <a
+      class="localizacao-estudio"
+      href="https://www.google.com/maps/search/?api=1&query=Rua%20Don%C3%A1%20Aquilina%20Fachini%2C%20552%2C%20Jardim%20F%C3%A1tima%2C%20Araras%2C%20SP"
+      target="_blank"
+      rel="noopener"
+      aria-label="Abrir localização do estúdio no Google Maps">
+    <span class="pin-mapa" aria-hidden="true">
+    <span class="pin-centro"></span>
+    </span>
 
-  <section>
+    <span>
+    <strong>Estúdio em Araras/SP</strong><br>
+    <small>Rua Doná Aquilina Fachini, 552 — Jd. Fátima</small>
+    </span>
+    </a>
+    <p>📞 (19) 9 8228-0460</p>
+    <p><a class="botao-secundario" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank"><i class="fab fa-instagram"></i> @duarte_danny_fotografias_</a></p>
+    
+  </div>
+</section>
+
     <!-- Música -->
     <div style="text-align:center; margin-top: 10px;">
       <audio id="musicaNatal" loop>
@@ -482,10 +620,9 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
     });
   </script>
 
-  <footer class="rodape">
-    <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
-    <p>Desenvolvido por <a href="https://www.instagram.com/leonard_silva40" target="_blank">@leonard_silva40</a></p>
-    <p><i class="fab fa-instagram"></i> (19) 9 8605-1683 · Araras/SP</p>
-  </footer>
-</body>
+<footer class="rodape">
+  <p>Danny Duarte Fotografias &copy; 2026 &ndash; As Suas Melhores Recordações</p>
+  <p>desenvolvido por </i> @leonard_silva40</a></p>
+  <p><a href="https://www.instagram.com/leonard_silva40" target="_blank"><i class="fab fa-instagram"></i> Instagram</a> · (19) 9 8605-1683 · Araras/SP</p>
+</footer></body>
 </html>
