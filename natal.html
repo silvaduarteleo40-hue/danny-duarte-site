@@ -319,6 +319,33 @@ section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; }
 .contato-box { background: #fff; border-radius: 20px; padding: 30px 25px; max-width: 600px; margin: 0 auto; box-shadow: 0 6px 18px rgba(0,0,0,.06); text-align: center; }
 .contato-box p { font-size: 14px; margin: 8px 0; }
 .contato-box a { color: var(--creme-base); text-decoration: none; font-weight: 600; }
+.card-cintilante {
+  padding: 24px;
+  border-radius: 12px;
+  
+  /* Borda sutil para dar acabamento */
+  border: 1px solid rgba(218, 165, 32, 0.4); 
+  
+  /* Aplica a animação chamada "cintilar" com duração de 2 segundos de forma infinita */
+  animation: cintilar 2s infinite alternate ease-in-out;
+}
+
+/* Configuração do efeito de luz pulsante */
+@keyframes cintilar {
+  0% {
+    box-shadow: 
+      0 0 4px rgba(218, 165, 32, 0.2),
+      0 0 12px rgba(218, 165, 32, 0.2),
+      inset 0 0 4px rgba(218, 165, 32, 0.1);
+  }
+  100% {
+    box-shadow: 
+      0 0 12px rgba(218, 165, 32, 0.6),  /* Brilho externo sutil */
+      0 0 28px rgba(218, 165, 32, 0.4),  /* Expansão da aura dourada */
+      inset 0 0 12px rgba(218, 165, 32, 0.3); /* Brilho suave para dentro do card */
+  }
+}
+
 .fa-instagram {
   background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
   background-clip: text;
@@ -549,7 +576,7 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
     </div>
   </section>
 
-  <section class="cta-final">
+  <section class="cta-final card-cintilante">
     <h2 class="titulo-sec">Vamos agendar seu ensaio?</h2>
     <p>Entre em contato e garanta sua data.</p>
     <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20agendar%20o%20ensaio%20de%20Natal%202026" target="_blank">
