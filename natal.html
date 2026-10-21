@@ -64,7 +64,7 @@ h1, h2, h3 {
 .hero-img {
   margin: 0 auto;
   max-width: 1260px;
-  height: 920px;
+  height: 720px; /* Reduzido de 860px para um formato bem mais panorâmico */
   border-radius: 20px;
   overflow: hidden;
   position: relative;
@@ -75,8 +75,8 @@ h1, h2, h3 {
 
 .hero-img img {
   width: 100%;
-  height: 100%;
-  object-fit: cover;
+  height: 120%;
+  object-fit: justify; /* Ajuste para manter a proporção da imagem */
   display: block;
 }
 
@@ -260,9 +260,18 @@ section { padding: 45px 20px; max-width: 1000px; margin: 0 auto; }
 footer.rodape { text-align: center; padding: 26px 20px; background: var(--bordeaux-elegancia); color: #f5f0eb; font-size: 12.5px; margin-top: 40px; }
 footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
 
-@media(max-width:768px) {
- .hero-img { height: 350px; } 
- .header-full { height: 160px; } 
+@media(max-width: 768px) {
+  .hero-img { 
+    height: 250px; /* Mantém menor e panorâmico no celular */
+  } 
+  .header-full { 
+    height: 160px; 
+  } 
+  .header-full img.logo-img,
+  .header-full img {
+    max-width: 180px !important; 
+    max-height: 100px !important;
+  }
 }
 </style>
 </head>
@@ -280,8 +289,8 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
   </div>
 
   <div class="hero-titulo">
-    <h1>Sala de Natal</h1>
-    <p>O ensaio mais aguardado do ano</p>
+    <h1>O Melhor Presente é Estar Junto</h1>
+    <p>Natal - Onde o Amor se Encontra</p>
   </div>
 
   <section>
@@ -306,8 +315,8 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
   </section>
 
   <section>
-    <h2 class="titulo-sec">Cenários Disponíveis</h2>
-    <p class="subtitulo-sec">Galeria de Cenários</p>
+    <h2 class="titulo-sec">Galeria de Fotos</h2>
+    <p class="subtitulo-sec"></p>
     <div class="galeria">
       <div class="foto-wrap">
         <img src="assets/ensaios/natal/cenario-1.jpeg" alt="Cenário 1" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
@@ -394,7 +403,7 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
       </div>
       <div class="paleta-item">
         <div class="circulo" style="background: #800020;"></div>
-        <div class="paleta-nome">Bordeaux <span>(Elegância)</span></div>
+        <div class="paleta-nome">Bordô <span>(Elegância)</span></div>
       </div>
     </div>
   </section>
@@ -404,7 +413,7 @@ footer.rodape a { color: #f5f0eb; text-decoration: none; font-weight: 600; }
       <h4>📅 Informações importantes</h4>
       <ul>
         <li><strong>Tolerância e Pontualidade:</strong> Pedimos que cheguem no horário agendado para garantir o bom aproveitamento do tempo de sessão e da escolha das fotos.</li>
-        <li><strong>Figurinos e Roupas:</strong> Contamos com opções de figurino no estúdio, mas também recomendamos trazer roupas próprias em tons que combinem com o cenário (vermelho, verde-musgo, dourado, bege, branco ou xadrez).</li>
+        <li><strong>Figurinos e Roupas:</strong> Recomendamos trazer roupas próprias em tons que combinem com o cenário (Creme, Bege, Marrom, Verde Musgo, Vermelho, Bordô).</li>
         <li><strong>Participação da Família:</strong> Pais e irmãos estão super convidados a participar da sessão fotográfica!</li>
         <li><strong>Maquiagem e Penteado:</strong> Produção contratada à parte (consulte disponibilidade prévia).</li>
         <li><strong>Reserva de Data:</strong> Agendamento mediante sinal de R$100,00 (valor descontado do pacote escolhido, não reembolsável em caso de cancelamento).</li>
