@@ -705,15 +705,17 @@ section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
   align-items: center;
   justify-content: center;
   gap: 10px;
+  max-width: 100%;
   background: var(--destaque);
   color: #fff !important;
-  padding: 14px 34px;
+  padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
   font-size: 15px;
   font-weight: 600;
   margin-top: 10px;
   transition: 0.3s ease;
+  word-break: break-word;
 }
 
 .botao-secundario:hover {
@@ -764,6 +766,7 @@ section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
   align-items: center;
   justify-content: center;
   gap: 13px;
+  max-width: 100%;
   margin: 12px auto;
   padding: 12px 18px;
   color: #6b5a56;
@@ -812,13 +815,13 @@ section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
 .pin-mapa::after {
   content: "";
   position: absolute;
-  left: 50%;
-  bottom: -22px;
-  width: 20px;
-  height: 6px;
+  left: -12px;
+  bottom: -8px;
+  width: 18px;
+  height: 5px;
   border-radius: 50%;
   background: rgba(92, 86, 82, 0.18);
-  transform: translateX(-50%) rotate(45deg);
+  transform: rotate(45deg);
   animation: sombraPin 2s ease-in-out infinite;
 }
 
@@ -827,7 +830,7 @@ section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
     transform: rotate(-45deg) translate(0, 0);
   }
   45% {
-    transform: rotate(-45deg) translate(0, -7px);
+    transform: rotate(-45deg) translate(5px, -5px);
   }
   60% {
     transform: rotate(-45deg) translate(0, 0);
@@ -837,11 +840,11 @@ section { padding: 40px 20px; max-width: 1000px; margin: 0 auto; }
 @keyframes sombraPin {
   0%, 100% {
     opacity: .45;
-    transform: translateX(-50%) rotate(45deg) scale(1);
+    transform: rotate(45deg) scale(1);
   }
   45% {
     opacity: .12;
-    transform: translateX(-50%) rotate(45deg) scale(.65);
+    transform: rotate(45deg) scale(.65);
   }
 }
 
@@ -922,6 +925,19 @@ footer.rodape a {
   .cuidado-bebe {
     flex-direction: column;
     text-align: center;
+  }
+  .contato-box {
+    padding: 24px 16px;
+  }
+  .localizacao-estudio {
+    width: 100%;
+    padding: 12px 14px;
+  }
+  .botao-secundario {
+    width: 100%;
+    padding: 12px 14px;
+    font-size: 13px;
+    gap: 8px;
   }
 }
 </style>
