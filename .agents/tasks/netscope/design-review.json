@@ -1,0 +1,154 @@
+{
+  "verdict": "NETSCOPE_DESIGN_CHANGES_REQUESTED",
+  "counts": { "HIGH": 2, "MEDIUM": 8, "NIT": 11 },
+  "reviewDoc": "design-review.md",
+  "findings": [
+    {
+      "id": 1,
+      "severity": "HIGH",
+      "location": "§5 Step 1 (ipconfig parse + \"(Preferred)\" strip), §5 Step 2 (arp -a regex), §9 (IP/MAC validation), §8 (NO_ADAPTER)",
+      "problem": "Discovery parses English string literals from Windows commands. VERIFIED on the user's actual machine (Portuguese Windows) that none match: ipconfig uses 'Endereço IPv4'/'Máscara de Sub-rede'/'Gateway Padrão'/'Descrição' (not 'IPv4 Address'/'Subnet Mask'/'Default Gateway'/'Description'); section headers are 'Adaptador Ethernet'/'Adaptador de Rede sem Fio' (not 'Ethernet adapter'); arp -a type is 'dinâmico' (not 'dynamic'); the suffix is '(Preferencial)' with NO leading space (not ' (Preferred)'); and the gateway field spans multiple lines (IPv6 link-local on line 1, IPv4 on a continuation line). Result: the ipconfig parser finds no adapter -> NO_ADAPTER on every scan, and even if it parsed, the ARP regex anchors on 'dynamic' which matches nothing -> all MACs are null -> the device model (keyed/diffed by MAC) collapses. The core feature breaks on every non-English Windows install, including the user's.",
+      "fix": "Drop English-label parsing. Use Node's os.networkInterfaces() (locale-independent) for localIp/netmask/MAC, applying the existing virtual-NIC and private-range filters. Derive the gateway from the default route via 'route print -4' / 'netstat -r -4' — the row with destination 0.0.0.0 has a numeric gateway IP (not localized) and fixes the multi-line issue. Compute CIDR via countSetBits(netmask). For ARP, replace the 'dynamic'-anchored regex with a locale-independent pattern /^\\s+(\\d{1,3}(?:\\.\\d{1,3}){3})\\s+([\\da-fA-F]{2}(?:[-:][\\da-fA-F]{2}){5})\\s+\\S+/ and keep only entries whose IP is private-range AND within the scanned subnet (static broadcast/multicast rows already fail that check). Strip a trailing parenthetical with /\\s*\\([^)]*\\)\\s*$/ rather than the literal ' (Preferred)'."
+    },
+    {
+      "id": 2,
+      "severity": "HIGH",
+      "location": "§13 (Smoke Test), §14 (Dependencies)",
+      "problem": "§14 postinstall runs 'electron-rebuild -f -w better-sqlite3', compiling the native addon against the Electron ABI. §13/§14 then claim 'npm run smoke' (which runs 'node smoke-test.js') 'rebuilds for the Node ABI implicitly via the node runtime that invokes it.' That is false: invoking node does not rebuild a native addon. Loading an Electron-ABI build under Node throws NODE_MODULE_VERSION mismatch, so smoke-test step 1 (require('./src/db/database')) crashes immediately. The required headless smoke test is not executable as specified.",
+      "fix": "Add explicit documented rebuild steps, e.g. scripts: 'rebuild:node': 'npm rebuild better-sqlite3 --build-from-source', 'rebuild:electron': 'electron-rebuild -f -w better-sqlite3', 'presmoke': 'npm run rebuild:node', with 'postinstall': 'npm run rebuild:electron'; document that 'npm start' requires 'npm run rebuild:electron' after a smoke run. Alternatively, run the smoke DB exercises against a pure-JS SQLite (e.g. sql.js in-memory) so no native rebuild is needed for headless tests, keeping better-sqlite3 only for the Electron app."
+    },
+    {
+      "id": 3,
+      "severity": "MEDIUM",
+      "location": "§2.1 (scan:start payload confirm?: boolean), §5 Step 0 (dialog.showMessageBox in main), §8",
+      "problem": "The scan:start request carries 'confirm?: boolean' but its meaning is never defined, while §5 Step 0 says the large-subnet confirmation is a dialog.showMessageBox shown by main. It is unclear whether the renderer pre-confirms (pass confirm:true to skip the dialog) or whether main always shows the dialog and ignores the field. Two valid interpretations.",
+      "fix": "Remove 'confirm' from the scan:start payload and have main always show the dialog for manual scans over CONFIRM_HOSTS (scheduled scans skip it). Or define renderer-driven confirmation: main shows no dialog, rejects { error:'SUBNET_CONFIRM_REQUIRED' } when hostCount > CONFIRM_HOSTS && confirm !== true, and the renderer re-invokes with confirm:true after its own dialog. Pick one and state it."
+    },
+    {
+      "id": 4,
+      "severity": "MEDIUM",
+      "location": "§10 (Scheduling), §6.2, §3.1 (markOfflineExcept)",
+      "problem": "§10 step 2 has the scheduler call discoverNetwork() + port scan directly, bypassing the scan:start IPC and its SCAN_IN_PROGRESS guard. If a manual scan is running when the timer fires, two scans run concurrently; markOfflineExcept at one scan's completion marks the other scan's not-yet-seen devices is_online=0, producing incorrect online state. §6.2 describes the 64-socket semaphore as governing 'across the whole scan' (per-scan), so two concurrent scans could also exceed the 64-socket bound.",
+      "fix": "Make 'a scan is active' a single module-level flag shared by both the scan:start handler and the scheduler; the scheduler checks it before firing and skips (log + optional notify) when a scan is in progress. State that the 64-socket semaphore is one module-level instance shared across all scans so the bound holds even if concurrent scans are ever permitted."
+    },
+    {
+      "id": 5,
+      "severity": "MEDIUM",
+      "location": "§1 (data/oui.csv 'bundled IEEE OUI file (fetched on first run if absent)'), §5 Step 5, §3 (DB uses app.getPath('userData'))",
+      "problem": "'bundled' (ships with the app) contradicts 'fetched on first run if absent.' The file lives in the project/app install dir, which is read-only in a packaged Windows app, so a runtime fetch writing there fails with EACCES. The DB correctly resolves to app.getPath('userData') but the OUI file does not, so the two persistence locations are inconsistent. This also breaks the oui.js smoke test unless the path is injectable.",
+      "fix": "Store oui.csv under app.getPath('userData') (writable). Pick one model: ship a bundled read-only fallback and fetch updates into userData, or fetch-only into userData on first run. Resolve the path in oui.js via a parameter (defaulting to userData) so the smoke test can pass a temp path."
+    },
+    {
+      "id": 6,
+      "severity": "MEDIUM",
+      "location": "§2.2 (scan:device-found), §4.5, §6",
+      "problem": "The live-progress must-have depends on when scan:device-found fires and what openPorts contains. The ping/ARP phase discovers devices before the per-host port scan. It is unspecified whether device-found fires during discovery (with openPorts:[]) and again after each host's port scan (with populated ports), or only once. If only once after the slow port scan, the list updates one host at a time and 'live' progress is defeated; if during discovery, cards show empty ports until a possibly-much-later re-emit.",
+      "fix": "Specify two emissions per device: first at discovery { device, isNew } with openPorts:[] and isOnline:true; second after that device's port scan completes with the same device plus populated openPorts. State that the renderer merges by MAC (updates the existing card), so the card appears immediately and ports fill in as each host is scanned."
+    },
+    {
+      "id": 7,
+      "severity": "MEDIUM",
+      "location": "§12 (CSV Export Format)",
+      "problem": "The examples quote only open_ports and banner_info, but vendor names (e.g. 'Cisco Systems, Inc') and user labels can contain commas, and banner strings can contain quotes/newlines. With no stated escaping rule, an implementer following the examples would emit unquoted comma-bearing fields, producing broken CSV.",
+      "fix": "Specify RFC 4180 quoting for every field in both Mode A and Mode B: wrap any field whose value contains a comma, double-quote, or newline in double quotes, and escape internal double quotes by doubling them. Apply uniformly to all columns."
+    },
+    {
+      "id": 8,
+      "severity": "MEDIUM",
+      "location": "§2.1 (device:detail/acknowledge/rename/delete), §9 (MAC validation), §8",
+      "problem": "§9 validates MAC format (rejecting INVALID_MAC) but never defines behavior when a valid-format MAC is not in the devices table. device:detail's response type { device: Device, ... } (non-null) implies existence, but a deleted/stale MAC could be passed. device:rename/delete/acknowledge return { ok: boolean } but it is unstated whether ok:false means 'not found' vs 'no-op.'",
+      "fix": "Define: device:detail rejects with { error:'DEVICE_NOT_FOUND' } for a valid-format absent MAC; device:rename/delete/acknowledge return { ok:false } when the MAC is absent (idempotent, not an error). Add a DEVICE_NOT_FOUND row to §8 and a note to §9 that existence is checked after format validation."
+    },
+    {
+      "id": 9,
+      "severity": "MEDIUM",
+      "location": "§6.1 (Port Presets, top100)",
+      "problem": "The top100 array is shown with '/* ... trimmed for brevity */', so the exact 100 ports are not specified. An implementer cannot reproduce the preset that the IPC contract exposes as a selectable option (portPreset:'top100').",
+      "fix": "Provide the full 100-element array in the design, or pin it to a canonical citable list (e.g. 'the nmap top-100 TCP ports') and state that the array is built deterministically from that source."
+    },
+    {
+      "id": 10,
+      "severity": "MEDIUM",
+      "location": "§10 (Scheduling), §1",
+      "problem": "The improvement is 'scheduled background scans,' but §10's setInterval only runs while the Electron app is open. There is no tray/minimize-to-background mode, and the design does not state that the app must remain running for scheduled scans to fire. A user who closes the window reasonably expects 'background' scans to continue.",
+      "fix": "Either add a minimize-to-tray mode so the window can close while the process (and the interval) keeps running, with the tray icon reflecting scan state; or explicitly document the limitation: 'scheduled scans run only while NetScope is open; closing the app stops the schedule.'"
+    },
+    {
+      "id": 11,
+      "severity": "NIT",
+      "location": "§2.2 (scan:progress)",
+      "problem": "scan:progress 'total' semantics per phase are unspecified (for 'ports', is total the host count or host×port count?).",
+      "fix": "Define total per phase: 'ping' -> hostCount; 'ports' -> number of hosts being port-scanned; 'arp' -> 1."
+    },
+    {
+      "id": 12,
+      "severity": "NIT",
+      "location": "§5 Step 5 (oui.js loader)",
+      "problem": "OUI CSV parser approach is unspecified. A naive split(',') breaks on the quoted Organization Address field (contains commas); header-row handling is implied but not stated.",
+      "fix": "Use a header-aware CSV parser, or split only the first columns needed (Assignment, Organization Name) and skip the header row."
+    },
+    {
+      "id": 13,
+      "severity": "NIT",
+      "location": "§4.3 (device-detail scan history)",
+      "problem": "The scan-history diff ('← diff: 22 appeared') computation location is unspecified (renderer comparing consecutive ScanResult.open_ports, or main).",
+      "fix": "State the diff is computed renderer-side by comparing consecutive ScanResult.open_ports arrays for the device."
+    },
+    {
+      "id": 14,
+      "severity": "NIT",
+      "location": "§6.3 (Banner Grabbing, HTTPS)",
+      "problem": "TLS banner_info format is unspecified (cert subject+issuer string layout).",
+      "fix": "Define e.g. { \"443\": \"CN=example.com; O=Acme; Issuer=CN=Let's Encrypt R3\" }."
+    },
+    {
+      "id": 15,
+      "severity": "NIT",
+      "location": "§2.2 (scan:progress phase enum)",
+      "problem": "scan:progress phase enum order ('arp' before 'ping') does not match execution order (ping then ARP).",
+      "fix": "Reorder the enum to match execution order, or note it is a set of possible values, not a sequence."
+    },
+    {
+      "id": 16,
+      "severity": "NIT",
+      "location": "§2.1, §3.4 (settings:set)",
+      "problem": "settings:set unknown-key handling is unspecified (ignore vs reject).",
+      "fix": "State unknown keys are ignored (only known Settings keys are upserted)."
+    },
+    {
+      "id": 17,
+      "severity": "NIT",
+      "location": "§12 (export:csv Mode B)",
+      "problem": "export:csv with a non-existent scanId (Mode B) is unspecified (empty CSV vs error).",
+      "fix": "State it returns an empty CSV (header only) or rejects { error:'EXPORT_NOT_FOUND' }."
+    },
+    {
+      "id": 18,
+      "severity": "NIT",
+      "location": "§9 (Input Validation)",
+      "problem": "§9 has no enum validation for scan:start portPreset, and does not state that portRange is ignored unless portPreset='custom'.",
+      "fix": "Add: reject { error:'INVALID_PRESET' } for portPreset not in {top20,top100,custom}; state portRange is used only when portPreset='custom'."
+    },
+    {
+      "id": 19,
+      "severity": "NIT",
+      "location": "§3 (scans table)",
+      "problem": "scans.new_device_count and scans.device_count computation is not specified.",
+      "fix": "State new_device_count = number of devices with isNew=true during the scan; device_count = number of seenMacs (scan_results rows for that scan)."
+    },
+    {
+      "id": 20,
+      "severity": "NIT",
+      "location": "§3.2 (New-vs-known diff)",
+      "problem": "Unacknowledged devices re-alert on every scheduled scan until manually acknowledged, which can be noisy for frequent background scans.",
+      "fix": "Consider a 'suppress repeat alerts for already-seen unacknowledged devices' toggle or auto-ack after N sightings. (Deliberate per §17 #7; noted as product UX.)"
+    },
+    {
+      "id": 21,
+      "severity": "NIT",
+      "location": "§3.1 (upsertDevice)",
+      "problem": "vendor is overwritten to null on a scan whose OUI lookup yields null (e.g. OUI file absent this session), losing a previously-known vendor.",
+      "fix": "Preserve the prior vendor when the new lookup is null (do not overwrite with null)."
+    }
+  ]
+}
