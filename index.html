@@ -382,9 +382,14 @@ section {
   box-shadow: 0 16px 32px rgba(201, 154, 148, 0.18);
 }
 
-/* Destaque sutil para o card de Natal */
+/* Destaque sutil para o card de Natal e Galeria */
 .card.card-natal {
   border-top: 4px solid #9e2a2b;
+  background: linear-gradient(180deg, #fffdfb 0%, #fff 100%);
+}
+
+.card.card-galeria {
+  border-top: 4px solid var(--destaque);
   background: linear-gradient(180deg, #fffdfb 0%, #fff 100%);
 }
 
@@ -428,6 +433,12 @@ section {
   border-color: #f0d0ce;
 }
 
+.card.card-galeria .card-selo {
+  background: #fdf3f2;
+  color: var(--destaque);
+  border-color: rgba(201, 154, 148, 0.4);
+}
+
 /* Medalhão com ícone SVG minimalista */
 .card-icone {
   width: 54px;
@@ -455,6 +466,11 @@ section {
 .card.card-natal .card-icone {
   background: linear-gradient(135deg, rgba(245, 226, 224, 0.7) 0%, rgba(245, 236, 215, 0.6) 100%);
   color: #9e2a2b;
+}
+
+.card.card-galeria .card-icone {
+  background: linear-gradient(135deg, rgba(243, 217, 214, 0.6) 0%, rgba(228, 220, 240, 0.6) 100%);
+  color: var(--destaque);
 }
 
 .card:hover .card-icone {
@@ -502,6 +518,11 @@ section {
 
 .card.card-natal .preco {
   color: #9e2a2b;
+}
+
+.card.card-galeria .preco {
+  color: var(--destaque);
+  font-weight: 600;
 }
 
 /* =========================
@@ -818,6 +839,17 @@ footer.rodape a {
     gap: 8px;
   }
 }
+
+@media (max-width: 400px) {
+  nav.wrapper {
+    gap: 2px;
+    padding: 5px 6px;
+  }
+  nav.wrapper a {
+    padding: 6px 10px;
+    font-size: 11.5px;
+  }
+}
 </style>
 </head>
 <body>
@@ -863,8 +895,9 @@ footer.rodape a {
   <div class="nav-container">
     <nav class="wrapper" aria-label="Menu principal">
       <a href="#inicio" id="link-1">Início</a>
-      <a href="#fixos" id="link-2">Ensaios Fixos</a>
+      <a href="#fixos" id="link-2">Fixos</a>
       <a href="#sazonais" id="link-3">Sazonais</a>
+      <a href="galeria.html" id="link-galeria">Galeria</a>
       <a href="#orcamento" id="link-4">Orçamento</a>
     </nav>
   </div>
@@ -1237,6 +1270,26 @@ footer.rodape a {
         <div class="card-rodape">
           <div class="preco">A partir de R$ 220,00</div>
           <a class="botao" href="natal.html">Ver detalhes</a>
+        </div>
+      </div>
+
+      <!-- 7. Fotos Comunitárias / Galeria -->
+      <div class="card card-galeria">
+        <div class="card-topo">
+          <span class="card-selo">✨ Acesso Gratuito</span>
+          <div class="card-icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="3" width="18" height="18" rx="3" ry="3"/>
+              <circle cx="8.5" cy="8.5" r="1.5"/>
+              <polyline points="21 15 16 10 5 21"/>
+            </svg>
+          </div>
+          <h3>Fotos Comunitárias</h3>
+          <p>Acesse e baixe gratuitamente as fotos dos encontros e eventos com a nossa comunidade.</p>
+        </div>
+        <div class="card-rodape">
+          <div class="preco">Download Gratuito</div>
+          <a class="botao" href="galeria.html">Acessar Galeria</a>
         </div>
       </div>
     </div>

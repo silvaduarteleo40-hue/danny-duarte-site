@@ -17,9 +17,23 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:700;}
 .header-full{width:100%;position:relative;isolation:isolate;background:radial-gradient(circle at 50% 50%,rgba(255,255,255,0.65) 0%,rgba(255,255,255,0) 58%),linear-gradient(135deg,var(--rosa) 0%,var(--lavanda) 50%,var(--verde-sage) 100%);min-height:230px;max-height:300px;height:20vw;padding:20px;display:flex;justify-content:center;align-items:center;overflow:hidden;border-bottom:2px solid rgba(255,255,255,0.75);box-shadow:0 6px 24px rgba(201,154,148,0.14);}
 .header-full::before{content:"";position:absolute;width:440px;height:220px;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,0.75) 0%,rgba(255,255,255,0) 72%);z-index:0;pointer-events:none;}
 .header-full img{position:relative;z-index:2;width:auto !important;max-width:420px !important;max-height:260px !important;height:auto !important;object-fit:contain;filter:drop-shadow(0 4px 12px rgba(107,90,86,0.08));}
-nav.mainnav{background:var(--creme);display:flex;flex-wrap:wrap;justify-content:center;gap:22px;padding:12px 10px;border-bottom:1px solid #eee1dd;position:sticky;top:0;z-index:100;}
-nav.mainnav a{color:var(--texto);text-decoration:none;font-size:13px;font-weight:600;letter-spacing:.5px;text-transform:uppercase;}
-nav.mainnav a:hover{color:var(--destaque);}
+/* Ornamentos do header: ramos botânicos + pontos de luz dourado-rosé */
+.header-ramo{position:absolute;top:50%;width:clamp(220px,28vw,390px);height:auto;pointer-events:none;z-index:1;opacity:.9;filter:drop-shadow(0 4px 10px rgba(160,128,122,0.12));}
+.header-ramo-esq{left:-14px;transform:translateY(-50%);transform-origin:left center;animation:brisaRamoEsq 8s ease-in-out infinite alternate;}
+.header-ramo-dir{right:-14px;transform:translateY(-50%) scaleX(-1);transform-origin:right center;animation:brisaRamoDir 8s ease-in-out infinite alternate;}
+.header-luzes{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:1;}
+.header-luzes .brilho{transform-box:fill-box;transform-origin:center;animation:cintilaLuz 3.2s ease-in-out infinite alternate;}
+.header-luzes .brilho.atraso1{animation-delay:1.1s;}
+.header-luzes .brilho.atraso2{animation-delay:2.1s;}
+@keyframes brisaRamoEsq{0%{transform:translateY(-50%) rotate(-1.2deg);}100%{transform:translateY(-52%) rotate(1.8deg) scale(1.02);}}
+@keyframes brisaRamoDir{0%{transform:translateY(-50%) scaleX(-1) rotate(-1.2deg);}100%{transform:translateY(-52%) scaleX(-1) rotate(1.8deg) scale(1.02);}}
+@keyframes cintilaLuz{0%{opacity:.35;transform:scale(.85);}100%{opacity:.95;transform:scale(1.1);}}
+@media (prefers-reduced-motion:reduce){.header-ramo,.header-luzes .brilho{animation:none;}}
+/* Menu flutuante em pílula (padrão do index) */
+.nav-container{position:sticky;top:14px;z-index:100;display:flex;justify-content:center;padding:0 16px;margin-top:-22px;margin-bottom:10px;}
+nav.wrapper{display:inline-flex;align-items:center;justify-content:center;gap:6px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,0.92);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border:1px solid rgba(232,184,179,0.45);box-shadow:0 10px 26px rgba(107,90,86,0.10),inset 0 1px 0 rgba(255,255,255,0.9);max-width:100%;flex-wrap:wrap;}
+nav.wrapper a{text-decoration:none;color:#6b5a56;padding:8px 18px;border-radius:999px;font-size:13px;font-weight:600;letter-spacing:0.3px;transition:all 0.25s ease;}
+nav.wrapper a:hover{background:var(--rosa);color:#6b5a56;}
 .hero-img{margin:0 auto;max-width:1000px;height:auto;border-radius:20px;overflow:hidden;position:relative;margin-top:26px;}
 .hero-img img{width:100%;height:100%;object-fit:cover;display:block;}
 .ph-fallback{display:none;width:100%;height:100%;align-items:center;justify-content:center;text-align:center;color:#a9908c;background:repeating-linear-gradient(45deg,#f3e8e6,#f3e8e6 20px,#eee0dc 20px,#eee0dc 40px);border:3px dashed #d8bdb7;border-radius:20px;padding:20px;}
@@ -109,7 +123,7 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .apresentacao-fotografa{max-width:1000px;margin:48px auto 0;padding:34px;display:grid;grid-template-columns:minmax(220px,330px) 1fr;gap:38px;align-items:center;background:linear-gradient(135deg,#fff 0%,#f8efed 100%);border-radius:24px;box-shadow:0 10px 28px rgba(91,72,68,0.10);}
 .apresentacao-foto{position:relative;}
 .apresentacao-foto::before{content:"";position:absolute;inset:16px -13px -13px 16px;z-index:0;background:linear-gradient(135deg,var(--rosa),var(--lavanda),var(--verde-sage));border-radius:50% / 10%;}
-.apresentacao-foto img{position:relative;z-index:1;display:block;width:100%;height:385px;object-fit:cover;object-position:center top;border-radius:50% / 10%;box-shadow:0 12px 28px rgba(91,72,68,0.16),0 0 0 4px #fff;}
+.apresentacao-foto img{position:relative;z-index:1;display:block;width:100%;height:485px;object-fit:cover;object-position:center top;border-radius:50% / 10%;box-shadow:0 12px 28px rgba(91,72,68,0.16),0 0 0 4px #fff;}
 .apresentacao-texto{text-align:left;}
 .apresentacao-etiqueta{display:inline-block;margin-bottom:12px;padding:7px 14px;color:var(--destaque);background:#fff;border-radius:999px;box-shadow:0 5px 14px rgba(0,0,0,0.05);font-size:11px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;}
 .apresentacao-texto h2{margin:0 0 14px;color:#6b5a56;font-size:clamp(27px,4vw,38px);}
@@ -117,10 +131,13 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 .apresentacao-assinatura{margin-top:18px !important;color:var(--destaque) !important;font-family:'Playfair Display',serif;font-size:16px !important;}
 .apresentacao-assinatura strong{font-size:20px;}
 @media(max-width:768px){
-  nav.mainnav{gap:12px;font-size:11px;}
+  nav.wrapper a{padding:7px 13px;font-size:12px;}
   .hero-img{height:300px;}
   .header-full{height:160px;min-height:160px;}
   .header-full img{max-width:180px !important;max-height:100px !important;}
+  .header-ramo{width:150px;opacity:.75;}
+  .header-ramo-esq{left:-26px;}
+  .header-ramo-dir{right:-26px;}
   .hero-gestante{min-height:520px;}
   .hero-gestante-imagem{background-position:center center;}
   .hero-gestante-conteudo h1{font-size:44px;}
@@ -140,6 +157,10 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
   .contato-box{padding:24px 16px;}
   .localizacao-estudio{width:100%;padding:12px 14px;}
   .botao-secundario{width:100%;padding:12px 14px;font-size:13px;gap:8px;}
+}
+@media(max-width:400px){
+  nav.wrapper{gap:2px;padding:5px 6px;}
+  nav.wrapper a{padding:6px 10px;font-size:11.5px;}
 }
 </style>
 <script>
@@ -202,15 +223,135 @@ footer.rodape a{color:#6b5a56;text-decoration:none;font-weight:600;}
 <body>
 
 <header class="header-full">
+  <!-- Pontos de luz dourado-rosé cintilando suavemente -->
+  <svg class="header-luzes" viewBox="0 0 1200 280" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <defs>
+      <!-- Folha delicada reutilizada nos ramos -->
+      <g id="folhaGestante">
+        <path d="M0 0 C8 -9 22 -9 30 0 C22 9 8 9 0 0Z"/>
+        <path d="M3 0 L26 0" stroke="#ffffff" stroke-width="0.9" stroke-linecap="round" opacity="0.55" fill="none"/>
+      </g>
+      <!-- Brilho de 4 pontas -->
+      <path id="brilhoGestante" d="M0 -7 C1 -2 2 -1 7 0 C2 1 1 2 0 7 C-1 2 -2 1 -7 0 C-2 -1 -1 -2 0 -7Z"/>
+    </defs>
+    <g transform="translate(352 58)"><use href="#brilhoGestante" class="brilho" fill="#e6c08f"/></g>
+    <g transform="translate(846 64) scale(0.85)"><use href="#brilhoGestante" class="brilho atraso1" fill="#e8b9a6"/></g>
+    <g transform="translate(420 226) scale(0.7)"><use href="#brilhoGestante" class="brilho atraso2" fill="#ffffff"/></g>
+    <g transform="translate(782 222) scale(0.75)"><use href="#brilhoGestante" class="brilho" fill="#e6c08f"/></g>
+    <circle class="brilho atraso1" cx="300" cy="140" r="3" fill="#e8b9a6" opacity="0.7"/>
+    <circle class="brilho atraso2" cx="900" cy="146" r="3" fill="#e8b9a6" opacity="0.7"/>
+    <circle class="brilho" cx="462" cy="46" r="2.4" fill="#ffffff" opacity="0.85"/>
+    <circle class="brilho atraso1" cx="740" cy="44" r="2.4" fill="#ffffff" opacity="0.85"/>
+    <circle class="brilho atraso2" cx="388" cy="182" r="2" fill="#e2c27e" opacity="0.7"/>
+    <circle class="brilho" cx="818" cy="178" r="2" fill="#e2c27e" opacity="0.7"/>
+    <circle cx="520" cy="250" r="1.8" fill="#e8b9a6" opacity="0.55"/>
+    <circle cx="684" cy="252" r="1.8" fill="#e8b9a6" opacity="0.55"/>
+  </svg>
+
+  <!-- Ramo botânico esquerdo -->
+  <svg class="header-ramo header-ramo-esq" viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <!-- Hastes fluidas -->
+    <path d="M-10 250 C 70 215, 150 170, 260 70" stroke="#9fbcaa" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-10 128 C 60 132, 140 118, 235 150" stroke="#b3cabb" stroke-width="1.6" stroke-linecap="round"/>
+    <!-- Folhas da haste principal -->
+    <use href="#folhaGestante" transform="translate(50 221) rotate(-80) scale(0.9)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(80 203) rotate(10) scale(0.9)" fill="#c3d8ca"/>
+    <use href="#folhaGestante" transform="translate(114 184) rotate(-75) scale(0.9)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(148 162) rotate(5) scale(0.85)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(183 135) rotate(-70) scale(0.8)" fill="#c3d8ca"/>
+    <use href="#folhaGestante" transform="translate(212 112) rotate(0) scale(0.75)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(238 90) rotate(-62) scale(0.68)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(258 72) rotate(-35) scale(0.6)" fill="#c3d8ca"/>
+    <!-- Folhas da haste secundária -->
+    <use href="#folhaGestante" transform="translate(42 128) rotate(-50) scale(0.7)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(72 130) rotate(40) scale(0.7)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(103 128) rotate(-45) scale(0.72)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(135 130) rotate(45) scale(0.68)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(166 134) rotate(-35) scale(0.62)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(200 140) rotate(50) scale(0.58)" fill="#b6cdbd"/>
+    <!-- Raminho dourado-rosé com pontos de luz -->
+    <path d="M30 40 C 90 70, 150 70, 205 45" stroke="#dcb991" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="95" cy="63" r="2.6" fill="#e8c0a8"/>
+    <circle cx="130" cy="66" r="3" fill="#e2c27e"/>
+    <circle cx="165" cy="60" r="2.6" fill="#e8c0a8"/>
+    <circle cx="205" cy="45" r="3.4" fill="#e2c27e"/>
+    <circle cx="236" cy="151" r="3" fill="#e8c0a8"/>
+    <circle cx="226" cy="158" r="2.2" fill="#e2c27e"/>
+    <!-- Botões florais delicados (blush) -->
+    <g transform="translate(66 166)">
+      <circle cx="0" cy="-6" r="5" fill="#f6dcd8"/>
+      <circle cx="6" cy="-1" r="5" fill="#f3d0cb"/>
+      <circle cx="3.5" cy="5.5" r="5" fill="#f6dcd8"/>
+      <circle cx="-3.5" cy="5.5" r="5" fill="#f3d0cb"/>
+      <circle cx="-6" cy="-1" r="5" fill="#f6dcd8"/>
+      <circle cx="0" cy="0" r="3" fill="#e2b98f"/>
+    </g>
+    <g transform="translate(152 96) scale(0.8)">
+      <circle cx="0" cy="-6" r="5" fill="#f6dcd8"/>
+      <circle cx="6" cy="-1" r="5" fill="#f3d0cb"/>
+      <circle cx="3.5" cy="5.5" r="5" fill="#f6dcd8"/>
+      <circle cx="-3.5" cy="5.5" r="5" fill="#f3d0cb"/>
+      <circle cx="-6" cy="-1" r="5" fill="#f6dcd8"/>
+      <circle cx="0" cy="0" r="3" fill="#e2b98f"/>
+    </g>
+    <ellipse cx="268" cy="62" rx="5" ry="3.4" transform="rotate(-35 268 62)" fill="#f3d0cb"/>
+  </svg>
+
   <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias">
+
+  <!-- Ramo botânico direito (espelhado pelo CSS) -->
+  <svg class="header-ramo header-ramo-dir" viewBox="0 0 360 280" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <path d="M-10 250 C 70 215, 150 170, 260 70" stroke="#9fbcaa" stroke-width="2" stroke-linecap="round"/>
+    <path d="M-10 128 C 60 132, 140 118, 235 150" stroke="#b3cabb" stroke-width="1.6" stroke-linecap="round"/>
+    <use href="#folhaGestante" transform="translate(50 221) rotate(-80) scale(0.9)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(80 203) rotate(10) scale(0.9)" fill="#c3d8ca"/>
+    <use href="#folhaGestante" transform="translate(114 184) rotate(-75) scale(0.9)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(148 162) rotate(5) scale(0.85)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(183 135) rotate(-70) scale(0.8)" fill="#c3d8ca"/>
+    <use href="#folhaGestante" transform="translate(212 112) rotate(0) scale(0.75)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(238 90) rotate(-62) scale(0.68)" fill="#a9c4b2"/>
+    <use href="#folhaGestante" transform="translate(258 72) rotate(-35) scale(0.6)" fill="#c3d8ca"/>
+    <use href="#folhaGestante" transform="translate(42 128) rotate(-50) scale(0.7)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(72 130) rotate(40) scale(0.7)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(103 128) rotate(-45) scale(0.72)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(135 130) rotate(45) scale(0.68)" fill="#b6cdbd"/>
+    <use href="#folhaGestante" transform="translate(166 134) rotate(-35) scale(0.62)" fill="#c9dccf"/>
+    <use href="#folhaGestante" transform="translate(200 140) rotate(50) scale(0.58)" fill="#b6cdbd"/>
+    <path d="M30 40 C 90 70, 150 70, 205 45" stroke="#dcb991" stroke-width="1.2" stroke-linecap="round"/>
+    <circle cx="95" cy="63" r="2.6" fill="#e8c0a8"/>
+    <circle cx="130" cy="66" r="3" fill="#e2c27e"/>
+    <circle cx="165" cy="60" r="2.6" fill="#e8c0a8"/>
+    <circle cx="205" cy="45" r="3.4" fill="#e2c27e"/>
+    <circle cx="236" cy="151" r="3" fill="#e8c0a8"/>
+    <circle cx="226" cy="158" r="2.2" fill="#e2c27e"/>
+    <g transform="translate(66 166)">
+      <circle cx="0" cy="-6" r="5" fill="#f6dcd8"/>
+      <circle cx="6" cy="-1" r="5" fill="#f3d0cb"/>
+      <circle cx="3.5" cy="5.5" r="5" fill="#f6dcd8"/>
+      <circle cx="-3.5" cy="5.5" r="5" fill="#f3d0cb"/>
+      <circle cx="-6" cy="-1" r="5" fill="#f6dcd8"/>
+      <circle cx="0" cy="0" r="3" fill="#e2b98f"/>
+    </g>
+    <g transform="translate(152 96) scale(0.8)">
+      <circle cx="0" cy="-6" r="5" fill="#f6dcd8"/>
+      <circle cx="6" cy="-1" r="5" fill="#f3d0cb"/>
+      <circle cx="3.5" cy="5.5" r="5" fill="#f6dcd8"/>
+      <circle cx="-3.5" cy="5.5" r="5" fill="#f3d0cb"/>
+      <circle cx="-6" cy="-1" r="5" fill="#f6dcd8"/>
+      <circle cx="0" cy="0" r="3" fill="#e2b98f"/>
+    </g>
+    <ellipse cx="268" cy="62" rx="5" ry="3.4" transform="rotate(-35 268 62)" fill="#f3d0cb"/>
+  </svg>
 </header>
 
-<nav class="mainnav">
-  <a href="index.html">Início</a>
-  <a href="index.html#fixos">Ensaios Fixos</a>
-  <a href="index.html#sazonais">Ensaios Sazonais</a>
-  <a href="index.html#orcamento">Orçamento</a>
-</nav> 
+<div class="nav-container">
+  <nav class="wrapper" aria-label="Menu principal">
+    <a href="index.html">Início</a>
+    <a href="index.html#fixos">Fixos</a>
+    <a href="index.html#sazonais">Sazonais</a>
+    <a href="index.html#orcamento">Orçamento</a>
+  </nav>
+</div>
 
 <div class="intro">
   <div class="hero-icone-svg" aria-hidden="true">

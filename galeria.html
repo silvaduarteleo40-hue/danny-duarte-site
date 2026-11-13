@@ -1,0 +1,989 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Galeria Comunitária | Danny Duarte Fotografias</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --rosa: #f3d9d6;
+      --rosa-forte: #e8b8b3;
+      --lavanda: #e4dcf0;
+      --verde-sage: #dcece1;
+      --creme: #fdf8f5;
+      --texto: #5c5652;
+      --titulo: #6b5a56;
+      --apoio: #948a86;
+      --destaque: #c99a94;
+      --destaque-hover: #b5837d;
+      --dourado-suave: #d8b979;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--creme);
+      color: var(--texto);
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(243, 217, 214, 0.45) 0%, transparent 35%),
+        radial-gradient(circle at 90% 25%, rgba(228, 220, 240, 0.45) 0%, transparent 38%),
+        radial-gradient(circle at 15% 65%, rgba(220, 236, 225, 0.40) 0%, transparent 36%),
+        radial-gradient(circle at 85% 80%, rgba(243, 217, 214, 0.40) 0%, transparent 35%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* HEADER */
+    .header-full {
+      width: 100%;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0) 60%),
+        linear-gradient(135deg, var(--rosa) 0%, var(--lavanda) 50%, var(--verde-sage) 100%);
+      min-height: 200px;
+      height: 18vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 6px 24px rgba(201, 154, 148, 0.12);
+    }
+
+    .header-full img.logo-img {
+      position: relative;
+      z-index: 2;
+      max-width: 380px;
+      max-height: 220px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(107, 90, 86, 0.08));
+    }
+
+    .header-ornamento {
+      position: absolute;
+      top: 50%;
+      width: clamp(180px, 24vw, 320px);
+      height: auto;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.85;
+    }
+
+    .header-ornamento-esq {
+      left: -10px;
+      transform: translateY(-50%);
+    }
+
+    .header-ornamento-dir {
+      right: -10px;
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    /* MENU FLUTUANTE */
+    .nav-container {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+      margin-top: -22px;
+      margin-bottom: 20px;
+    }
+
+    nav.wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(232, 184, 179, 0.45);
+      box-shadow: 0 10px 26px rgba(107, 90, 86, 0.10);
+      flex-wrap: wrap;
+    }
+
+    nav.wrapper a {
+      text-decoration: none;
+      color: var(--titulo);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav.wrapper a:hover {
+      background: var(--rosa);
+      color: var(--titulo);
+    }
+
+    nav.wrapper a.ativo {
+      background: var(--destaque);
+      color: #fff;
+      box-shadow: 0 4px 12px rgba(201, 154, 148, 0.35);
+    }
+
+    /* =========================
+       SEÇÃO SOBRE / APRESENTAÇÃO DA FOTÓGRAFA
+    ========================= */
+    .intro-sobre {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 40px 22px 30px;
+      display: grid;
+      grid-template-columns: 0.9fr 1.1fr;
+      gap: 46px;
+      align-items: center;
+    }
+
+    .intro-foto {
+      position: relative;
+    }
+
+    .intro-foto::before {
+      content: "";
+      position: absolute;
+      inset: 18px -16px -16px 18px;
+      background: linear-gradient(135deg, var(--rosa), var(--lavanda), var(--verde-sage));
+      border-radius: 28px;
+      z-index: 0;
+    }
+
+    .intro-foto img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      max-height: 550px;
+      object-fit: cover;
+      object-position: center;
+      border-radius: 28px;
+      border: 4px solid #fff;
+      box-shadow: 0 18px 42px rgba(91, 72, 68, 0.16);
+      display: block;
+    }
+
+    .intro-conteudo {
+      text-align: left;
+    }
+
+    .intro-etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 7px 16px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(232, 184, 179, 0.5);
+      color: var(--destaque);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .intro-conteudo h1 {
+      font-size: clamp(30px, 4vw, 44px);
+      line-height: 1.12;
+      color: var(--titulo);
+      margin: 0 0 16px;
+    }
+
+    .intro-conteudo p {
+      font-size: 15px;
+      line-height: 1.85;
+      color: #6f6662;
+      margin: 0 0 14px;
+    }
+
+    .intro-destaques {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin: 26px 0;
+    }
+
+    .intro-destaques div {
+      background: #fff;
+      border-radius: 16px;
+      padding: 16px 14px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.04);
+      border-top: 3px solid var(--rosa-forte);
+      transition: transform 0.25s ease;
+    }
+
+    .intro-destaques div:nth-child(2) {
+      border-top-color: #cbbbe2;
+    }
+
+    .intro-destaques div:nth-child(3) {
+      border-top-color: #b5d6c0;
+    }
+
+    .intro-destaques div:hover {
+      transform: translateY(-3px);
+    }
+
+    .intro-destaques strong {
+      display: block;
+      font-family: 'Playfair Display', serif;
+      font-size: 20px;
+      color: var(--titulo);
+      margin-bottom: 4px;
+    }
+
+    .intro-destaques span {
+      font-size: 12px;
+      color: #8a7d78;
+      line-height: 1.35;
+    }
+
+    .intro-botoes {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: center;
+    }
+
+    .botao-grande, .botao-secundario {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.28s ease;
+    }
+
+    .botao-grande {
+      background: var(--destaque);
+      color: #fff !important;
+      padding: 14px 30px;
+      font-size: 14.5px;
+    }
+
+    .botao-grande:hover {
+      background: var(--destaque-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(201, 154, 148, 0.3);
+    }
+
+    .botao-secundario {
+      padding: 14px 28px;
+      font-size: 14.5px;
+      background: #fff;
+      color: var(--titulo) !important;
+      border: 1px solid var(--rosa-forte);
+      box-shadow: 0 4px 14px rgba(107, 90, 86, 0.06);
+    }
+
+    .botao-secundario:hover {
+      background: var(--rosa);
+      transform: translateY(-2px);
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    main {
+      flex: 1;
+      max-width: 1200px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 20px 20px 60px;
+    }
+
+    .intro-galeria {
+      text-align: center;
+      max-width: 720px;
+      margin: 0 auto 36px;
+    }
+
+    .etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(232, 184, 179, 0.5);
+      color: var(--destaque);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .intro-galeria h1 {
+      font-size: clamp(28px, 4vw, 40px);
+      color: var(--titulo);
+      margin-bottom: 12px;
+    }
+
+    .intro-galeria p {
+      font-size: 15px;
+      line-height: 1.8;
+      color: var(--texto);
+    }
+
+    /* GRID DE FOTOS */
+    .grid-fotos {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      padding: 10px 0;
+    }
+
+    .foto-card {
+      background: #fff;
+      border-radius: 20px;
+      overflow: hidden;
+      box-shadow: 0 10px 28px rgba(107, 90, 86, 0.08);
+      border: 1px solid rgba(232, 184, 179, 0.35);
+      transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+      display: flex;
+      flex-direction: column;
+      position: relative;
+    }
+
+    .foto-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px rgba(107, 90, 86, 0.16);
+      border-color: var(--rosa-forte);
+    }
+
+    .foto-imagem-wrapper {
+      position: relative;
+      width: 100%;
+      padding-top: 100%; /* Proporção quadrada 1:1 */
+      overflow: hidden;
+      background: #f5ece9;
+      cursor: pointer;
+    }
+
+    .foto-imagem-wrapper img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.4s ease;
+    }
+
+    .foto-card:hover .foto-imagem-wrapper img {
+      transform: scale(1.05);
+    }
+
+    .foto-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(107, 90, 86, 0.35);
+      backdrop-filter: blur(2px);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .foto-card:hover .foto-overlay {
+      opacity: 1;
+    }
+
+    .icone-zoom {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.95);
+      color: var(--destaque);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+      transform: scale(0.85);
+      transition: transform 0.25s ease;
+    }
+
+    .foto-card:hover .icone-zoom {
+      transform: scale(1);
+    }
+
+    .foto-info {
+      padding: 16px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      background: #fff;
+    }
+
+    .foto-nome {
+      font-size: 13px;
+      color: var(--titulo);
+      font-weight: 500;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 160px;
+    }
+
+    .botao-baixar {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 9px 16px;
+      border-radius: 999px;
+      background: var(--destaque);
+      color: #fff;
+      text-decoration: none;
+      font-size: 12.5px;
+      font-weight: 600;
+      border: none;
+      cursor: pointer;
+      transition: all 0.25s ease;
+    }
+
+    .botao-baixar:hover {
+      background: var(--destaque-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(201, 154, 148, 0.35);
+    }
+
+    /* ESTADOS DE CARREGAMENTO E VAZIO */
+    .status-box {
+      text-align: center;
+      padding: 60px 20px;
+      background: #fff;
+      border-radius: 24px;
+      border: 1px solid rgba(232, 184, 179, 0.4);
+      max-width: 580px;
+      margin: 30px auto;
+      box-shadow: 0 10px 30px rgba(107, 90, 86, 0.05);
+    }
+
+    .status-box i {
+      font-size: 44px;
+      color: var(--destaque);
+      margin-bottom: 16px;
+    }
+
+    .status-box h3 {
+      font-size: 22px;
+      color: var(--titulo);
+      margin-bottom: 10px;
+    }
+
+    .status-box p {
+      font-size: 14.5px;
+      color: var(--apoio);
+      line-height: 1.7;
+    }
+
+    .spinner {
+      display: inline-block;
+      width: 36px;
+      height: 36px;
+      border: 3.5px solid rgba(201, 154, 148, 0.25);
+      border-radius: 50%;
+      border-top-color: var(--destaque);
+      animation: spin 0.9s linear infinite;
+      margin-bottom: 16px;
+    }
+
+    @keyframes spin {
+      to { transform: rotate(360deg); }
+    }
+
+    /* MODAL DE VISUALIZAÇÃO AMPLIADA (LIGHTBOX) */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(30, 24, 23, 0.88);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      z-index: 1000;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 24px;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .modal.ativo {
+      display: flex;
+      opacity: 1;
+    }
+
+    .modal-conteudo {
+      max-width: 90vw;
+      max-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+
+    .modal-conteudo img {
+      max-width: 100%;
+      max-height: 78vh;
+      object-fit: contain;
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    }
+
+    .modal-acoes {
+      margin-top: 18px;
+      display: flex;
+      gap: 14px;
+      align-items: center;
+    }
+
+    .modal-fechar {
+      position: absolute;
+      top: -45px;
+      right: 0;
+      color: #fff;
+      font-size: 28px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      opacity: 0.8;
+      transition: opacity 0.2s ease;
+    }
+
+    .modal-fechar:hover {
+      opacity: 1;
+    }
+
+    /* RODAPÉ */
+    footer.rodape {
+      text-align: center;
+      padding: 26px 20px;
+      background: var(--rosa);
+      font-size: 12.5px;
+      color: var(--titulo);
+      margin-top: auto;
+    }
+
+    footer.rodape p {
+      margin: 6px 0;
+    }
+
+    footer.rodape a {
+      color: var(--titulo);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 850px) {
+      .intro-sobre {
+        grid-template-columns: 1fr;
+        padding: 36px 20px;
+        gap: 32px;
+      }
+      .intro-conteudo {
+        text-align: center;
+      }
+      .intro-destaques {
+        grid-template-columns: 1fr;
+      }
+      .intro-botoes {
+        justify-content: center;
+      }
+      .intro-foto img {
+        max-height: 480px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .header-full {
+        height: 160px;
+        min-height: 160px;
+      }
+      .header-full img.logo-img {
+        max-width: 220px;
+      }
+      .grid-fotos {
+        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+        gap: 16px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER EDITORIAL -->
+  <header class="header-full">
+    <svg class="header-ornamento header-ornamento-esq" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-10 210 C 55 175, 130 140, 220 55" stroke="#c99a94" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+      <path d="M-10 120 C 60 125, 135 110, 235 140" stroke="#9ab8a5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="145" cy="100" rx="18" ry="8.5" transform="rotate(-32 145 100)" fill="#cce2d4" opacity="0.8"/>
+      <ellipse cx="185" cy="72" rx="15" ry="7.5" transform="rotate(-25 185 72)" fill="#b7d3c2" opacity="0.75"/>
+      <ellipse cx="130" cy="140" rx="17" ry="8" transform="rotate(14 130 140)" fill="#f4d4d1" opacity="0.8"/>
+      <ellipse cx="180" cy="135" rx="15" ry="7" transform="rotate(10 180 135)" fill="#e4ddf4" opacity="0.8"/>
+      <circle cx="82" cy="132" r="22" fill="#f7dcd9" opacity="0.85"/>
+      <circle cx="82" cy="132" r="12" fill="#eab8b2" opacity="0.85"/>
+      <circle cx="82" cy="132" r="3.5" fill="#e5c172"/>
+      <circle cx="48" cy="78" r="14" fill="#ebe5f8" opacity="0.85"/>
+      <circle cx="48" cy="78" r="5" fill="#f5d98e"/>
+      <circle cx="215" cy="95" r="3" fill="#d8b979" opacity="0.75"/>
+      <circle cx="245" cy="78" r="2.5" fill="#fff" opacity="0.9"/>
+    </svg>
+
+    <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias" class="logo-img" />
+
+    <svg class="header-ornamento header-ornamento-dir" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-10 210 C 55 175, 130 140, 220 55" stroke="#c99a94" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+      <path d="M-10 120 C 60 125, 135 110, 235 140" stroke="#9ab8a5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="145" cy="100" rx="18" ry="8.5" transform="rotate(-32 145 100)" fill="#cce2d4" opacity="0.8"/>
+      <ellipse cx="185" cy="72" rx="15" ry="7.5" transform="rotate(-25 185 72)" fill="#b7d3c2" opacity="0.75"/>
+      <ellipse cx="130" cy="140" rx="17" ry="8" transform="rotate(14 130 140)" fill="#f4d4d1" opacity="0.8"/>
+      <ellipse cx="180" cy="135" rx="15" ry="7" transform="rotate(10 180 135)" fill="#e4ddf4" opacity="0.8"/>
+      <circle cx="82" cy="132" r="22" fill="#f7dcd9" opacity="0.85"/>
+      <circle cx="82" cy="132" r="12" fill="#eab8b2" opacity="0.85"/>
+      <circle cx="82" cy="132" r="3.5" fill="#e5c172"/>
+      <circle cx="48" cy="78" r="14" fill="#ebe5f8" opacity="0.85"/>
+      <circle cx="48" cy="78" r="5" fill="#f5d98e"/>
+      <circle cx="215" cy="95" r="3" fill="#d8b979" opacity="0.75"/>
+      <circle cx="245" cy="78" r="2.5" fill="#fff" opacity="0.9"/>
+    </svg>
+  </header>
+
+  <!-- MENU FLUTUANTE -->
+  <div class="nav-container">
+    <nav class="wrapper" aria-label="Navegação">
+      <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Início</a>
+      <a href="galeria.html" class="ativo"><i class="fa-regular fa-images"></i> Fotos Comunitárias</a>
+      <a href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Danny." target="_blank"><i class="fa-brands fa-whatsapp"></i> Contato</a>
+    </nav>
+  </div>
+
+  <!-- SEÇÃO SOBRE / APRESENTAÇÃO DA FOTÓGRAFA -->
+  <section id="inicio" class="intro-sobre">
+    <div class="intro-foto">
+      <img src="assets/sobre/fotografa.jpg" alt="Danny Duarte Fotógrafa">
+    </div>
+
+    <div class="intro-conteudo">
+      <span class="intro-etiqueta">✨ Danny Duarte Fotografias</span>
+
+      <h1>Bem-vinda(o) ao nosso estúdio</h1>
+
+      <p>
+        Em Araras/SP, transformamos momentos únicos em recordações eternas.
+        Nossa fotografia é afetiva, elegante e atemporal — pensada para que você
+        nunca se esqueça desse momento.
+      </p>
+
+      <p>
+        Cada ensaio é conduzido com carinho, cuidado e sensibilidade, para que
+        você se sinta à vontade e viva uma experiência especial do começo ao fim.
+      </p>
+
+      <div class="intro-destaques">
+        <div>
+          <strong>60m²</strong>
+          <span>de estrutura climatizada</span>
+        </div>
+
+        <div>
+          <strong>Figurinos</strong>
+          <span>e acessórios inclusos</span>
+        </div>
+
+        <div>
+          <strong>Araras/SP</strong>
+          <span>estúdio acolhedor</span>
+        </div>
+      </div>
+
+      <div class="intro-botoes">
+        <a class="botao-grande" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20um%20or%C3%A7amento." target="_blank" rel="noopener">
+          <img src="https://i.imgur.com/5VlCvk7.png" alt="WhatsApp" style="width:20px;height:20px;">
+          Falar no WhatsApp
+        </a>
+
+        <a class="botao-secundario" href="https://www.instagram.com/duarte_danny_fotografias_" target="_blank" rel="noopener">
+          <i class="fab fa-instagram"></i>
+          Ver Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <div class="intro-galeria">
+      <span class="etiqueta"><i class="fa-solid fa-heart"></i> Projeto Social & Comunitário</span>
+      <h1>Memórias Compartilhadas</h1>
+      <p>
+        Este espaço foi criado com carinho para disponibilizar os registros dos nossos encontros e ações comunitárias.
+        Sinta-se à vontade para navegar, ampliar e fazer o download gratuito das suas fotos em alta resolução!
+      </p>
+    </div>
+
+    <!-- ÁREA DA GALERIA -->
+    <div id="galeria-container">
+      <div class="status-box">
+        <div class="spinner"></div>
+        <h3>Carregando memórias...</h3>
+        <p>Buscando as fotografias disponíveis no acervo.</p>
+      </div>
+    </div>
+  </main>
+
+  <!-- MODAL / LIGHTBOX DE VISUALIZAÇÃO AMPLIADA -->
+  <div id="modal-foto" class="modal" role="dialog" aria-modal="true" aria-label="Visualização da foto">
+    <div class="modal-conteudo">
+      <button class="modal-fechar" id="modal-fechar-btn" aria-label="Fechar visualização">&times;</button>
+      <img id="modal-img" src="" alt="Foto ampliada" />
+      <div class="modal-acoes">
+        <a id="modal-download-btn" href="#" class="botao-baixar" download>
+          <i class="fa-solid fa-download"></i> Baixar em Alta Resolução
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; Danny Duarte Fotografias &bull; Todos os direitos reservados.</p>
+    <p>Fotos disponibilizadas gratuitamente para a comunidade.</p>
+  </footer>
+
+  <!-- SCRIPT DO SUPABASE & GALERIA -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script>
+    const SUPABASE_URL = 'https://gjeooxmluxxyskrocibe.supabase.co';
+    const SUPABASE_ANON_KEY = 'sb_publishable_Wkd8bKTn-QZqYt_xRH7Zeg_z5QDuvhk';
+    const BUCKET_NAME = 'galeria-comunitaria';
+
+    const container = document.getElementById('galeria-container');
+
+    // Captura qualquer erro não tratado na página para avisar na tela
+    window.addEventListener('error', (event) => {
+      console.error('Erro global capturado:', event.error || event.message);
+      if (container && container.querySelector('.spinner')) {
+        exibirErroNaTela(event.message || 'Erro ao carregar scripts externos.');
+      }
+    });
+
+    window.addEventListener('unhandledrejection', (event) => {
+      console.error('Promessa rejeitada não tratada:', event.reason);
+      if (container && container.querySelector('.spinner')) {
+        const msg = event.reason ? (event.reason.message || String(event.reason)) : 'Falha na comunicação de rede.';
+        exibirErroNaTela(msg);
+      }
+    });
+
+    function exibirErroNaTela(mensagem) {
+      if (!container) return;
+      container.innerHTML = `
+        <div class="status-box" style="border-color: #e8b8b3;">
+          <i class="fa-solid fa-triangle-exclamation" style="color: #c99a94;"></i>
+          <h3>Aviso ao conectar com a Galeria</h3>
+          <p style="margin-bottom: 8px;">Não foi possível carregar as fotos automaticamente:</p>
+          <code style="background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #b5837d; display: inline-block; word-break: break-all;">${mensagem}</code>
+          <p style="margin-top: 14px; font-size: 13px; color: var(--apoio); line-height: 1.6;">
+            Verifique se o bucket <strong>"${BUCKET_NAME}"</strong> está configurado como <strong>Public</strong> no painel do Supabase
+            e se a chave de API (anon public) está com permissão de leitura.
+          </p>
+        </div>
+      `;
+    }
+
+    // Modal elements
+    const modal = document.getElementById('modal-foto');
+    const modalImg = document.getElementById('modal-img');
+    const modalDownloadBtn = document.getElementById('modal-download-btn');
+    const modalFecharBtn = document.getElementById('modal-fechar-btn');
+
+    function abrirModal(url, nomeArquivo) {
+      modalImg.src = url;
+      modalDownloadBtn.href = url;
+      modalDownloadBtn.setAttribute('download', nomeArquivo || 'foto-danny-duarte.jpg');
+      modal.classList.add('ativo');
+    }
+
+    function fecharModal() {
+      modal.classList.remove('ativo');
+      modalImg.src = '';
+    }
+
+    modalFecharBtn.addEventListener('click', fecharModal);
+    modal.addEventListener('click', (e) => {
+      if (e.target === modal) fecharModal();
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') fecharModal();
+    });
+
+    // Função para forçar o download direto
+    async function baixarArquivoDireto(url, nomeArquivo) {
+      try {
+        const resposta = await fetch(url);
+        const blob = await resposta.blob();
+        const blobUrl = window.URL.createObjectURL(blob);
+        const link = document.createElement('a');
+        link.href = blobUrl;
+        link.download = nomeArquivo || 'foto.jpg';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+        window.URL.revokeObjectURL(blobUrl);
+      } catch (err) {
+        window.open(url, '_blank');
+      }
+    }
+
+    async function buscarListaArquivos() {
+      // Método 1: Tenta pelo SDK oficial do Supabase
+      if (window.supabase && typeof window.supabase.createClient === 'function') {
+        try {
+          const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          const { data, error } = await client.storage.from(BUCKET_NAME).list('', {
+            limit: 100,
+            offset: 0,
+            sortBy: { column: 'name', order: 'asc' }
+          });
+          if (!error && Array.isArray(data)) {
+            return data;
+          }
+          console.warn('SDK list retornou erro ou vazio, tentando REST API direta...', error);
+        } catch (sdkErr) {
+          console.warn('Erro ao inicializar SDK Supabase, tentando REST API direta...', sdkErr);
+        }
+      }
+
+      // Método 2: Fallback direto via REST API (funciona independentemente da versão do SDK)
+      const endpoint = `${SUPABASE_URL}/storage/v1/object/list/${BUCKET_NAME}`;
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'apikey': SUPABASE_ANON_KEY,
+          'Authorization': `Bearer ${SUPABASE_ANON_KEY}`,
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ prefix: '', limit: 100, offset: 0 })
+      });
+
+      if (!response.ok) {
+        const erroJson = await response.json().catch(() => ({}));
+        throw new Error(erroJson.message || erroJson.error || `HTTP ${response.status}: ${response.statusText}`);
+      }
+
+      return await response.json();
+    }
+
+    async function carregarFotos() {
+      // Timeout de segurança para nunca travar infinitamente no spinner
+      const timeoutId = setTimeout(() => {
+        if (container && container.querySelector('.spinner')) {
+          exibirErroNaTela('O servidor demorou muito para responder. Verifique sua conexão com o Supabase.');
+        }
+      }, 9000);
+
+      try {
+        console.log('Iniciando busca de imagens no bucket:', BUCKET_NAME);
+        const data = await buscarListaArquivos();
+        clearTimeout(timeoutId);
+
+        console.log('Arquivos encontrados no bucket:', data);
+
+        // Filtra arquivos ocultos e placeholders
+        const arquivos = (data || []).filter(item => {
+          return item.name && !item.name.startsWith('.') && item.name !== '.emptyFolderPlaceholder';
+        });
+
+        if (arquivos.length === 0) {
+          container.innerHTML = `
+            <div class="status-box">
+              <i class="fa-regular fa-image"></i>
+              <h3>Nenhuma foto encontrada</h3>
+              <p>O bucket <strong>"${BUCKET_NAME}"</strong> foi acessado com sucesso, mas está vazio na pasta raiz.</p>
+              <p style="font-size: 13px; color: var(--apoio); margin-top: 8px;">
+                Dica: Envie as imagens diretamente na raiz do bucket (sem colocá-las dentro de subpastas).
+              </p>
+            </div>
+          `;
+          return;
+        }
+
+        let gridHtml = '<div class="grid-fotos">';
+
+        arquivos.forEach((item) => {
+          const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${encodeURIComponent(item.name)}`;
+          const nomeAmigavel = item.name.replace(/[-_]/g, ' ').replace(/\.[^/.]+$/, '');
+
+          gridHtml += `
+            <article class="foto-card">
+              <div class="foto-imagem-wrapper" onclick="abrirModal('${url}', '${item.name}')">
+                <img src="${url}" alt="${nomeAmigavel}" loading="lazy" onerror="this.onerror=null; this.src='assets/sobre/fotografa.jpg';" />
+                <div class="foto-overlay">
+                  <span class="icone-zoom"><i class="fa-solid fa-magnifying-glass-plus"></i></span>
+                </div>
+              </div>
+              <div class="foto-info">
+                <span class="foto-nome" title="${item.name}">${nomeAmigavel}</span>
+                <button type="button" class="botao-baixar" onclick="baixarArquivoDireto('${url}', '${item.name}')">
+                  <i class="fa-solid fa-download"></i> Baixar
+                </button>
+              </div>
+            </article>
+          `;
+        });
+
+        gridHtml += '</div>';
+        container.innerHTML = gridHtml;
+
+      } catch (err) {
+        clearTimeout(timeoutId);
+        console.error('Erro ao buscar fotos:', err);
+        exibirErroNaTela(err.message || String(err));
+      }
+    }
+
+    // Dispara o carregamento
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', carregarFotos);
+    } else {
+      carregarFotos();
+    }
+  </script>
+</body>
+</html>
