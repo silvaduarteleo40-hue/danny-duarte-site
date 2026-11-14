@@ -589,6 +589,64 @@
       opacity: 1;
     }
 
+    /* BANNER DE PRIVACIDADE / DIREITO DE IMAGEM DA GALERIA */
+    .aviso-privacidade-galeria {
+      max-width: 820px;
+      margin: 0 auto 34px;
+      padding: 16px 22px;
+      background: #fff;
+      border: 1px solid rgba(232, 184, 179, 0.45);
+      border-left: 4px solid var(--destaque);
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      box-shadow: 0 6px 20px rgba(107, 90, 86, 0.05);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+
+    .aviso-privacidade-galeria .aviso-icone {
+      font-size: 24px;
+      color: var(--destaque);
+      flex-shrink: 0;
+    }
+
+    .aviso-privacidade-galeria .aviso-texto {
+      flex: 1;
+      color: #6f6662;
+    }
+
+    .aviso-privacidade-galeria .aviso-texto strong {
+      display: block;
+      color: var(--titulo);
+      margin-bottom: 2px;
+      font-size: 13.5px;
+    }
+
+    .botao-remover-foto {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 9px 18px;
+      border-radius: 999px;
+      background: #fff;
+      color: var(--destaque) !important;
+      border: 1px solid var(--rosa-forte);
+      font-size: 12.5px;
+      font-weight: 600;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: all 0.25s ease;
+      flex-shrink: 0;
+    }
+
+    .botao-remover-foto:hover {
+      background: var(--destaque);
+      color: #fff !important;
+      box-shadow: 0 4px 12px rgba(201, 154, 148, 0.25);
+    }
+
     /* RODAPÉ */
     footer.rodape {
       text-align: center;
@@ -630,6 +688,16 @@
     }
 
     @media (max-width: 768px) {
+      .aviso-privacidade-galeria {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+        padding: 16px;
+      }
+      .botao-remover-foto {
+        width: 100%;
+        justify-content: center;
+      }
       .header-full {
         height: 160px;
         min-height: 160px;
@@ -756,6 +824,22 @@
       </p>
     </div>
 
+    <!-- AVISO DE PRIVACIDADE E DIREITO DE IMAGEM (LGPD) -->
+    <div class="aviso-privacidade-galeria">
+      <div class="aviso-icone">
+        <i class="fa-solid fa-shield-heart"></i>
+      </div>
+      <div class="aviso-texto">
+        <strong>Privacidade & Direito de Imagem (LGPD)</strong>
+        <span>
+          Estas imagens registram eventos e encontros comunitários. Caso você ou seu dependente apareça em alguma fotografia e prefira que ela seja retirada, respeitamos integralmente o seu direito.
+        </span>
+      </div>
+      <a href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20solicitar%20a%20remo%C3%A7%C3%A3o%20de%20uma%20foto%20da%20galeria%20comunit%C3%A1ria." class="botao-remover-foto" target="_blank" rel="noopener">
+        <i class="fa-brands fa-whatsapp"></i> Solicitar Remoção
+      </a>
+    </div>
+
     <!-- ÁREA DA GALERIA -->
     <div id="galeria-container">
       <div class="status-box">
@@ -782,7 +866,7 @@
   <!-- RODAPÉ -->
   <footer class="rodape">
     <p>&copy; Danny Duarte Fotografias &bull; Todos os direitos reservados.</p>
-    <p>Fotos disponibilizadas gratuitamente para a comunidade.</p>
+    <p>Fotos disponibilizadas para a comunidade &bull; <a href="privacidade.html">Política de Privacidade & Uso de Imagem</a></p>
   </footer>
 
   <!-- SCRIPT DO SUPABASE & GALERIA -->

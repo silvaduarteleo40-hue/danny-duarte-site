@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Política de Privacidade & Uso de Imagem | Danny Duarte Fotografias</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;1,400&family=Poppins:wght@300;400;500;600&display=swap');
+
+    :root {
+      --rosa: #f3d9d6;
+      --rosa-forte: #e8b8b3;
+      --lavanda: #e4dcf0;
+      --verde-sage: #dcece1;
+      --creme: #fdf8f5;
+      --texto: #5c5652;
+      --titulo: #6b5a56;
+      --apoio: #948a86;
+      --destaque: #c99a94;
+      --destaque-hover: #b5837d;
+      --dourado-suave: #d8b979;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: var(--creme);
+      color: var(--texto);
+      background-image:
+        radial-gradient(circle at 10% 15%, rgba(243, 217, 214, 0.45) 0%, transparent 35%),
+        radial-gradient(circle at 90% 25%, rgba(228, 220, 240, 0.45) 0%, transparent 38%),
+        radial-gradient(circle at 15% 65%, rgba(220, 236, 225, 0.40) 0%, transparent 36%),
+        radial-gradient(circle at 85% 80%, rgba(243, 217, 214, 0.40) 0%, transparent 35%);
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    h1, h2, h3 {
+      font-family: 'Playfair Display', serif;
+      font-weight: 700;
+    }
+
+    /* HEADER */
+    .header-full {
+      width: 100%;
+      position: relative;
+      isolation: isolate;
+      background:
+        radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.68) 0%, rgba(255, 255, 255, 0) 60%),
+        linear-gradient(135deg, var(--rosa) 0%, var(--lavanda) 50%, var(--verde-sage) 100%);
+      min-height: 180px;
+      height: 16vw;
+      max-height: 220px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      overflow: hidden;
+      border-bottom: 2px solid rgba(255, 255, 255, 0.8);
+      box-shadow: 0 6px 24px rgba(201, 154, 148, 0.12);
+    }
+
+    .header-full img.logo-img {
+      position: relative;
+      z-index: 2;
+      max-width: 320px;
+      max-height: 180px;
+      object-fit: contain;
+      filter: drop-shadow(0 4px 12px rgba(107, 90, 86, 0.08));
+    }
+
+    .header-ornamento {
+      position: absolute;
+      top: 50%;
+      width: clamp(160px, 20vw, 280px);
+      height: auto;
+      pointer-events: none;
+      z-index: 1;
+      opacity: 0.8;
+    }
+
+    .header-ornamento-esq {
+      left: -10px;
+      transform: translateY(-50%);
+    }
+
+    .header-ornamento-dir {
+      right: -10px;
+      transform: translateY(-50%) scaleX(-1);
+    }
+
+    /* MENU FLUTUANTE */
+    .nav-container {
+      position: sticky;
+      top: 14px;
+      z-index: 100;
+      display: flex;
+      justify-content: center;
+      padding: 0 16px;
+      margin-top: -20px;
+      margin-bottom: 24px;
+    }
+
+    nav.wrapper {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.94);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border: 1px solid rgba(232, 184, 179, 0.45);
+      box-shadow: 0 10px 26px rgba(107, 90, 86, 0.10);
+      flex-wrap: wrap;
+    }
+
+    nav.wrapper a {
+      text-decoration: none;
+      color: var(--titulo);
+      padding: 8px 18px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      letter-spacing: 0.3px;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    nav.wrapper a:hover {
+      background: var(--rosa);
+      color: var(--titulo);
+    }
+
+    /* CONTEÚDO PRINCIPAL */
+    main {
+      flex: 1;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 10px 20px 60px;
+    }
+
+    .privacidade-box {
+      background: #fff;
+      border-radius: 28px;
+      padding: 44px 38px;
+      box-shadow: 0 14px 38px rgba(107, 90, 86, 0.08);
+      border: 1px solid rgba(232, 184, 179, 0.35);
+    }
+
+    .privacidade-cabecalho {
+      text-align: center;
+      margin-bottom: 34px;
+      padding-bottom: 24px;
+      border-bottom: 1px solid rgba(232, 184, 179, 0.3);
+    }
+
+    .etiqueta {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 14px;
+      padding: 7px 18px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid rgba(232, 184, 179, 0.5);
+      color: var(--destaque);
+      font-size: 11.5px;
+      font-weight: 600;
+      letter-spacing: 0.9px;
+      text-transform: uppercase;
+      box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    }
+
+    .privacidade-cabecalho h1 {
+      font-size: clamp(26px, 3.8vw, 36px);
+      color: var(--titulo);
+      margin-bottom: 10px;
+    }
+
+    .privacidade-cabecalho p {
+      font-size: 14px;
+      color: var(--apoio);
+    }
+
+    .secao-privacidade {
+      margin-bottom: 28px;
+    }
+
+    .secao-privacidade h2 {
+      font-size: 20px;
+      color: var(--titulo);
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .secao-privacidade h2 i {
+      color: var(--destaque);
+      font-size: 18px;
+    }
+
+    .secao-privacidade p, .secao-privacidade ul {
+      font-size: 14.5px;
+      line-height: 1.85;
+      color: #635c58;
+      margin-bottom: 12px;
+    }
+
+    .secao-privacidade ul {
+      padding-left: 24px;
+    }
+
+    .secao-privacidade li {
+      margin-bottom: 8px;
+    }
+
+    .destaque-card {
+      background: linear-gradient(135deg, rgba(243, 217, 214, 0.35) 0%, rgba(228, 220, 240, 0.35) 100%);
+      border-radius: 18px;
+      padding: 20px 22px;
+      border: 1px solid rgba(232, 184, 179, 0.4);
+      margin: 18px 0;
+    }
+
+    .destaque-card strong {
+      color: var(--titulo);
+      display: block;
+      margin-bottom: 6px;
+    }
+
+    .destaque-card p {
+      margin-bottom: 0;
+      font-size: 14px;
+    }
+
+    .canal-contato {
+      text-align: center;
+      margin-top: 36px;
+      padding-top: 26px;
+      border-top: 1px solid rgba(232, 184, 179, 0.3);
+    }
+
+    .canal-contato p {
+      margin-bottom: 14px;
+      font-size: 14.5px;
+    }
+
+    .botao-contato {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      background: var(--destaque);
+      color: #fff;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 14px;
+      font-weight: 600;
+      text-decoration: none;
+      transition: all 0.28s ease;
+      box-shadow: 0 4px 14px rgba(201, 154, 148, 0.3);
+    }
+
+    .botao-contato:hover {
+      background: var(--destaque-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 18px rgba(201, 154, 148, 0.4);
+    }
+
+    /* RODAPÉ */
+    footer.rodape {
+      text-align: center;
+      padding: 26px 20px;
+      background: var(--rosa);
+      font-size: 12.5px;
+      color: var(--titulo);
+      margin-top: auto;
+    }
+
+    footer.rodape p {
+      margin: 6px 0;
+    }
+
+    footer.rodape a {
+      color: var(--titulo);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    @media (max-width: 768px) {
+      .privacidade-box {
+        padding: 30px 20px;
+        border-radius: 20px;
+      }
+      .header-full {
+        height: 140px;
+        min-height: 140px;
+      }
+      .header-full img.logo-img {
+        max-width: 200px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HEADER -->
+  <header class="header-full">
+    <svg class="header-ornamento header-ornamento-esq" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-10 210 C 55 175, 130 140, 220 55" stroke="#c99a94" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+      <path d="M-10 120 C 60 125, 135 110, 235 140" stroke="#9ab8a5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="145" cy="100" rx="18" ry="8.5" transform="rotate(-32 145 100)" fill="#cce2d4" opacity="0.8"/>
+      <ellipse cx="185" cy="72" rx="15" ry="7.5" transform="rotate(-25 185 72)" fill="#b7d3c2" opacity="0.75"/>
+      <ellipse cx="130" cy="140" rx="17" ry="8" transform="rotate(14 130 140)" fill="#f4d4d1" opacity="0.8"/>
+      <ellipse cx="180" cy="135" rx="15" ry="7" transform="rotate(10 180 135)" fill="#e4ddf4" opacity="0.8"/>
+      <circle cx="82" cy="132" r="22" fill="#f7dcd9" opacity="0.85"/>
+      <circle cx="82" cy="132" r="12" fill="#eab8b2" opacity="0.85"/>
+      <circle cx="82" cy="132" r="3.5" fill="#e5c172"/>
+      <circle cx="48" cy="78" r="14" fill="#ebe5f8" opacity="0.85"/>
+      <circle cx="48" cy="78" r="5" fill="#f5d98e"/>
+      <circle cx="215" cy="95" r="3" fill="#d8b979" opacity="0.75"/>
+      <circle cx="245" cy="78" r="2.5" fill="#fff" opacity="0.9"/>
+    </svg>
+
+    <img src="assets/logo/logo-header.png" alt="Danny Duarte Fotografias" class="logo-img" />
+
+    <svg class="header-ornamento header-ornamento-dir" viewBox="0 0 320 240" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M-10 210 C 55 175, 130 140, 220 55" stroke="#c99a94" stroke-width="1.6" stroke-linecap="round" opacity="0.65"/>
+      <path d="M-10 120 C 60 125, 135 110, 235 140" stroke="#9ab8a5" stroke-width="1.5" stroke-linecap="round" opacity="0.7"/>
+      <ellipse cx="145" cy="100" rx="18" ry="8.5" transform="rotate(-32 145 100)" fill="#cce2d4" opacity="0.8"/>
+      <ellipse cx="185" cy="72" rx="15" ry="7.5" transform="rotate(-25 185 72)" fill="#b7d3c2" opacity="0.75"/>
+      <ellipse cx="130" cy="140" rx="17" ry="8" transform="rotate(14 130 140)" fill="#f4d4d1" opacity="0.8"/>
+      <ellipse cx="180" cy="135" rx="15" ry="7" transform="rotate(10 180 135)" fill="#e4ddf4" opacity="0.8"/>
+      <circle cx="82" cy="132" r="22" fill="#f7dcd9" opacity="0.85"/>
+      <circle cx="82" cy="132" r="12" fill="#eab8b2" opacity="0.85"/>
+      <circle cx="82" cy="132" r="3.5" fill="#e5c172"/>
+      <circle cx="48" cy="78" r="14" fill="#ebe5f8" opacity="0.85"/>
+      <circle cx="48" cy="78" r="5" fill="#f5d98e"/>
+      <circle cx="215" cy="95" r="3" fill="#d8b979" opacity="0.75"/>
+      <circle cx="245" cy="78" r="2.5" fill="#fff" opacity="0.9"/>
+    </svg>
+  </header>
+
+  <!-- MENU FLUTUANTE -->
+  <div class="nav-container">
+    <nav class="wrapper" aria-label="Navegação">
+      <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Início</a>
+      <a href="galeria.html"><i class="fa-regular fa-images"></i> Galeria</a>
+      <a href="https://wa.me/5519982280460" target="_blank"><i class="fa-brands fa-whatsapp"></i> Falar no WhatsApp</a>
+    </nav>
+  </div>
+
+  <!-- CONTEÚDO PRINCIPAL -->
+  <main>
+    <article class="privacidade-box">
+      <header class="privacidade-cabecalho">
+        <span class="etiqueta"><i class="fa-solid fa-lock"></i> Transparência & Segurança</span>
+        <h1>Política de Privacidade & Uso de Imagem</h1>
+        <p>Atualizado em conformidade com a Lei Geral de Proteção de Dados (LGPD - Lei nº 13.709/2018)</p>
+      </header>
+
+      <!-- 1. INTRODUÇÃO -->
+      <section class="secao-privacidade">
+        <h2><i class="fa-solid fa-hand-holding-heart"></i> 1. Nosso Compromisso</h2>
+        <p>
+          O <strong>Danny Duarte Fotografias</strong> tem como missão eternizar momentos afetivos e especiais. A relação de confiança, respeito e carinho com nossas famílias é a base de tudo o que fazemos. Por isso, cuidamos da sua privacidade e da segurança das suas imagens com total seriedade e transparência.
+        </p>
+      </section>
+
+      <!-- 2. COOKIES -->
+      <section class="secao-privacidade">
+        <h2><i class="fa-solid fa-cookie-bite"></i> 2. Cookies e Navegação</h2>
+        <p>
+          Acreditamos em uma experiência limpa e respeitosa. <strong>Nosso site não utiliza cookies invasivos de rastreamento, marketing comportamental ou venda de perfis para terceiros.</strong>
+        </p>
+        <p>
+          Utilizamos apenas os recursos técnicos essenciais para que as fotos e o layout carreguem rapidamente e com alta definição em seu celular ou computador.
+        </p>
+      </section>
+
+      <!-- 3. USO DE IMAGEM NO PORTFÓLIO -->
+      <section class="secao-privacidade">
+        <h2><i class="fa-solid fa-camera"></i> 3. Fotografias do Portfólio Comercial</h2>
+        <p>
+          Todas as fotografias de clientes exibidas em nossas páginas de ensaios (Gestante, Newborn, Acompanhamento, Smash the Cake, Família e Sazonais) atendem rigorosamente à legislação brasileira:
+        </p>
+        <ul>
+          <li><strong>Autorização Prévia:</strong> Nenhuma foto de ensaio privado é publicada sem a autorização expressa concedida pelos clientes no contrato de prestação de serviços fotográficos;</li>
+          <li><strong>Proteção a Menores (ECA e LGPD Art. 14):</strong> As fotografias de bebês e crianças são tratadas sob o princípio do melhor interesse da criança, sempre com o consentimento expresso de ao menos um dos pais ou responsáveis legais;</li>
+          <li><strong>Finalidade Estrita:</strong> O uso das imagens é restrito à divulgação do trabalho artístico e portfólio profissional do estúdio.</li>
+        </ul>
+      </section>
+
+      <!-- 4. GALERIA COMUNITÁRIA & DIREITO DE REMOÇÃO -->
+      <section class="secao-privacidade">
+        <h2><i class="fa-solid fa-users"></i> 4. Galeria Comunitária & Memórias Compartilhadas</h2>
+        <p>
+          Nossa Galeria Comunitária é uma iniciativa social voltada a registrar e disponibilizar gratuitamente fotos de encontros e eventos comunitários para as famílias participantes.
+        </p>
+        <div class="destaque-card">
+          <strong><i class="fa-solid fa-shield-heart"></i> Seu Direito de Solicitar a Remoção (LGPD Art. 18):</strong>
+          <p>
+            Caso você ou seu dependente apareça em alguma fotografia disponibilizada na galeria comunitária e deseje que a imagem seja retirada do ar, nós atendemos prontamente. Basta nos enviar o nome ou o link da foto pelo nosso WhatsApp que faremos a remoção imediata, sem qualquer burocracia.
+          </p>
+        </div>
+      </section>
+
+      <!-- 5. COLETA DE DADOS VIA WHATSAPP -->
+      <section class="secao-privacidade">
+        <h2><i class="fa-solid fa-comments"></i> 5. Contato e Orçamentos</h2>
+        <p>
+          Não exigimos cadastro prévio nem preenchimento de formulários extensos para navegar no site. Quando você clica em nossos botões de orçamento, o contato é aberto diretamente no aplicativo do WhatsApp.
+        </p>
+        <p>
+          Os dados informados durante a conversa (como nome, data prevista do parto ou idade do bebê) são utilizados exclusivamente para responder ao seu pedido de orçamento e agendamento, nunca sendo compartilhados com empresas de marketing ou terceiros.
+        </p>
+      </section>
+
+      <!-- CANAL DIRETO -->
+      <div class="canal-contato">
+        <p>Ficou com alguma dúvida sobre o uso de dados ou deseja falar sobre alguma foto?</p>
+        <a class="botao-contato" href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20uma%20d%C3%BAvida%20sobre%20privacidade%20e%20fotos." target="_blank" rel="noopener">
+          <i class="fa-brands fa-whatsapp"></i> Falar com Danny Duarte Fotografias
+        </a>
+      </div>
+    </article>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer class="rodape">
+    <p>&copy; 2026 Danny Duarte Fotografias &bull; Araras/SP &bull; Todos os direitos reservados.</p>
+    <p><a href="index.html">Página Inicial</a> &bull; <a href="galeria.html">Galeria Comunitária</a></p>
+  </footer>
+
+</body>
+</html>
