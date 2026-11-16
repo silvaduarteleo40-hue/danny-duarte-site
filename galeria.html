@@ -659,6 +659,195 @@
       box-shadow: 0 4px 12px rgba(201, 154, 148, 0.25);
     }
 
+    /* =========================
+       TELA DE BLOQUEIO POR SENHA
+    ========================= */
+    .bloqueio-card {
+      background: #fff;
+      border-radius: 24px;
+      padding: 44px 30px;
+      max-width: 440px;
+      margin: 15px auto 40px;
+      box-shadow: 0 16px 40px rgba(107, 90, 86, 0.09);
+      border: 1px solid rgba(232, 184, 179, 0.45);
+      text-align: center;
+      transition: all 0.3s ease;
+    }
+
+    .bloqueio-icone {
+      width: 66px;
+      height: 66px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, rgba(243, 217, 214, 0.7) 0%, rgba(228, 220, 240, 0.7) 100%);
+      color: var(--destaque);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 26px;
+      margin-bottom: 18px;
+      border: 2px solid rgba(255, 255, 255, 0.9);
+      box-shadow: 0 6px 18px rgba(201, 154, 148, 0.2);
+    }
+
+    .bloqueio-card h3 {
+      font-size: 24px;
+      color: var(--titulo);
+      margin-bottom: 10px;
+    }
+
+    .bloqueio-card p {
+      font-size: 13.5px;
+      color: #7a706b;
+      line-height: 1.65;
+      margin-bottom: 24px;
+    }
+
+    .form-senha {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .campo-senha-wrapper {
+      position: relative;
+      width: 100%;
+    }
+
+    .input-senha {
+      width: 100%;
+      padding: 13px 46px 13px 18px;
+      border: 1.5px solid rgba(232, 184, 179, 0.6);
+      border-radius: 999px;
+      font-family: inherit;
+      font-size: 14px;
+      outline: none;
+      transition: all 0.25s ease;
+      background: #fdfbf9;
+      color: var(--texto);
+    }
+
+    .input-senha:focus {
+      border-color: var(--destaque);
+      background: #fff;
+      box-shadow: 0 0 0 4px rgba(201, 154, 148, 0.18);
+    }
+
+    .btn-toggle-senha {
+      position: absolute;
+      right: 14px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: var(--apoio);
+      cursor: pointer;
+      font-size: 16px;
+      padding: 4px;
+      transition: color 0.2s ease;
+    }
+
+    .btn-toggle-senha:hover {
+      color: var(--destaque);
+    }
+
+    .btn-entrar {
+      width: 100%;
+      padding: 13px 20px;
+      border-radius: 999px;
+      background: var(--destaque);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 14.5px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.25s ease;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 6px 16px rgba(201, 154, 148, 0.3);
+    }
+
+    .btn-entrar:hover:not(:disabled) {
+      background: var(--destaque-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 154, 148, 0.4);
+    }
+
+    .btn-entrar:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+
+    .msg-erro-senha {
+      margin-top: 10px;
+      font-size: 12.5px;
+      color: #b84747;
+      display: none;
+      background: rgba(184, 71, 71, 0.08);
+      padding: 8px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(184, 71, 71, 0.2);
+    }
+
+    .bloqueio-ajuda {
+      margin-top: 22px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(232, 184, 179, 0.45);
+      font-size: 12.5px;
+      color: var(--apoio);
+    }
+
+    .bloqueio-ajuda a {
+      color: var(--destaque);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .bloqueio-ajuda a:hover {
+      text-decoration: underline;
+    }
+
+    /* Barra de sessão desbloqueada */
+    .barra-sessao {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #fff;
+      padding: 10px 20px;
+      border-radius: 999px;
+      border: 1px solid rgba(232, 184, 179, 0.4);
+      margin-bottom: 24px;
+      font-size: 13px;
+      color: #6f6662;
+      box-shadow: 0 4px 14px rgba(107, 90, 86, 0.04);
+    }
+
+    .barra-sessao strong {
+      color: var(--titulo);
+    }
+
+    .btn-sair-galeria {
+      background: none;
+      border: none;
+      color: var(--apoio);
+      font-size: 12.5px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: color 0.2s ease;
+      font-family: inherit;
+      padding: 4px 10px;
+      border-radius: 999px;
+    }
+
+    .btn-sair-galeria:hover {
+      color: #b84747;
+      background: rgba(184, 71, 71, 0.08);
+    }
+
     /* RODAPÉ */
     footer.rodape {
       text-align: center;
@@ -889,6 +1078,9 @@
     const SUPABASE_URL = 'https://gjeooxmluxxyskrocibe.supabase.co';
     const SUPABASE_ANON_KEY = 'sb_publishable_Wkd8bKTn-QZqYt_xRH7Zeg_z5QDuvhk';
     const BUCKET_NAME = 'galeria-comunitaria';
+    const TABELA_SENHAS = 'senhas_galeria';
+    const CHAVE_SESSAO = 'danny_galeria_autenticada';
+    const CHAVE_NOME_ACESSO = 'danny_galeria_nome';
 
     const container = document.getElementById('galeria-container');
 
@@ -914,12 +1106,14 @@
         <div class="status-box" style="border-color: #e8b8b3;">
           <i class="fa-solid fa-triangle-exclamation" style="color: #c99a94;"></i>
           <h3>Aviso ao conectar com a Galeria</h3>
-          <p style="margin-bottom: 8px;">Não foi possível carregar as fotos automaticamente:</p>
+          <p style="margin-bottom: 8px;">Não foi possível carregar as fotos:</p>
           <code style="background: rgba(0,0,0,0.05); padding: 6px 10px; border-radius: 6px; font-size: 13px; color: #b5837d; display: inline-block; word-break: break-all;">${mensagem}</code>
           <p style="margin-top: 14px; font-size: 13px; color: var(--apoio); line-height: 1.6;">
-            Verifique se o bucket <strong>"${BUCKET_NAME}"</strong> está configurado como <strong>Public</strong> no painel do Supabase
-            e se a chave de API (anon public) está com permissão de leitura.
+            Verifique se a tabela de senhas e as políticas de leitura estão criadas no painel do Supabase.
           </p>
+          <button type="button" class="btn-sair-galeria" style="margin-top:14px; background:#fff; border:1px solid rgba(232,184,179,0.5); padding:6px 16px;" onclick="sairDaGaleria()">
+            <i class="fa-solid fa-rotate-left"></i> Voltar para a tela de senha
+          </button>
         </div>
       `;
     }
@@ -969,6 +1163,212 @@
       }
     }
 
+    /* ========================================================
+       GERENCIAMENTO DE ACESSO COM SENHA (SUPABASE)
+    ======================================================== */
+    function exibirTelaBloqueio(mensagemErro = '') {
+      if (!container) return;
+      container.innerHTML = `
+        <div class="bloqueio-card">
+          <div class="bloqueio-icone">
+            <i class="fa-solid fa-lock"></i>
+          </div>
+          <h3>Galeria Protegida</h3>
+          <p>Esta galeria é de acesso restrito. Digite a senha compartilhada com você para visualizar e baixar as fotos.</p>
+          
+          <form class="form-senha" onsubmit="processarEnvioSenha(event)">
+            <div class="campo-senha-wrapper">
+              <input 
+                type="password" 
+                id="campo-senha" 
+                class="input-senha" 
+                placeholder="Digite a senha..." 
+                autocomplete="current-password" 
+                required 
+              />
+              <button type="button" class="btn-toggle-senha" onclick="alternarVisibilidadeSenha()" title="Mostrar/ocultar senha">
+                <i class="fa-regular fa-eye" id="icone-olho"></i>
+              </button>
+            </div>
+            <button type="submit" class="btn-entrar" id="btn-entrar">
+              <span>Acessar Fotos</span> <i class="fa-solid fa-arrow-right"></i>
+            </button>
+            <div id="erro-senha" class="msg-erro-senha" style="${mensagemErro ? 'display:block;' : ''}">${mensagemErro}</div>
+          </form>
+
+          <div class="bloqueio-ajuda">
+            Não tem a senha? <a href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20da%20senha%20de%20acesso%20%C3%A0%20galeria." target="_blank" rel="noopener">Solicitar pelo WhatsApp</a>
+          </div>
+        </div>
+      `;
+      const campo = document.getElementById('campo-senha');
+      if (campo) campo.focus();
+    }
+
+    function alternarVisibilidadeSenha() {
+      const campo = document.getElementById('campo-senha');
+      const icone = document.getElementById('icone-olho');
+      if (!campo || !icone) return;
+      if (campo.type === 'password') {
+        campo.type = 'text';
+        icone.classList.remove('fa-eye');
+        icone.classList.add('fa-eye-slash');
+      } else {
+        campo.type = 'password';
+        icone.classList.remove('fa-eye-slash');
+        icone.classList.add('fa-eye');
+      }
+    }
+
+    async function validarSenhaNoSupabase(senhaDigitada) {
+      if (!senhaDigitada) return null;
+      const limpa = senhaDigitada.trim();
+
+      // 1. Tenta pelo SDK do Supabase
+      if (window.supabase && typeof window.supabase.createClient === 'function') {
+        try {
+          const client = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+          const { data, error } = await client
+            .from(TABELA_SENHAS)
+            .select('id, nome, senha, ativo')
+            .eq('senha', limpa)
+            .eq('ativo', true)
+            .limit(1);
+
+          if (!error && Array.isArray(data) && data.length > 0) {
+            return data[0];
+          }
+        } catch (e) {
+          console.warn('Tentando REST fallback para senha...', e);
+        }
+      }
+
+      // 2. Fallback REST API direta
+      try {
+        const url = `${SUPABASE_URL}/rest/v1/${TABELA_SENHAS}?senha=eq.${encodeURIComponent(limpa)}&ativo=eq.true&select=id,nome&limit=1`;
+        const resp = await fetch(url, {
+          headers: {
+            'apikey': SUPABASE_ANON_KEY,
+            'Authorization': `Bearer ${SUPABASE_ANON_KEY}`
+          }
+        });
+        if (resp.ok) {
+          const rows = await resp.json();
+          if (Array.isArray(rows) && rows.length > 0) {
+            return rows[0];
+          }
+        }
+      } catch (err) {
+        console.error('Erro na validação da senha via REST:', err);
+      }
+
+      return null;
+    }
+
+    async function processarEnvioSenha(event) {
+      if (event) event.preventDefault();
+      const campo = document.getElementById('campo-senha');
+      const btn = document.getElementById('btn-entrar');
+      const erroBox = document.getElementById('erro-senha');
+
+      if (!campo) return;
+      const senha = campo.value;
+      if (!senha) return;
+
+      if (btn) {
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Validando...';
+      }
+      if (erroBox) erroBox.style.display = 'none';
+
+      try {
+        const registro = await validarSenhaNoSupabase(senha);
+
+        if (registro) {
+          sessionStorage.setItem(CHAVE_SESSAO, 'true');
+          sessionStorage.setItem(CHAVE_NOME_ACESSO, registro.nome || 'Cliente');
+          iniciarGaleriaDesbloqueada(registro.nome);
+        } else {
+          if (btn) {
+            btn.disabled = false;
+            btn.innerHTML = '<span>Acessar Fotos</span> <i class="fa-solid fa-arrow-right"></i>';
+          }
+          if (erroBox) {
+            erroBox.textContent = 'Senha incorreta ou inativa. Tente novamente ou fale com a Danny.';
+            erroBox.style.display = 'block';
+          }
+          campo.focus();
+          campo.select();
+        }
+      } catch (err) {
+        if (btn) {
+          btn.disabled = false;
+          btn.innerHTML = '<span>Acessar Fotos</span> <i class="fa-solid fa-arrow-right"></i>';
+        }
+        if (erroBox) {
+          erroBox.textContent = 'Erro de conexão ao validar senha. Verifique a internet.';
+          erroBox.style.display = 'block';
+        }
+      }
+    }
+
+    function sairDaGaleria() {
+      sessionStorage.removeItem(CHAVE_SESSAO);
+      sessionStorage.removeItem(CHAVE_NOME_ACESSO);
+      exibirTelaBloqueio('Você saiu da galeria protegida.');
+    }
+
+    function iniciarGaleriaDesbloqueada(nomeAcesso) {
+      const nome = nomeAcesso || sessionStorage.getItem(CHAVE_NOME_ACESSO) || 'Acesso Liberado';
+      container.innerHTML = `
+        <div class="barra-sessao">
+          <span><i class="fa-solid fa-lock-open" style="color:var(--destaque);"></i> Conectado como: <strong>${nome}</strong></span>
+          <button type="button" class="btn-sair-galeria" onclick="sairDaGaleria()">
+            <i class="fa-solid fa-arrow-right-from-bracket"></i> Bloquear / Sair
+          </button>
+        </div>
+        <div class="status-box">
+          <div class="spinner"></div>
+          <h3>Carregando memórias...</h3>
+          <p>Buscando as fotografias disponíveis no acervo.</p>
+        </div>
+      `;
+      carregarFotos();
+    }
+
+    async function verificarAcessoInicial() {
+      // 1. Checa se veio senha por link (?acesso=SENHA ou ?senha=SENHA)
+      const params = new URLSearchParams(window.location.search);
+      const senhaUrl = params.get('acesso') || params.get('senha');
+
+      if (senhaUrl) {
+        container.innerHTML = `
+          <div class="status-box">
+            <div class="spinner"></div>
+            <h3>Validando chave de acesso...</h3>
+            <p>Conectando à galeria exclusiva.</p>
+          </div>
+        `;
+        const registro = await validarSenhaNoSupabase(senhaUrl);
+        if (registro) {
+          sessionStorage.setItem(CHAVE_SESSAO, 'true');
+          sessionStorage.setItem(CHAVE_NOME_ACESSO, registro.nome || 'Cliente');
+          // Limpa o parâmetro da barra de endereços para não ficar exposto
+          const novaUrl = window.location.pathname;
+          window.history.replaceState({}, document.title, novaUrl);
+          iniciarGaleriaDesbloqueada(registro.nome);
+          return;
+        }
+      }
+
+      // 2. Checa se já está autenticado nesta sessão do navegador
+      if (sessionStorage.getItem(CHAVE_SESSAO) === 'true') {
+        iniciarGaleriaDesbloqueada();
+      } else {
+        exibirTelaBloqueio();
+      }
+    }
+
     async function buscarListaArquivos() {
       // Método 1: Tenta pelo SDK oficial do Supabase
       if (window.supabase && typeof window.supabase.createClient === 'function') {
@@ -1011,7 +1411,8 @@
     async function carregarFotos() {
       // Timeout de segurança para nunca travar infinitamente no spinner
       const timeoutId = setTimeout(() => {
-        if (container && container.querySelector('.spinner')) {
+        const statusBox = container ? container.querySelector('.status-box') : null;
+        if (statusBox && statusBox.querySelector('.spinner')) {
           exibirErroNaTela('O servidor demorou muito para responder. Verifique sua conexão com o Supabase.');
         }
       }, 9000);
@@ -1029,7 +1430,11 @@
         });
 
         if (arquivos.length === 0) {
+          const sessaoBarra = container.querySelector('.barra-sessao');
+          const sessaoHtml = sessaoBarra ? sessaoBarra.outerHTML : '';
+
           container.innerHTML = `
+            ${sessaoHtml}
             <div class="status-box">
               <i class="fa-regular fa-image"></i>
               <h3>Nenhuma foto encontrada</h3>
@@ -1042,13 +1447,15 @@
           return;
         }
 
-        let gridHtml = '<div class="grid-fotos">';
+        const sessaoBarra = container.querySelector('.barra-sessao');
+        let htmlFinal = sessaoBarra ? sessaoBarra.outerHTML : '';
+        htmlFinal += '<div class="grid-fotos">';
 
         arquivos.forEach((item) => {
           const url = `${SUPABASE_URL}/storage/v1/object/public/${BUCKET_NAME}/${encodeURIComponent(item.name)}`;
           const nomeAmigavel = item.name.replace(/[-_]/g, ' ').replace(/\.[^/.]+$/, '');
 
-          gridHtml += `
+          htmlFinal += `
             <article class="foto-card">
               <div class="foto-imagem-wrapper" onclick="abrirModal('${url}', '${item.name}')">
                 <img src="${url}" alt="${nomeAmigavel}" loading="lazy" onerror="this.onerror=null; this.src='assets/sobre/fotografa.jpg';" />
@@ -1066,8 +1473,8 @@
           `;
         });
 
-        gridHtml += '</div>';
-        container.innerHTML = gridHtml;
+        htmlFinal += '</div>';
+        container.innerHTML = htmlFinal;
 
       } catch (err) {
         clearTimeout(timeoutId);
@@ -1076,11 +1483,11 @@
       }
     }
 
-    // Dispara o carregamento
+    // Inicia verificando o acesso com senha
     if (document.readyState === 'loading') {
-      document.addEventListener('DOMContentLoaded', carregarFotos);
+      document.addEventListener('DOMContentLoaded', verificarAcessoInicial);
     } else {
-      carregarFotos();
+      verificarAcessoInicial();
     }
   </script>
 </body>
