@@ -606,6 +606,18 @@
       line-height: 1.55;
     }
 
+    .aviso-privacidade-galeria a {
+      color: var(--destaque);
+      text-decoration: none;
+      font-weight: 600;
+      transition: color 0.2s ease;
+    }
+
+    .aviso-privacidade-galeria a:hover {
+      text-decoration: underline;
+      color: var(--destaque-hover);
+    }
+
     .aviso-privacidade-galeria .aviso-icone {
       font-size: 24px;
       color: var(--destaque);
@@ -755,7 +767,7 @@
   <div class="nav-container">
     <nav class="wrapper" aria-label="Navegação">
       <a href="index.html"><i class="fa-solid fa-arrow-left"></i> Início</a>
-      <a href="galeria.html" class="ativo"><i class="fa-regular fa-images"></i> Fotos Comunitárias</a>
+      <a href="galeria.html" class="ativo"><i class="fa-regular fa-images"></i> Galeria</a>
       <a href="https://wa.me/5519982280460?text=Ol%C3%A1%21%20Gostaria%20de%20falar%20com%20a%20Danny." target="_blank"><i class="fa-brands fa-whatsapp"></i> Contato</a>
     </nav>
   </div>
@@ -830,7 +842,9 @@
         <i class="fa-solid fa-shield-heart"></i>
       </div>
       <div class="aviso-texto">
-        <strong>Privacidade & Direito de Imagem (LGPD)</strong>
+        <a href="privacidade.html" target="_blank" rel="noopener">
+          <strong>Privacidade & Direito de Imagem (LGPD)</strong>
+        </a>
         <span>
           Estas imagens registram eventos e encontros comunitários. Caso você ou seu dependente apareça em alguma fotografia e prefira que ela seja retirada, respeitamos integralmente o seu direito.
         </span>
